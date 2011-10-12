@@ -1,0 +1,606 @@
+<!-- Author(s): See <authorgroup> in PPC-elf32abi.sgml -->
+<!-- Copyright (c) 2011, Power.org -->
+<!-- Permission is granted to copy, distribute and/or modify this document
+     under the terms of the GNU Free Documentation License, Version 1.3; with
+     no Invariant Sections, with no Front-Cover Texts, and with no Back-Cover 
+     Texts. A copy of the license is available in the COPYING.txt file. -->
+
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook V4.1//EN"[
+<!entity specversion "1.0">
+<!entity publishdate "April 19, 2011">
+<!entity archtitle "Power Architecture">
+<!entity abititle "32-bit Application Binary Interface Supplement">
+<!entity INTRO SYSTEM "chap1-elf32abi.sgml">
+<!entity INSTALL SYSTEM "chap2-elf32abi.sgml">
+<!entity LOW-LEVEL SYSTEM "chap3-elf32abi.sgml">
+<!entity OBJ-FILES SYSTEM "chap4-elf32abi.sgml">
+<!entity PROG-LOAD-DL SYSTEM "chap5-elf32abi.sgml">
+<!entity LIB SYSTEM "chap6-elf32abi.sgml">
+]>
+
+<book>
+	<bookinfo>
+	<title>
+		<phrase><trademark class="registered">&archtitle</trademark> &abititle &specversion; - </phrase><phrase CONDITION="ATR-LINUX && !ATR-EABI"><trademark class="registered">Linux</trademark></phrase><phrase CONDITION="ATR-EABI && ATR-LINUX"> &amp; </phrase><phrase CONDITION="ATR-EABI && !ATR-LINUX">Embedded</phrase>
+	</title>
+	<titleabbrev>
+		<phrase>Power Architecture 32-bit ABI Supplement</phrase>
+	</titleabbrev>
+	<edition>&specversion;</edition>
+	<pubdate>&publishdate;</pubdate>
+	<copyright>
+		<year>1999</year>
+		<year>2003</year>
+		<year>2004</year>
+		<holder>IBM Corporation</holder>
+	</copyright>
+	<copyright>
+		<year>2002</year>
+		<holder>Freescale Semiconductor, Inc.</holder>
+	</copyright>
+	<copyright>
+		<year>2003</year>
+		<year>2004</year>
+		<holder>Free Standards Group</holder>
+	</copyright>
+	<copyright>
+		<year>2011</year>
+		<holder>Power.org</holder>
+	</copyright>
+	<legalnotice>
+		<para>Permission is granted to copy, distribute and/or modify this document under the terms of the GNU Free 
+		Documentation License, Version 1.3; with no Invariant Sections, with no Front-Cover Texts, and with no Back-Cover 
+		Texts. A copy of the license is available from 
+      <ulink
+         url="http://www.gnu.org/licenses/fdl-1.3.txt">http://www.gnu.org/licenses/fdl-1.3.txt</ulink>.
+		</para>
+	</legalnotice>
+	<legalnotice>
+		<para>The following terms are trademarks or registered trademarks of International Business Machines Corporation in 
+		the United States and/or other countries: <trademark class='registered'>AIX</trademark>, <trademark class='registered'>PowerPC</trademark>, <trademark class='registered'>VMX</trademark>, <trademark>POWER</trademark>.  A full list of U.S. trademarks owned by IBM may be found at 
+		<ulink url="http://www.ibm.com/legal/copytrade.shtml">http://www.ibm.com/legal/copytrade.shtml</ulink>.</para>
+	</legalnotice>
+	<legalnotice>
+		<para>The following terms are trademarks or registered
+		     trademarks of Freescale Semiconductor in the United
+		     States and/or other countries: <trademark>AltiVec</trademark>, <trademark>e500</trademark>.  Information on the 
+		     list of U.S. trademarks owned by Freescale Semiconductor
+		     may be found at <ulink url="http://www.freescale.com/files/abstract/help_page/TERMSOFUSE.html">http://www.freescale.com/files/abstract/help_page/TERMSOFUSE.html</ulink>.</para>
+	</legalnotice>
+
+	<legalnotice>
+		<para>The following terms are trademarks or registered
+		     trademarks of Power.org in the United
+		     States and/or other countries: <trademark>Power ISA</trademark>, <trademark class="registered">Power Architecture</trademark>.  Information on the
+		     list of U.S. trademarks owned by Power.org
+		     may be found at <ulink url="http://www.power.org/brand_center/home/">http://www.power.org/brand_center/home/</ulink>.</para>
+	</legalnotice>
+	<legalnotice>
+		<para><trademark class='registered'>Linux</trademark> is the registered trademark of Linus Torvalds in the U.S. and other countries.  Further information on this trademark can be found at <ulink url="http://www.linuxfoundation.org/programs/legal/trademark">http://www.linuxfoundation.org/programs/legal/trademark</ulink>.</para>
+	</legalnotice>
+
+
+
+	<authorgroup>
+		<author>
+			<firstname>Ryan S.</firstname>
+			<surname>Arnold</surname>
+			<affiliation><orgname>IBM</orgname></affiliation>
+		</author>
+		<author>
+			<firstname>Greg</firstname>
+			<surname>Davis</surname>
+			<affiliation><orgname>Green Hills</orgname></affiliation>
+		</author>
+		<author>
+			<firstname>Brian</firstname>
+			<surname>Deitrich</surname>
+			<affiliation><orgname>Freescale Semiconductor</orgname></affiliation>
+		</author>
+		<author>
+			<firstname>Michael</firstname>
+			<surname>Eager</surname>
+			<affiliation><orgname>Eager Consulting</orgname></affiliation>
+		</author>
+		<author>
+			<firstname>Emil</firstname>
+			<surname>Medve</surname>
+			<affiliation><orgname>Freescale Semiconductor</orgname></affiliation>
+		</author>
+
+		<author>
+			<firstname>Steven J.</firstname>
+			<surname>Munroe</surname>
+			<affiliation><orgname>IBM</orgname></affiliation>
+		</author>
+		<author>
+			<firstname>Joseph S.</firstname>
+			<surname>Myers</surname>
+			<affiliation><orgname>CodeSourcery</orgname></affiliation>
+		</author>
+		<author>
+			<firstname>Steve</firstname>
+			<surname>Papacharalambous</surname>
+			<affiliation><orgname>Freescale Semiconductor</orgname></affiliation>
+		</author>
+		<author>
+			<firstname>Anmol P.</firstname>
+			<surname>Paralkar</surname>
+			<affiliation><orgname>Freescale Semiconductor</orgname></affiliation>
+		</author>
+		<author>
+			<firstname>Katherine</firstname>
+			<surname>Stewart</surname>
+			<affiliation><orgname>Freescale Semiconductor</orgname></affiliation>
+		</author>
+		<author>
+			<firstname>Edmar</firstname>
+			<surname>Wienskoski</surname>
+			<affiliation><orgname>Freescale Semiconductor</orgname></affiliation>
+		</author>
+	</authorgroup>
+
+	<abstract>
+
+		<para><emphasis>The ATR-LINUX portions of this document are derived from the 64-bit PowerPC ELF Application Binary Interface
+		Supplement 1.8, originally written by Ian Lance Taylor under contract for IBM, with later revisions by:
+		David Edelsohn, Torbjorn Granlund, Mark Mendell, Kristin Thomas, Alan Modra, Steve Munroe, and Chris
+		Lorenze.</emphasis></para>
+
+		<para><emphasis>The ATR-TLS and ATR-SECURE-PLT sections of this document are original contributions of IBM written by Alan Modra and Steven Munroe.</emphasis></para>
+
+		<para><emphasis>The ATR-SPE and ATR-EABI portions of this document are derived from material used to write the E500 ABI and are contributed by Freescale Semiconductor.</emphasis></para>
+
+	</abstract>
+
+	<revhistory>
+		<revision><revnumber>&specversion;</revnumber><date>&publishdate;</date>
+			<authorinitials>Power.org PowerABI TSC</authorinitials>
+		</revision>
+	</revhistory>
+	</bookinfo>
+
+	<preface>
+		<title>Preface</title>
+		<simplesect><title>How To Read This Document</title>
+		<para>Implementations of this <citetitle>&archtitle &abititle;</citetitle> should indicate which
+		<emphasis>ABI software features</emphasis> (see <emphasis><xref linkend="TAXONOMY">) </emphasis>and <trademark>Power
+		ISA</trademark> <emphasis>categories</emphasis> are implemented.  When reading this document, the reader should
+		reference those constraints and selectively read this text based upon them.</para>
+
+		<para><emphasis><xref linkend="TAXONOMY"></emphasis> provides a taxonomy of the information in this ABI document.  The core
+		of the ABI is common to all implementations and appears as nonconditional text, tables, and graphics.</para>
+
+		<para>Optional <emphasis>ABI software feature</emphasis> text or Power ISA <emphasis>category</emphasis>
+		specific text is represented in the taxonomy as conditional attributes of the form <emphasis
+		role="bold">ATR-<emphasis>FOO</emphasis></emphasis> (where &ldquo;<emphasis>FOO</emphasis>&rdquo; is one of the
+		attributes described in <emphasis><xref linkend="TAXONOMY"></emphasis>).  These attributes are used in the ABI text as element
+		tags which aid in selective reading (and the generation) of this ABI document.  These attributes
+		describe the relationship of the optional elements of this document to a specific implementation.</para>
+
+		<para>This version of the <citetitle>&archtitle &abititle;</citetitle> may take one of the following forms:</para>
+		<variablelist>
+			<varlistentry><term><emphasis role=bold>Linux &amp; Embedded</emphasis></term>
+				<listitem><para>The unified ABI document contains all text from all implementations of the ABI.</para></listitem>
+			</varlistentry>
+
+			<varlistentry><term><emphasis role=bold>Linux</emphasis></term>
+				<listitem><para>The technical conditions governing implementations of the Linux ABI are described by
+				attribute conformance and inclusion rules in <emphasis><xref
+				linkend="INCLUSION-AND-CONFORMANCE"></emphasis>, <emphasis><xref
+				linkend="ATR-LINUX-I-AND-C"></emphasis>.  The attribute tags described in that part of the
+				appendix are used to conditionally generate the Linux ABI variant of this
+				document.</para></listitem>
+			</varlistentry>
+
+			<varlistentry><term><emphasis role=bold>Embedded</emphasis></term>
+				<listitem><para>The technical conditions governing implementations of the Embedded ABI are described by
+				attribute conformance and inclusion rules in <emphasis><xref
+				linkend="INCLUSION-AND-CONFORMANCE"></emphasis>, <emphasis><xref
+				linkend="ATR-EABI-I-AND-C"></emphasis>.  The attribute tags described in that part of the
+				appendix are used to conditionally generate the Embedded ABI variant of this
+				document.</para></listitem>
+			</varlistentry>
+
+		</variablelist>
+
+		<para>Document elements representing <emphasis>Categories</emphasis> of the Power ISA are required for a software implementation based upon the
+		implementation&apos;s conformance with either <citetitle>Book III-S</citetitle> or <citetitle>Book
+		III-E</citetitle> of the Power ISA.</para>
+		
+		<para>The following bounding box exemplifies a document element which corresponds to a
+		<emphasis>category</emphasis> of the Power ISA.</para>
+
+		<para CONDITION="ATR-SPE">This is an example of conditional text that applies to implementations
+		that support the Signal Processing Engine (SPE) ABI, an optional <emphasis>category</emphasis> of the Power ISA.</para>
+
+		<para>This document also contains elements that correspond to optional <emphasis>ABI software
+		features</emphasis> that may or may not be present in specific implementations.  A prime differentiation
+		would be software features used in embedded environments vs. those used in server environments, e.g.,
+		support for threading as defined by the Thread Local Storage ABI, support for the secure-PLT, or support
+		for dynamic linking.</para>
+
+		<para CONDITION="ATR-BSS">This is an example of conditional text that applies to a software feature
+		<emphasis role=bold>required</emphasis> by an implementation.</para>
+
+		<para CONDITION="!ATR-TLS">This is an example of conditional text that applies to an implementation which
+		<emphasis role="bold">does not</emphasis> support a specific software feature.</para>
+
+		<para CONDITION="!ATR-PASS-COMPLEX-AS-STRUCT">This is an example of conditional text that applies to an implementation which
+		<emphasis role="bold">does not</emphasis> support a specific software feature.</para>
+		</simplesect>
+		<simplesect><title>Section Numbering</title>
+		<para>The subsection numbering of the unified <emphasis>Linux &amp; Embedded</emphasis> version of the <citetitle>&archtitle &abititle;</citetitle> is sequential and does not skip digits between sibling subsections since it contains all of the text, tables, and graphics available.</para>
+		<para>The individual <emphasis>Linux</emphasis> and <emphasis>Embedded</emphasis> versions of the <citetitle>&archtitle &abititle;</citetitle> contain a subset of the text, tables, and graphics available.  The subsection numbers of these subset documents remain congruent with those of the <emphasis>Linux &amp; Embedded</emphasis> version of the <citetitle>&archtitle &abititle;</citetitle> (and with each other where they overlap) in order to prevent confusion during cross-reference and therefore subsection numbering can appear to skip digits between sibling subsections.</para>
+		</simplesect>
+
+	</preface>
+
+&INTRO;
+
+&INSTALL;
+
+&LOW-LEVEL;
+&OBJ-FILES;
+&PROG-LOAD-DL;
+&LIB;
+	<appendix id="TAXONOMY"><title>Taxonomy</title>
+		<para>The following list describes the archetypal ABI attributes used to conditionally define elements of the ABI.  The relationship of these attributes is described in the taxonomy diagram in <xref linkend="TAXONOMY-DIAGRAM">.  A combination of these attributes is used to generate the individual Linux and Embedded ABI documents.  These combinations are described in <xref linkend="INCLUSION-AND-CONFORMANCE">. Each attribute description indicates whether it is an ABI software feature or an attribute that is tied to a specific Power ISA category.</para>
+	<variablelist>
+		<title>32-bit PowerPC Archetypal ABI Attributes</title>
+		<varlistentry>
+			<term>ATR-BSS-PLT</term>
+			<listitem>
+				<para><emphasis role=bold>(ABI Software Feature)</emphasis></para>
+				<para>The text under this attribute defines the <emphasis><link linkend="BSS-PLT">BSS Procedure Linkage Table</link></emphasis> ABI, which has a writable and executable PLT.  <emphasis role="bold">ATR-BSS-PLT is mutually exclusive with ATR-SECURE-PLT.</emphasis></para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>ATR-CLASSIC-FLOAT</term>
+			<listitem>
+				<para><emphasis role=bold>(Power ISA Category: Floating-Point)</emphasis></para>
+				<para>The text under this attribute describes the classic Power Architecture floating-point ABI where there are 64-bit floating-point registers and an instruction set that accompanies them.  <emphasis role="bold">ATR-CLASSIC-FLOAT is mutually exclusive with ATR-SOFT-FLOAT.</emphasis></para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>ATR-PASS-COMPLEX-IN-GPRS</term>
+			<listitem>
+				<para><emphasis role=bold>(ABI Software Feature)</emphasis></para>
+				<para>The text under this attribute describes a method for
+passing complex data types in GPRS.  <emphasis role="bold">ATR-PASS-COMPLEX-IN-GPRS is mutually exclusive and incompatible with ATR-PASS-COMPLEX-AS-STRUCT.</emphasis>  ATR-PASS-COMPLEX-IN-GPRS is predicated on ATR-CLASSIC-FLOAT or ATR-SOFT-FLOAT.</para>
+			</listitem>
+		</varlistentry>
+
+		<varlistentry>
+			<term>ATR-PASS-COMPLEX-AS-STRUCT</term>
+			<listitem>
+				<para><emphasis role=bold>(ABI Software Feature)</emphasis></para>
+				<para>The text under this attribute describes a method for
+passing complex data types as structures.  <emphasis role="bold">ATR-PASS-COMPLEX-AS-STRUCT is mutually exclusive and incompatible with ATR-PASS-COMPLEX-IN-GPRS.</emphasis>  ATR-PASS-COMPLEX-IN-GPRS is predicated on ATR-CLASSIC-FLOAT or ATR-SOFT-FLOAT.</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>ATR-CXX</term>
+			<listitem>
+				<para><emphasis role=bold>(ABI Software Feature)</emphasis></para>
+				<para>The text under this attribute describes C&plus;&plus; exception support as it impacts this ABI.</para>
+			</listitem>
+		</varlistentry>
+
+		<varlistentry>
+			<term>ATR-DFP</term>
+			<listitem>
+				<para><emphasis role=bold>(Power ISA Category: Decimal Floating-Point)</emphasis></para>
+				<para>The text under this attribute describes the <emphasis>Decimal Floating Point</emphasis> ABI as it relates to decimal floating-point registers, alignment, parameter passing, etc.  This was introduced in Power ISA 2.05.  ATR-DFP is predicated on ATR-CLASSIC-FLOAT or ATR-SOFT-FLOAT.</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>ATR-EABI</term>
+			<listitem>
+				<para><emphasis role=bold>(Power ISA Category: Embedded)</emphasis></para>
+				<para>This attribute describes elements that apply to the Embedded ABI as a whole.</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>ATR-EABI-EXTENDED</term>
+			<listitem>
+				<para><emphasis role=bold>(ABI Software Feature)</emphasis></para>
+				<para>This attribute describes elements that apply an implementation of the Embedded ABI
+				with extended conformance such as support for dynamic linking, the GOT, PLT, full relocation support, etc.</para>
+			</listitem>
+		</varlistentry>
+
+		<varlistentry>
+			<term>ATR-LINUX</term>
+			<listitem>
+				<para><emphasis role=bold>(Power ISA Category: Server)</emphasis></para>
+				<para>This attribute describes elements that apply to the Linux ABI as a whole.</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>ATR-LONG-DOUBLE-IBM</term>
+			<listitem>
+				<para><emphasis role=bold>(ABI Software Feature)</emphasis></para>
+				<para>The text under this attribute describes usage of the AIX 128-bit Long Double format.  <emphasis role="bold">ATR-LONG-DOUBLE-IBM is mutually exclusive with ATR-LONG-DOUBLE-IS-DOUBLE.</emphasis>  ATR-LONG-DOUBLE-IBM is predicated on ATR-CLASSIC-FLOAT or ATR-SOFT-FLOAT.</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>ATR-LONG-DOUBLE-IS-DOUBLE</term>
+			<listitem>
+				<para><emphasis role=bold>(ABI Software Feature)</emphasis></para>
+				<para>The text under this attribute describes long double ABI when long double is treated as double.  <emphasis role="bold">ATR-LONG-DOUBLE-IS-DOUBLE is mutually exclusive with ATR-LONG-DOUBLE-IBM.</emphasis>  ATR-LONG-DOUBLE-IS-DOUBLE is predicated on ATR-CLASSIC-FLOAT or ATR-SOFT-FLOAT.</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>ATR-SECURE-PLT</term>
+			<listitem>
+				<para><emphasis role=bold>(ABI Software Feature)</emphasis></para>
+				<para>The text under this attribute describes the <emphasis><link linkend="SECURE-PLT">Secure Procedure Linkage Table</link></emphasis> ABI, which has a readable and writable, but nonexecutable PLT.  <emphasis role="bold">ATR-SECURE-PLT is mutually exclusive with ATR-BSS-PLT.</emphasis></para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>ATR-SOFT-FLOAT</term>
+			<listitem>
+				<para><emphasis role=bold>(ABI Software Feature)</emphasis></para>
+				<para>The text under this attribute describes a software emulated 64-bit (double) floating-point ABI which also describes the conventions for <emphasis>Embedded Floating Point</emphasis> in 64-bit GPRs such as SPE-Float.  <emphasis role="bold">ATR-SOFT-FLOAT is mutually exclusive with ATR-CLASSIC-FLOAT.</emphasis></para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>ATR-SPE</term>
+			<listitem>
+				<para><emphasis role=bold>(Power ISA Category: SPE)</emphasis></para>
+				<para>The text under this attribute describes the <emphasis>Signal Processing Engine</emphasis> ABI for the SPE facility that was introduced in Power ISA  v2.03  It is a SIMD instruction set using two element short vectors within 64-bit GPRs.  <emphasis role="bold">ATR-SPE is mutually exclusive with ATR-VECTOR.  ATR-SPE includes SPE-Float which leverages ATR-SOFT-FLOAT.</emphasis>  Therefore ATR-SPE is predicated on ATR-SOFT-FLOAT and mutually exclusive with ATR-CLASSIC-FLOAT.</para>
+			</listitem>
+		</varlistentry>
+
+
+		<varlistentry>
+			<term>ATR-TLS</term>
+			<listitem>
+				<para><emphasis role=bold>(ABI Software Feature)</emphasis></para>
+				<para>The text under this attribute describes the <emphasis>Thread Local Storage</emphasis> ABI.  <emphasis role="bold">At the time of this writing ATR-TLS is mutually exclusive with ATR-EABI</emphasis> since ATR-EABI uses the thread local storage register for the SDATA2 pointer.</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>ATR-VECTOR</term>
+			<listitem>
+				<para><emphasis role=bold>(Power ISA Category: Vector)</emphasis></para>
+				<para>The text under this attribute describes the AltiVec and VMX float and integer SIMD instruction set ABI.  <emphasis role="bold">ATR-VECTOR is mutually exclusive with ATR-SPE.</emphasis>  ATR-VECTOR is predicated on ATR-CLASSIC-FLOAT or ATR-SOFT-FLOAT.</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>ATR-VLE</term>
+			<listitem>
+				<para><emphasis role=bold>(Power ISA Category: VLE)</emphasis></para>
+				<para>The text under this attribute describes the <emphasis>Variable Length Encoding</emphasis> environment as introduced in Power ISA 2.03.</para>
+			</listitem>
+		</varlistentry>
+	</variablelist>
+
+		<para>The following taxonomy (described in EBNF) describes the relationship between the aforementioned ABI attributes.</para>
+		<figure id="TAXONOMY-DIAGRAM"><title>Taxonomy</title>
+		<screen>
+ ABI -> CommonCore OperatingEnvironment ISA-Flavor 
+
+ CommonCore -> SYS-V-Without-Float { /* No attribute. Implicit. */ }
+
+ OperatingEnvironment -> Linux { atr = ATR-LINUX }
+                      |  EABI  { atr = ATR-EABI  }
+   
+ ISA-Flavour -> SIMD Encoding Floating-Point
+
+ SIMD -> Vector        { atr = ATR-VECTOR }
+      |  SPE           { atr = ATR-SPE }
+      |  /* Epsilon */ { com = "/* No SIMD. */" }
+
+ Encoding -> VLE { atr = ATR-VLE }
+
+ Floating-Point -> Common-Float Long-Double FP-Decimal 
+
+ Common-Float -> Classic-Float-Common { atr = ATR-CLASSIC-FLOAT }
+              |  Soft-Float-Common    { atr = ATR-SOFT-FLOAT }
+ 
+ Procedure-Linkage-Table -> BSS-PLT    { atr = ATR-BSS-PLT }
+                         |  Secure-PLT { atr = ATR-SECURE-PLT }
+
+ Thread-Local-Storage -> TLS { atr = ATR-TLS }
+
+ Long-Double -> IBM  { atr = ATR-LONG-DOUBLE-IBM  }
+              | None { atr = ATR-LONG-DOUBLE-IS-DOUBLE }
+
+ FP-Decimal -> /* Epsilon */ { com = "/* No FP-Decimal */" }
+            |  DFP           { atr = ATR-DFP }
+
+ Complex -> Pass Complex in GPRS   { atr = ATR-PASS-COMPLEX-IN-GPRS }
+         |  Pass Complex As Struct { atr = ATR-PASS-COMPLEX-AS-STRUCT }
+
+ CXX -> C++ Exception Handling  { atr = ATR-CXX }
+
+ EABI-Extended -> /* Epsilon */            { com = "/* No EABI Extended */" }
+               | EABI Extended Conformance { atr = ATR-EABI-EXTENDED }
+
+</screen></figure>
+	</appendix>
+	<appendix id="INCLUSION-AND-CONFORMANCE"><title>Attribute Inclusion and ABI Conformance</title>
+
+		<para>This appendix describes ABI attribute inclusion and
+		conformance rules.  It uses the attribute tags described in <xref
+		linkend="TAXONOMY">.</para>
+
+		<sect1 id="ATR-LINUX-I-AND-C"><title>ATR-LINUX Inclusion and Conformance</title>
+		<itemizedlist id="ATR-LINUX-INCLUSIONS">
+			<title>Linux ABI Attribute Inclusions:</title>
+			<listitem><para>ATR-BSS-PLT</para></listitem>
+			<listitem><para>ATR-CLASSIC-FLOAT</para></listitem>
+			<listitem><para>ATR-CXX</para></listitem>
+			<listitem><para>ATR-DFP</para></listitem>
+			<listitem><para>ATR-LONG-DOUBLE-IBM</para></listitem>
+			<listitem><para>ATR-LONG-DOUBLE-IS-DOUBLE</para></listitem>
+			<listitem><para>ATR-SECURE-PLT</para></listitem>
+			<listitem><para>ATR-SOFT-FLOAT</para></listitem>
+			<listitem><para>ATR-SPE</para></listitem>
+			<listitem><para>ATR-TLS</para></listitem>
+			<listitem><para>ATR-VECTOR</para></listitem>
+			<listitem><para>ATR-PASS-COMPLEX-IN-GPRS</para></listitem>
+		</itemizedlist>
+		<itemizedlist id="ATR-LINUX-EXCLUSIONS">
+			<title>Linux ABI Attribute Exclusions:</title>
+			<listitem><para>ATR-PASS-COMPLEX-AS-STRUCT</para></listitem>
+			<listitem><para>ATR-VLE</para></listitem>
+			<listitem><para>ATR-EABI-EXTENDED</para></listitem>
+		</itemizedlist>
+		<itemizedlist id="LINUX-CONFORMANCE"><title>Linux ABI Conformance</title>
+
+			<listitem>
+				<para>An implementation of the Linux ABI <emphasis role="bold">must</emphasis> implement at least one of the following:</para>
+				<simplelist type='horiz' columns='2'><member>ATR-SOFT-FLOAT</member><member>ATR-CLASSIC-FLOAT</member></simplelist>
+			</listitem>
+
+			<listitem><para>If an implementation supports 64-bit vector types on SPE processors or uses the
+high parts of registers on such processors it must implement ATR-SPE.</para></listitem>
+
+			<listitem><para>An implementation of the Linux ABI <emphasis role="bold">must</emphasis> implement ATR-LONG-DOUBLE-IBM and may also implement ATR-LONG-DOUBLE-IS-DOUBLE.  A conforming application only uses one or the other.</para></listitem>
+
+			<listitem><para>An implementation that supports decimal
+  floating point <emphasis role="bold">must</emphasis> implement ATR-DFP.  Hardware support for DFP requires implementation of ATR-CLASSIC-FLOAT otherwise ATR-SOFT-FLOAT can provide software emulation.</para></listitem>
+
+			<listitem><para>An implementation <emphasis role="bold">must</emphasis> implement ATR-SECURE-PLT.  ATR-BSS-PLT should be supported for binary compatibility with previous versions of this ABI.</para></listitem>
+
+			<listitem><para>Availability of Vector data types is subject to conformance to a Power ISA category where the categories <emphasis>Vector</emphasis> and <emphasis>Signal Processing Engine</emphasis> are mutually exclusive.  A conforming application only uses ATR-VECTOR or ATR-SPE.</para></listitem>
+
+		</itemizedlist>
+		<note><para>Note: An implementation of this ABI shall indicate explicitly which attributes are supported.  Supporting attributes which are mutually exclusive is fine as long as only one is supported at a given time during application execution.</para></note>
+		</sect1>
+
+		<sect1 id="ATR-EABI-I-AND-C"><title>ATR-EABI Inclusion and Conformance</title>
+
+		<itemizedlist id="ATR-EABI-INCLUSIONS" mark='none'>
+			<title>EABI Attribute Inclusions</title>
+			<listitem><para>ATR-BSS-PLT</para></listitem>
+			<listitem><para>ATR-CLASSIC-FLOAT</para></listitem>
+			<listitem><para>ATR-EABI-EXTENDED</para></listitem>
+			<listitem><para>ATR-PASS-COMPLEX-AS-STRUCT </para></listitem>
+			<listitem><para>ATR-PASS-COMPLEX-IN-GPRS </para></listitem>
+			<listitem><para>ATR-LONG-DOUBLE-IS-DOUBLE </para></listitem>
+			<listitem><para>ATR-SOFT-FLOAT</para></listitem>
+			<listitem><para>ATR-SPE</para></listitem>
+			<listitem><para>ATR-VLE</para></listitem>
+		</itemizedlist>
+		<itemizedlist id="ATR-EABI-EXCLUSIONS" mark='none'>
+			<title>EABI Attribute Exclusions</title>
+			<listitem><para>ATR-CXX</para></listitem>
+			<listitem><para>ATR-DFP</para></listitem>
+			<listitem><para>ATR-LONG-DOUBLE-IBM</para></listitem>
+			<listitem><para>ATR-SECURE-PLT</para></listitem>
+			<listitem><para>ATR-TLS</para></listitem>
+			<listitem><para>ATR-VECTOR</para></listitem>
+		</itemizedlist>
+		<itemizedlist id="EABI-CONFORMANCE"><title>EABI Conformance</title>
+			<listitem><para>The EABI does not support thread local storage (ATR-TLS) at this time.</para></listitem>
+			<listitem><para>The EABI does not support ATR-SECURE-PLT at this time.</para></listitem>
+			<listitem><para>The EABI does not support <emphasis>unwind information</emphasis>.</para></listitem>
+			<listitem><para>An implementation of the EABI ABI can implement ATR-PASS-COMPLEX-AS_STRUCT and/or implement ATR-PASS-COMPLEX-IN-GPRS but a conforming application shall only use one or the other.</para></listitem>
+			<listitem><para>Conformance with the EABI does not require implementation of ATR-EABI-EXTENDED, which describes implementation of extended conformance such as support for dynamic linking, the GOT, PLT, full relocation support, etc.</para></listitem>
+		</itemizedlist>
+		<note><para>Note: An implementation of this ABI shall indicate explicitly which attributes are supported.  Supporting attributes which are mutually exclusive is fine as long as only one is supported at a given time during application execution.</para></note>
+		</sect1>
+	</appendix>
+	<appendix id="APU-HISTORY"><title>APUs and Power ISA Categories</title>
+		<para>This appendix discusses the relationship between <emphasis>Auxiliary Processing Units</emphasis> (APUs) and Power ISA categories.</para>
+
+		<para>APUs are a method used to extend the Power Architecture beyond the facilities described and ratified in the Power ISA.  Since the adoption of the Power ISA many technologies that were historically presented as APUs have now been subsumed into the Power ISA as optional categories or phased into the base ISA.</para>
+
+		<para>Since this ABI is not predicated on minimum Power ISA version it continues to present information on APUs (see <emphasis><xref linkend="APU-INFORMATION-SECTION"></emphasis>) that have been subsumed into the Power ISA.  It is up to the implementation whether to follow the Power ISA or the APU designation based upon compatibility requirements and to specify APU information as necessary.</para>
+
+		<para>The following table identifies APUs and their relationship to the Power ISA.</para>
+
+		<table id="APU-ISA" frame="none"><title>APU Extensions and Corresponding Power ISA Categories</title>
+			<tgroup cols='4' colsep='0' rowsep='0'>
+				<colspec colwidth='90' align="left">
+				<colspec colwidth='80' align="left">
+				<colspec colwidth='110' align="left">
+				<colspec colwidth='150' align="left">
+				<thead>
+					<row rowsep='1'>
+						<entry>APU Extension</entry>
+						<entry>APU Identifier</entry>
+						<entry>Power ISA Category</entry>
+						<entry>Description</entry>
+					</row>
+				</thead>
+				<tbody>
+					<row>
+						<entry>Altivec</entry>
+						<entry>0x003f</entry>
+						<entry>V</entry>
+						<entry>Vector Facility</entry>
+					</row>
+					<row>
+						<entry>PMR</entry>
+						<entry>0x0041</entry>
+						<entry>E.pm E</entry>
+						<entry>Embedded.Performance Monitor</entry>
+					</row>
+					<row>
+						<entry>RFMCI</entry>
+						<entry>0x0042</entry>
+						<entry>E</entry>
+						<entry>Embedded, Return From Machine Check Interrupt instruction</entry>
+					</row>
+					<row>
+						<entry>CACHE_LOCK</entry>
+						<entry>0x0043</entry>
+						<entry>ECL</entry>
+						<entry>Embedded Cache Locking</entry>
+					</row>
+					<row>
+
+						<entry>SPE</entry>
+						<entry>0x0100</entry>
+						<entry>SP, SP.FV</entry>
+						<entry>Signal Processing Engine, SPE.Embedded Float Vector</entry>
+					</row>
+					<row>
+						<entry>E500 SFFP/EFS</entry>
+						<entry>0x0101</entry>
+						<entry>SP.fs, SP.fd</entry>
+						<entry>Embedded Float Scalar Single, Embedded Float Scalar Double</entry>
+					</row>
+					<row>
+						<entry>VLE</entry>
+						<entry>0x0104</entry>
+						<entry>VLE</entry>
+						<entry>Variable Length Encoding</entry>
+					</row>
+					<row>
+						<entry>ISEL</entry>
+						<entry>0x0040</entry>
+						<entry>Base</entry>
+						<entry>Power ISA Base (mandatory), Integer Select instruction</entry>
+					</row>
+				</tbody>
+			</tgroup>
+		</table>
+	
+		<para>The following APUs remain unspecified by the Power ISA (as of version 2.05).</para>
+
+		<table id="APU-ISA-UNSUPPORTED" frame="none"><title>APUs</title>
+			<tgroup cols='4' colsep='0' rowsep='0'>
+				<colspec colwidth='90' align="left">
+				<colspec colwidth='80' align="left">
+				<thead>
+					<row rowsep='1'>
+						<entry>APU Extension</entry>
+						<entry>APU Identifier</entry>
+					</row>
+				</thead>
+				<tbody>
+					<row>
+						<entry>e500 BRLOCK</entry>
+						<entry>0x0102</entry>
+					</row>
+				</tbody>
+			</tgroup>
+		</table>
+	</appendix>
+</book>

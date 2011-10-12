@@ -1,0 +1,1811 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg8138"
+   sodipodi:version="0.32"
+   inkscape:version="0.47 r22583"
+   sodipodi:docname="StackFrame.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   version="1.1">
+  <defs
+     id="defs8140">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient3552">
+      <stop
+         style="stop-color:#1589c7;stop-opacity:1;"
+         offset="0"
+         id="stop3554" />
+      <stop
+         style="stop-color:#1589c7;stop-opacity:0;"
+         offset="1"
+         id="stop3556" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4199">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop4201" />
+      <stop
+         style="stop-color:#000000;stop-opacity:0;"
+         offset="1"
+         id="stop4203" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient2793">
+      <stop
+         style="stop-color:#61c7fd;stop-opacity:1;"
+         offset="0"
+         id="stop2795" />
+      <stop
+         style="stop-color:#61c7fd;stop-opacity:0;"
+         offset="1"
+         id="stop2797" />
+    </linearGradient>
+    <marker
+       inkscape:stockid="Arrow2Sstart"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow2Sstart"
+       style="overflow:visible">
+      <path
+         id="path3274"
+         style="font-size:12.0;fill-rule:evenodd;stroke-width:0.62500000;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(0.3) translate(-2.3,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Send"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow2Send"
+       style="overflow:visible;">
+      <path
+         id="path3277"
+         style="font-size:12.0;fill-rule:evenodd;stroke-width:0.62500000;stroke-linejoin:round;"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(0.3) rotate(180) translate(-2.3,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Mend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow2Mend"
+       style="overflow:visible;">
+      <path
+         id="path3271"
+         style="font-size:12.0;fill-rule:evenodd;stroke-width:0.62500000;stroke-linejoin:round;"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(0.6) rotate(180) translate(0,0)" />
+    </marker>
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       id="perspective8146" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2793"
+       id="linearGradient3175"
+       gradientUnits="userSpaceOnUse"
+       x1="542.14288"
+       y1="178.07646"
+       x2="527.85712"
+       y2="26.647896" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2793"
+       id="linearGradient4599"
+       gradientUnits="userSpaceOnUse"
+       x1="542.14288"
+       y1="178.07646"
+       x2="527.85712"
+       y2="26.647896" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4199"
+       id="linearGradient5240"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(1062.9304,743.9014)"
+       x1="660.71429"
+       y1="73.790756"
+       x2="660.64062"
+       y2="36.290752" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4199"
+       id="linearGradient5242"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(1062.9304,743.9014)"
+       x1="660.71429"
+       y1="73.790756"
+       x2="660.64062"
+       y2="36.290752" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2793"
+       id="linearGradient5244"
+       gradientUnits="userSpaceOnUse"
+       x1="542.14288"
+       y1="178.07646"
+       x2="527.85712"
+       y2="26.647896" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4199"
+       id="linearGradient5275"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-338.64091,129.34814)"
+       x1="660.71429"
+       y1="73.790756"
+       x2="660.64062"
+       y2="36.290752" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4199"
+       id="linearGradient5277"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-338.99805,129.34814)"
+       x1="660.71429"
+       y1="73.790756"
+       x2="660.64062"
+       y2="36.290752" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3552"
+       id="linearGradient3558"
+       x1="552.64532"
+       y1="186.04333"
+       x2="482.94479"
+       y2="51.917301"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     gridtolerance="10000"
+     guidetolerance="10"
+     objecttolerance="10"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4"
+     inkscape:cx="310.40997"
+     inkscape:cy="551.71366"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1912"
+     inkscape:window-height="1114"
+     inkscape:window-x="0"
+     inkscape:window-y="29"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata8143">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#280b0b;fill-opacity:1;stroke:#7a7fee;stroke-width:1;stroke-linejoin:round;stroke-miterlimit:3.90000010000000019;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect3135"
+       width="595.71429"
+       height="720"
+       x="8.5714283"
+       y="125.21932" />
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.99999994000000003;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4400"
+       width="527.85712"
+       height="645.53009"
+       x="37.857132"
+       y="155.93359"
+       ry="0"
+       inkscape:export-filename="/home/ryanarn/Desktop/powerabi/graphics/StackFrame.png"
+       inkscape:export-xdpi="91.559402"
+       inkscape:export-ydpi="91.559402" />
+    <path
+       style="opacity:0.5;fill:url(#linearGradient5277);fill-opacity:1;stroke:none;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 221.62695,172.03564 C 219.70525,172.03564 218.12695,173.61394 218.12695,175.53564 L 218.12695,192.66064 C 218.12695,194.58235 219.70525,196.16064 221.62695,196.16064 L 421.62695,196.16064 C 423.54865,196.16064 425.12695,194.58235 425.12695,192.66064 L 425.12695,175.53564 C 425.12695,173.61394 423.54865,172.03564 421.62695,172.03564 L 221.62695,172.03564 z M 221.62695,174.03564 L 421.62695,174.03564 C 422.47525,174.03564 423.12695,174.68735 423.12695,175.53564 L 423.12695,192.66064 C 423.12695,193.50894 422.47525,194.16064 421.62695,194.16064 L 221.62695,194.16064 C 220.77865,194.16064 220.12695,193.50894 220.12695,192.66064 L 220.12695,175.53564 C 220.12695,174.68735 220.77865,174.03564 221.62695,174.03564 z"
+       id="path5263" />
+    <path
+       style="opacity:0.5;fill:url(#linearGradient5275);fill-opacity:1;stroke:none;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 213.73409,153.22314 C 212.53809,153.22314 211.54659,154.21467 211.54659,155.41064 L 211.54659,201.59814 C 211.54659,202.79412 212.53809,203.78564 213.73409,203.78564 L 430.26529,203.78564 C 431.46129,203.78564 432.45279,202.79411 432.45279,201.59814 L 432.45279,155.41064 C 432.45279,154.21466 431.46129,153.22314 430.26529,153.22314 L 213.73409,153.22314 z M 213.73409,155.22314 L 430.26529,155.22314 C 430.38789,155.22314 430.45279,155.28807 430.45279,155.41064 L 430.45279,201.59814 C 430.45279,201.72073 430.38789,201.78564 430.26529,201.78564 L 213.73409,201.78564 C 213.61159,201.78564 213.54659,201.72072 213.54659,201.59814 L 213.54659,155.41064 C 213.54659,155.28806 213.61149,155.22314 213.73409,155.22314 z"
+       id="path5261" />
+    <g
+       id="g13542">
+      <text
+         sodipodi:linespacing="100%"
+         id="text13538"
+         y="360.21933"
+         x="-362.85712"
+         style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+         xml:space="preserve"><tspan
+           y="360.21933"
+           x="-362.85712"
+           id="tspan13540"
+           sodipodi:role="line">Save Curve For Arrows</tspan></text>
+    </g>
+    <path
+       style="opacity:0.61538463;fill:#3bb7fa;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:8;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M -429.33011,346.92901 C -427.88239,345.67224 -396.70216,350.27669 -396.44072,352.36745 C -396.17966,354.45527 -425.88343,364.26007 -427.4049,363.99334 C -428.84179,363.74144 -430.83385,348.23443 -429.33011,346.92901 z"
+       id="path13567"
+       sodipodi:nodetypes="czzz" />
+    <g
+       id="g2801"
+       transform="translate(-335.91932,41.416254)" />
+    <g
+       id="g14299"
+       transform="translate(-848.71947,203.72566)">
+      <path
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 654.95518,358.01781 C 607.84778,346.3431 479.37364,317.01229 479.37386,245.64453 C 479.37406,179.88208 550.41029,177.59778 550.41029,177.59778"
+         id="path14301"
+         sodipodi:nodetypes="csc" />
+      <path
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 638.49441,353.68458 C 717.54734,373.81901 781.31997,394.02116 782.14429,468.6401 C 783.02225,548.11425 735.30363,540.95599 735.30363,540.95599"
+         id="path14303"
+         sodipodi:nodetypes="csc" />
+    </g>
+    <g
+       id="g14305"
+       transform="translate(-848.71947,203.72566)">
+      <g
+         id="g14307">
+        <path
+           style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M 671.14763,121.12976 C 619.07055,116.79988 456.84484,99.667793 482.6911,75.08952 C 500.18293,58.455831 550.83227,59.009565 550.83227,59.009565"
+           id="path14309"
+           sodipodi:nodetypes="csc" />
+        <path
+           style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M 637.98552,118.0665 C 690.0626,122.39638 780.15415,129.02319 783.58491,155.85542 C 787.26155,184.6106 737.5866,179.63661 737.5866,179.63661"
+           id="path14311"
+           sodipodi:nodetypes="csc" />
+      </g>
+    </g>
+    <g
+       id="g3177">
+      <g
+         transform="translate(633.60237,103.02352)"
+         id="g2993">
+        <rect
+           style="opacity:0.5;fill:#e3e3e3;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect2995"
+           width="218.91806"
+           height="114.97538"
+           x="551.18073"
+           y="-41.542"
+           ry="2.8183954" />
+        <g
+           id="g2997">
+          <g
+             id="g2999">
+            <rect
+               style="opacity:0.5;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+               id="rect3001"
+               width="205"
+               height="40.35714"
+               x="558.13977"
+               y="-34.323185"
+               ry="4.5564518" />
+            <text
+               xml:space="preserve"
+               style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+               x="563.49695"
+               y="-18.842625"
+               id="text3003"
+               sodipodi:linespacing="100%"><tspan
+                 sodipodi:role="line"
+                 x="563.49695"
+                 y="-18.842625"
+                 id="tspan3005">Alignment Padding to</tspan><tspan
+                 sodipodi:role="line"
+                 x="563.49695"
+                 y="-0.84262466"
+                 id="tspan3007">Quadword Boundary</tspan></text>
+          </g>
+          <g
+             id="g3009">
+            <rect
+               style="opacity:0.5;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+               id="rect3011"
+               width="205"
+               height="22.142857"
+               x="558.13977"
+               y="13.784593"
+               ry="2.5" />
+            <text
+               xml:space="preserve"
+               style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+               x="563.49695"
+               y="31.183029"
+               id="text3013"
+               sodipodi:linespacing="100%"><tspan
+                 sodipodi:role="line"
+                 id="tspan3015"
+                 x="563.49695"
+                 y="31.183029">LR Save Area</tspan></text>
+          </g>
+          <g
+             id="g3017">
+            <rect
+               style="opacity:0.5;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+               id="rect3019"
+               width="205"
+               height="22.142857"
+               x="558.13977"
+               y="43.678085"
+               ry="2.5" />
+            <text
+               xml:space="preserve"
+               style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+               x="563.49695"
+               y="59.834518"
+               id="text3021"
+               sodipodi:linespacing="100%"><tspan
+                 sodipodi:role="line"
+                 id="tspan3023"
+                 x="563.49695"
+                 y="59.834518">Back Chain</tspan></text>
+          </g>
+        </g>
+      </g>
+      <g
+         style="opacity:1;stroke:#262626;stroke-width:0.04923483;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         transform="matrix(1,0,0,1.0313238,633.60237,97.260354)"
+         id="g3025">
+        <g
+           style="stroke:#262626;stroke-width:0.04923483;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="g3027">
+          <path
+             sodipodi:nodetypes="cscsssssscccccssssccsssscsssssscssc"
+             id="path3029"
+             transform="matrix(1,0,0,0.9696276,0,5.5881253)"
+             d="M 532.4375,47.84375 C 531.44585,47.83404 530.77471,47.905404 530.59375,48.0625 C 530.16382,48.435732 530.04683,50.024666 530.09375,52.03125 C 527.75376,52.261199 525.32497,52.536328 522.8125,52.875 C 507.64969,54.918897 490.09659,58.724197 479.9375,68.6875 C 477.90152,70.684242 476.42045,73.04209 476.03125,75.75 C 475.64205,78.457908 476.5241,81.16362 478,83.25 C 480.95179,87.422762 485.88512,90.228172 492.375,93 C 505.35476,98.543657 524.9581,103.18622 547,107.28125 C 576.72836,112.8043 610.61573,117.11322 637.65625,120.03125 L 637.65625,120.125 C 639.04806,120.24434 640.71331,120.37688 642.15625,120.5 C 653.34623,121.67781 663.29151,122.63634 670.8125,123.28125 L 670.8125,123.09375 C 689.91408,124.95883 710.30343,127.34972 728.28125,130.84375 C 742.84191,133.67364 755.818,137.24166 765.03125,141.59375 C 774.2445,145.94585 779.04401,150.81366 779.625,155.5 C 780.40229,161.76961 778.64843,165.27371 775.34375,168.21875 C 772.03907,171.16379 769.62003,172.8001 764.02855,173.93369 C 764.08355,177.46355 764.09364,180.56874 764.13896,182.09058 C 770.50664,180.79963 775.58719,178.87135 780.5625,174.4375 C 785.53781,170.00366 788.62354,162.99584 787.5625,154.4375 C 786.42811,145.28749 778.64622,138.91435 768.375,134.0625 C 758.10378,129.21065 744.68196,125.61473 729.78125,122.71875 C 701.71527,117.26407 668.72762,114.48425 643.21875,112.3125 C 615.61373,109.41614 579.54452,105.00374 548.40625,99.21875 C 526.61287,95.169889 507.23321,90.381696 495.4375,85.34375 C 489.53965,82.824775 485.64496,80.037737 484.46875,78.375 C 483.88064,77.543635 483.88893,77.275421 483.9375,76.9375 C 483.98607,76.599578 484.2427,75.859274 485.4375,74.6875 C 492.77024,67.496077 509.30893,63.021744 523.84375,61.0625 C 526.30749,60.730396 528.67755,60.473227 530.96875,60.25 C 531.44172,62.933509 532.01224,65.034011 532.53125,65.125 C 534.05272,65.39173 563.76103,55.587821 563.5,53.5 C 563.27124,51.670585 539.37902,47.911717 532.4375,47.84375 z"
+             style="fill:url(#linearGradient3175);fill-opacity:1;fill-rule:evenodd;stroke:#262626;stroke-width:0.05;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        </g>
+      </g>
+      <g
+         transform="translate(633.60237,103.02352)"
+         id="g3031">
+        <rect
+           style="opacity:0.5;fill:#e3e3e3;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect3033"
+           width="218.91806"
+           height="114.97538"
+           x="551.18073"
+           y="82.565239"
+           ry="2.8183954" />
+        <g
+           id="g3035">
+          <g
+             id="g3037">
+            <rect
+               style="opacity:0.5;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+               id="rect3039"
+               width="205"
+               height="40.35714"
+               x="558.13977"
+               y="89.784058"
+               ry="4.5564518" />
+            <text
+               xml:space="preserve"
+               style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+               x="563.49695"
+               y="105.26462"
+               id="text3041"
+               sodipodi:linespacing="100%"><tspan
+                 sodipodi:role="line"
+                 x="563.49695"
+                 y="105.26462"
+                 id="tspan3043">Alignment Padding to</tspan><tspan
+                 sodipodi:role="line"
+                 x="563.49695"
+                 y="123.26462"
+                 id="tspan3045">Quadword Boundary</tspan></text>
+          </g>
+          <g
+             id="g3047">
+            <rect
+               style="opacity:0.5;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+               id="rect3049"
+               width="205"
+               height="22.142857"
+               x="558.13977"
+               y="137.89183"
+               ry="2.5" />
+            <text
+               xml:space="preserve"
+               style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+               x="563.49695"
+               y="155.29027"
+               id="text3051"
+               sodipodi:linespacing="100%"><tspan
+                 sodipodi:role="line"
+                 id="tspan3053"
+                 x="563.49695"
+                 y="155.29027">LR Save Area</tspan></text>
+          </g>
+          <g
+             id="g3055">
+            <rect
+               style="opacity:0.5;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+               id="rect3057"
+               width="205"
+               height="22.142857"
+               x="558.13977"
+               y="167.78532"
+               ry="2.5" />
+            <text
+               xml:space="preserve"
+               style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+               x="563.49695"
+               y="183.94176"
+               id="text3059"
+               sodipodi:linespacing="100%"><tspan
+                 sodipodi:role="line"
+                 id="tspan3061"
+                 x="563.49695"
+                 y="183.94176">Back Chain</tspan></text>
+          </g>
+        </g>
+      </g>
+      <g
+         transform="translate(633.60237,103.02352)"
+         style="opacity:1;stroke:#262626;stroke-width:0.05;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="g3063">
+        <path
+           sodipodi:nodetypes="cscssssccssccssccsssscsscccc"
+           id="path3065"
+           d="M 532.4375,171.59375 C 531.44585,171.58404 530.77472,171.62415 530.59375,171.78125 C 530.07738,172.22952 530.01222,174.39525 530.15625,177 C 524.87571,178.43965 519.01087,180.46129 513.125,183.375 C 494.47743,192.60621 475.3751,211.33477 475.375,245.65625 C 475.37494,264.6983 484.05331,280.98302 497.34375,294.46875 C 510.63419,307.95448 528.54242,318.86299 547.8125,327.84375 C 586.35267,345.80527 630.51124,356.08498 654,361.90625 L 654,361.84375 C 686.77184,370.59113 715.89927,380.03896 737.46875,394.09375 C 762.5992,410.46889 777.75663,432.51336 778.15625,468.6875 C 778.51304,500.98481 770.8366,517.78376 762.18223,526.72638 C 764.80644,527.99687 764.0989,530.01843 764.18285,537.09231 C 774.53978,527.7775 786.57176,506.20645 786.15625,468.59375 C 785.73155,430.14895 768.56894,404.78928 741.84375,387.375 C 715.11856,369.96072 679.056,359.8952 639.46875,349.8125 L 639.40625,350.03125 C 614.94295,343.8609 581.1829,334.57301 551.1875,320.59375 C 532.45065,311.8615 515.30176,301.32581 503.03125,288.875 C 490.76074,276.42419 483.37495,262.29808 483.375,245.65625 C 483.37509,214.21528 499.78565,198.8828 516.65625,190.53125 C 521.62558,188.07125 526.6017,186.29595 531.15625,185 C 531.5894,187.15152 532.08327,188.76521 532.53125,188.84375 C 534.05272,189.11048 563.76107,179.30658 563.5,177.21875 C 563.38483,176.2977 557.2119,174.89946 550.28125,173.71875 L 550.28125,173.59375 C 550.28125,173.59375 549.95932,173.6091 549.65625,173.625 C 542.98805,172.51008 535.77852,171.62646 532.4375,171.59375 z"
+           style="fill:#61c7fd;fill-opacity:1;fill-rule:evenodd;stroke:#262626;stroke-width:0.05;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      </g>
+      <rect
+         ry="4.5564518"
+         y="425.58853"
+         x="1191.8167"
+         height="40.35714"
+         width="205"
+         id="rect3067"
+         style="opacity:0.5;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <g
+         transform="translate(633.60237,103.02352)"
+         id="g3069">
+        <rect
+           style="opacity:0.5;fill:#e3e3e3;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect3071"
+           width="218.91806"
+           height="350.68967"
+           x="551.18073"
+           y="206.67252"
+           ry="4.6678967" />
+        <g
+           id="g3073">
+          <g
+             id="g3075">
+            <rect
+               style="opacity:0.5;fill:#2cc517;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+               id="rect3077"
+               width="205"
+               height="22.142857"
+               x="558.21429"
+               y="214.67021"
+               ry="2.5" />
+            <text
+               xml:space="preserve"
+               style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+               x="563.57147"
+               y="230.62865"
+               id="text3079"
+               sodipodi:linespacing="100%"><tspan
+                 sodipodi:role="line"
+                 id="tspan3081"
+                 x="563.57147"
+                 y="230.62865">Register Save Areas</tspan></text>
+          </g>
+          <g
+             id="g3083">
+            <rect
+               style="opacity:0.5;fill:#2cc517;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+               id="rect3085"
+               width="205"
+               height="40.35714"
+               x="558.21429"
+               y="244.56372"
+               ry="4.5564518" />
+            <text
+               xml:space="preserve"
+               style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+               x="563.57147"
+               y="260.6293"
+               id="text3087"
+               sodipodi:linespacing="100%"><tspan
+                 sodipodi:role="line"
+                 id="tspan3089"
+                 x="563.57147"
+                 y="260.6293">Category Specific</tspan><tspan
+                 sodipodi:role="line"
+                 x="563.57147"
+                 y="278.6293"
+                 id="tspan3091">Register Save Areas</tspan></text>
+          </g>
+          <g
+             id="g3093">
+            <rect
+               style="opacity:0.5;fill:#2cc517;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+               id="rect3095"
+               width="205"
+               height="22.142857"
+               x="558.21429"
+               y="292.67151"
+               ry="2.5" />
+            <text
+               xml:space="preserve"
+               style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+               x="563.57147"
+               y="309.21494"
+               id="text3097"
+               sodipodi:linespacing="100%"><tspan
+                 sodipodi:role="line"
+                 id="tspan3099"
+                 x="563.57147"
+                 y="309.21494">CR Save Area</tspan></text>
+          </g>
+          <text
+             sodipodi:linespacing="100%"
+             id="text3101"
+             y="338.04556"
+             x="563.57147"
+             style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+             xml:space="preserve"><tspan
+               id="tspan3103"
+               y="338.04556"
+               x="563.57147"
+               sodipodi:role="line">Alignment Padding to</tspan><tspan
+               id="tspan3105"
+               y="356.04556"
+               x="563.57147"
+               sodipodi:role="line">Quadword Boundary</tspan></text>
+          <g
+             id="g3107">
+            <rect
+               style="opacity:0.5;fill:#2cc517;fill-opacity:1;stroke:#000000;stroke-width:1.99999976;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+               id="rect3109"
+               width="205"
+               height="59.297497"
+               x="558.21429"
+               y="370.67279"
+               ry="6.6948795" />
+            <text
+               xml:space="preserve"
+               style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+               x="563.57147"
+               y="388.26154"
+               id="text3111"
+               sodipodi:linespacing="100%"><tspan
+                 sodipodi:role="line"
+                 x="563.57147"
+                 y="388.26154"
+                 id="tspan3113">Additional Category</tspan><tspan
+                 sodipodi:role="line"
+                 x="563.57147"
+                 y="406.26154"
+                 id="tspan3115">Specific Register</tspan><tspan
+                 sodipodi:role="line"
+                 x="563.57147"
+                 y="424.26154"
+                 id="tspan3117">Save Areas</tspan></text>
+          </g>
+          <g
+             id="g3119">
+            <rect
+               style="opacity:0.5;fill:#2cc517;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+               id="rect3121"
+               width="205"
+               height="22.142857"
+               x="558.21429"
+               y="437.72095"
+               ry="2.5" />
+            <text
+               xml:space="preserve"
+               style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+               x="563.57147"
+               y="454.76837"
+               id="text3123"
+               sodipodi:linespacing="100%"><tspan
+                 sodipodi:role="line"
+                 id="tspan3125"
+                 x="563.57147"
+                 y="454.76837">Local Variable Space</tspan></text>
+          </g>
+          <g
+             id="g3127">
+            <rect
+               style="opacity:0.5;fill:#2cc517;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+               id="rect3129"
+               width="205"
+               height="22.142857"
+               x="558.21429"
+               y="467.61444"
+               ry="2.5" />
+            <text
+               xml:space="preserve"
+               style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+               x="563.57147"
+               y="485.01288"
+               id="text3131"
+               sodipodi:linespacing="100%"><tspan
+                 sodipodi:role="line"
+                 id="tspan3133"
+                 x="563.57147"
+                 y="485.01288">Parameter Save Area</tspan></text>
+          </g>
+          <g
+             id="g3135">
+            <rect
+               style="opacity:0.5;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+               id="rect3137"
+               width="205"
+               height="22.142857"
+               x="558.21429"
+               y="497.50793"
+               ry="2.5" />
+            <text
+               xml:space="preserve"
+               style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+               x="563.57147"
+               y="514.90637"
+               id="text3139"
+               sodipodi:linespacing="100%"><tspan
+                 sodipodi:role="line"
+                 id="tspan3141"
+                 x="563.57147"
+                 y="514.90637">LR Save Area</tspan></text>
+          </g>
+          <g
+             id="g3143">
+            <rect
+               style="opacity:0.5;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+               id="rect3145"
+               width="205"
+               height="22.142857"
+               x="558.21429"
+               y="527.40143"
+               ry="2.5" />
+            <text
+               xml:space="preserve"
+               style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+               x="563.57147"
+               y="543.55786"
+               id="text3147"
+               sodipodi:linespacing="100%"><tspan
+                 sodipodi:role="line"
+                 id="tspan3149"
+                 x="563.57147"
+                 y="543.55786">Back Chain</tspan></text>
+          </g>
+        </g>
+      </g>
+      <g
+         transform="matrix(1.0848421,0,0,1.3026458,977.69965,32.29297)"
+         id="g3151">
+        <path
+           style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.84120828px;stroke-linecap:butt;stroke-linejoin:miter;marker-start:url(#Arrow2Sstart);marker-end:none;stroke-opacity:1"
+           d="M 397.894,213.86809 C 414.65297,214.40815 426.00582,215.4883 426.00582,227.9099 C 426.00582,240.33151 422.93176,333.06534 427.25666,340.6263 C 431.58155,348.18729 442.39379,347.91507 442.39379,347.91507"
+           id="path3153"
+           sodipodi:nodetypes="cssc" />
+        <path
+           style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.84120834px;stroke-linecap:butt;stroke-linejoin:miter;marker-start:url(#Arrow2Sstart);marker-end:none;stroke-opacity:1"
+           d="M 397.89369,481.96934 C 414.66861,481.42876 426.03228,480.3476 426.03228,467.91434 C 426.03228,455.48108 422.95528,362.6602 427.2843,355.09213 C 431.61331,347.52405 442.43585,347.90837 442.43585,347.90837"
+           id="path3155"
+           sodipodi:nodetypes="cssc" />
+      </g>
+      <g
+         transform="translate(632.04354,103.02352)"
+         id="g3157">
+        <path
+           style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000012px;stroke-linecap:butt;stroke-linejoin:miter;marker-start:url(#Arrow2Sstart);marker-end:none;stroke-opacity:1"
+           d="M 777.42664,195.46471 C 786.69903,195.23759 793.53714,195.98826 800.75109,189.02399 C 810.34123,179.76576 804.08516,145.3387 808.69003,142.15909 C 813.29488,138.97947 824.80704,139.14094 824.80704,139.14094"
+           id="path3159"
+           sodipodi:nodetypes="cssc" />
+        <path
+           style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000012px;stroke-linecap:butt;stroke-linejoin:miter;marker-start:url(#Arrow2Sstart);marker-end:none;stroke-opacity:1"
+           d="M 777.42664,82.57698 C 786.69903,82.804097 793.53714,82.053429 800.75109,89.0177 C 810.34123,98.275927 804.08516,132.70299 808.69003,135.8826 C 813.29488,139.06222 824.80704,138.90075 824.80704,138.90075"
+           id="path3161"
+           sodipodi:nodetypes="cssc" />
+      </g>
+      <text
+         sodipodi:linespacing="100%"
+         id="text3163"
+         y="241.55624"
+         x="1466.3877"
+         style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+         xml:space="preserve"><tspan
+           y="241.55624"
+           x="1466.3877"
+           id="tspan3165"
+           sodipodi:role="line">Caller's</tspan><tspan
+           id="tspan3167"
+           y="259.55624"
+           x="1466.3877"
+           sodipodi:role="line">Frame</tspan></text>
+      <text
+         sodipodi:linespacing="100%"
+         id="text3169"
+         y="483.59537"
+         x="1466.3877"
+         style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+         xml:space="preserve"><tspan
+           y="483.59537"
+           x="1466.3877"
+           id="tspan3171"
+           sodipodi:role="line">Current</tspan><tspan
+           id="tspan3173"
+           y="501.59537"
+           x="1466.3877"
+           sodipodi:role="line"> Frame</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+       x="42.826069"
+       y="183.38933"
+       id="text4088"
+       sodipodi:linespacing="100%"><tspan
+         sodipodi:role="line"
+         id="tspan4090"
+         x="42.826069"
+         y="183.38933">High Address</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+       x="42.718098"
+       y="731.36444"
+       id="text4092"
+       sodipodi:linespacing="100%"><tspan
+         sodipodi:role="line"
+         id="tspan4094"
+         x="42.718098"
+         y="731.36444">Low Address</tspan></text>
+    <g
+       id="g4296"
+       transform="matrix(1.0764818,0,0,1.0764818,-32.926136,82.074569)">
+      <path
+         style="fill:#696969;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 114.4375,103.625 L 114.4375,584.28125 L 119.4375,584.28125 L 119.4375,103.625 L 114.4375,103.625 z"
+         id="path4096" />
+      <path
+         d="M 122.98247,574.66198 L 116.95589,591.05079 L 110.92931,574.66198 C 114.4874,577.28023 119.35549,577.26514 122.98247,574.66198 z"
+         style="font-size:12px;fill:#696969;fill-opacity:1;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path4302" />
+    </g>
+    <g
+       id="g5269"
+       transform="matrix(1,0,0,1.0313238,-338.99805,123.58498)"
+       style="stroke:#262626;stroke-width:0.04923483000000000;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1;fill:url(#linearGradient3558)">
+      <g
+         id="g5271"
+         style="stroke:#262626;stroke-width:0.04923483000000000;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1;fill:url(#linearGradient3558)">
+        <path
+           style="fill:url(#linearGradient3558);fill-opacity:1;fill-rule:evenodd;stroke:#262626;stroke-width:0.05000000000000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M 532.4375,47.84375 C 531.44585,47.83404 530.77471,47.905404 530.59375,48.0625 C 530.16382,48.435732 530.04683,50.024666 530.09375,52.03125 C 527.75376,52.261199 525.32497,52.536328 522.8125,52.875 C 507.64969,54.918897 490.09659,58.724197 479.9375,68.6875 C 477.90152,70.684242 476.42045,73.04209 476.03125,75.75 C 475.64205,78.457908 476.5241,81.16362 478,83.25 C 480.95179,87.422762 485.88512,90.228172 492.375,93 C 505.35476,98.543657 524.9581,103.18622 547,107.28125 C 576.72836,112.8043 610.61573,117.11322 637.65625,120.03125 L 637.65625,120.125 C 639.04806,120.24434 640.71331,120.37688 642.15625,120.5 C 653.34623,121.67781 663.29151,122.63634 670.8125,123.28125 L 670.8125,123.09375 C 689.91408,124.95883 710.30343,127.34972 728.28125,130.84375 C 742.84191,133.67364 755.818,137.24166 765.03125,141.59375 C 774.2445,145.94585 779.04401,150.81366 779.625,155.5 C 780.40229,161.76961 778.64843,165.27371 775.34375,168.21875 C 772.03907,171.16379 769.62003,172.8001 764.02855,173.93369 C 764.08355,177.46355 764.09364,180.56874 764.13896,182.09058 C 770.50664,180.79963 775.58719,178.87135 780.5625,174.4375 C 785.53781,170.00366 788.62354,162.99584 787.5625,154.4375 C 786.42811,145.28749 778.64622,138.91435 768.375,134.0625 C 758.10378,129.21065 744.68196,125.61473 729.78125,122.71875 C 701.71527,117.26407 668.72762,114.48425 643.21875,112.3125 C 615.61373,109.41614 579.54452,105.00374 548.40625,99.21875 C 526.61287,95.169889 507.23321,90.381696 495.4375,85.34375 C 489.53965,82.824775 485.64496,80.037737 484.46875,78.375 C 483.88064,77.543635 483.88893,77.275421 483.9375,76.9375 C 483.98607,76.599578 484.2427,75.859274 485.4375,74.6875 C 492.77024,67.496077 509.30893,63.021744 523.84375,61.0625 C 526.30749,60.730396 528.67755,60.473227 530.96875,60.25 C 531.44172,62.933509 532.01224,65.034011 532.53125,65.125 C 534.05272,65.39173 563.76103,55.587821 563.5,53.5 C 563.27124,51.670585 539.37902,47.911717 532.4375,47.84375 z"
+           transform="matrix(1,0,0,0.9696276,0,5.5881253)"
+           id="path5273"
+           sodipodi:nodetypes="cscsssssscccccssssccsssscsssssscssc" />
+      </g>
+    </g>
+    <rect
+       style="opacity:0.5;fill:#e3e3e3;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4457"
+       width="218.91806"
+       height="114.97538"
+       x="212.63788"
+       y="208.524"
+       ry="2.8183954" />
+    <g
+       id="g4461"
+       transform="translate(-338.54285,125.95879)">
+      <rect
+         ry="4.5564518"
+         y="89.784058"
+         x="558.13977"
+         height="40.35714"
+         width="205"
+         id="rect4463"
+         style="opacity:0.5;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         sodipodi:linespacing="100%"
+         id="text4465"
+         y="105.26462"
+         x="563.49695"
+         style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+         xml:space="preserve"><tspan
+           id="tspan4467"
+           y="105.26462"
+           x="563.49695"
+           sodipodi:role="line">Alignment Padding to</tspan><tspan
+           id="tspan4469"
+           y="123.26462"
+           x="563.49695"
+           sodipodi:role="line">Quadword Boundary</tspan></text>
+    </g>
+    <g
+       id="g4471"
+       transform="translate(-338.54285,125.95879)">
+      <rect
+         ry="2.5"
+         y="137.89183"
+         x="558.13977"
+         height="22.142857"
+         width="205"
+         id="rect4473"
+         style="opacity:0.5;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         sodipodi:linespacing="100%"
+         id="text4475"
+         y="155.29027"
+         x="563.49695"
+         style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+         xml:space="preserve"><tspan
+           y="155.29027"
+           x="563.49695"
+           id="tspan4477"
+           sodipodi:role="line">LR Save Area</tspan></text>
+    </g>
+    <g
+       id="g4479"
+       transform="translate(-338.54285,125.95879)">
+      <rect
+         ry="2.5"
+         y="167.78532"
+         x="558.13977"
+         height="22.142857"
+         width="205"
+         id="rect4481"
+         style="opacity:0.5;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         sodipodi:linespacing="100%"
+         id="text4483"
+         y="183.94176"
+         x="563.49695"
+         style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+         xml:space="preserve"><tspan
+           y="183.94176"
+           x="563.49695"
+           id="tspan4485"
+           sodipodi:role="line">Back Chain</tspan></text>
+    </g>
+    <g
+       id="g4487"
+       style="stroke:#262626;stroke-width:0.05;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="translate(-338.54285,125.95879)">
+      <path
+         style="fill:#1589c7;fill-opacity:1;fill-rule:evenodd;stroke:#262626;stroke-width:0.05000000000000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 532.4375,171.59375 C 531.44585,171.58404 530.77472,171.62415 530.59375,171.78125 C 530.07738,172.22952 530.01222,174.39525 530.15625,177 C 524.87571,178.43965 519.01087,180.46129 513.125,183.375 C 494.47743,192.60621 475.3751,211.33477 475.375,245.65625 C 475.37494,264.6983 484.05331,280.98302 497.34375,294.46875 C 510.63419,307.95448 528.54242,318.86299 547.8125,327.84375 C 586.35267,345.80527 630.51124,356.08498 654,361.90625 L 654,361.84375 C 686.77184,370.59113 715.89927,380.03896 737.46875,394.09375 C 762.5992,410.46889 792.80346,443.75594 792.80346,481.4221 C 792.80346,513.72138 780.25694,574.41121 762.18223,579.25431 C 764.80644,580.5248 764.0989,582.54636 764.18285,589.62024 C 791.23132,582.37263 802.23203,518.94334 802.23203,481.32835 C 802.23203,430.66452 768.56894,404.78928 741.84375,387.375 C 715.11856,369.96072 679.056,359.8952 639.46875,349.8125 L 639.40625,350.03125 C 614.94295,343.8609 581.1829,334.57301 551.1875,320.59375 C 532.45065,311.8615 515.30176,301.32581 503.03125,288.875 C 490.76074,276.42419 483.37495,262.29808 483.375,245.65625 C 483.37509,214.21528 499.78565,198.8828 516.65625,190.53125 C 521.62558,188.07125 526.6017,186.29595 531.15625,185 C 531.5894,187.15152 532.08327,188.76521 532.53125,188.84375 C 534.05272,189.11048 563.76107,179.30658 563.5,177.21875 C 563.38483,176.2977 557.2119,174.89946 550.28125,173.71875 L 550.28125,173.59375 C 550.28125,173.59375 549.95932,173.6091 549.65625,173.625 C 542.98805,172.51008 535.77852,171.62646 532.4375,171.59375 z"
+         id="path4489"
+         sodipodi:nodetypes="cscssssccssccssccsssscsscccc" />
+    </g>
+    <rect
+       style="opacity:0.5;fill:#e3e3e3;fill-opacity:1;stroke:#000000;stroke-width:1.99999988;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4495"
+       width="218.91806"
+       height="397.15668"
+       x="212.63788"
+       y="332.63126"
+       ry="5.2864017" />
+    <g
+       id="g5000"
+       transform="translate(-753.5738,-684.20758)">
+      <rect
+         ry="2.5"
+         y="1071.9795"
+         x="973.24524"
+         height="22.142857"
+         width="205"
+         id="rect4501"
+         style="opacity:0.5;fill:#2cc517;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+      <text
+         sodipodi:linespacing="100%"
+         id="text4503"
+         y="1087.9379"
+         x="978.60242"
+         style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+         xml:space="preserve"><tspan
+           y="1087.9379"
+           x="978.60242"
+           id="tspan4505"
+           sodipodi:role="line">Register Save Areas</tspan></text>
+    </g>
+    <g
+       id="g4994"
+       transform="translate(-753.5738,-761.46952)">
+      <rect
+         ry="4.5564518"
+         y="1101.8729"
+         x="973.24524"
+         height="40.35714"
+         width="205"
+         id="rect4509"
+         style="opacity:0.5;fill:#2cc517;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+      <text
+         sodipodi:linespacing="100%"
+         id="text4511"
+         y="1117.9385"
+         x="978.60242"
+         style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+         xml:space="preserve"><tspan
+           y="1117.9385"
+           x="978.60242"
+           id="tspan4513"
+           sodipodi:role="line">Category Specific</tspan><tspan
+           id="tspan4515"
+           y="1135.9385"
+           x="978.60242"
+           sodipodi:role="line">Register Save Areas</tspan></text>
+    </g>
+    <g
+       id="g4989"
+       transform="translate(-753.5738,-731.58867)">
+      <rect
+         ry="2.5"
+         y="1149.9807"
+         x="973.24524"
+         height="22.142857"
+         width="205"
+         id="rect4519"
+         style="opacity:0.5;fill:#2cc517;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         sodipodi:linespacing="100%"
+         id="text4521"
+         y="1166.5242"
+         x="978.60242"
+         style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+         xml:space="preserve"><tspan
+           y="1166.5242"
+           x="978.60242"
+           id="tspan4523"
+           sodipodi:role="line">CR Save Area</tspan></text>
+    </g>
+    <g
+       id="g4956"
+       transform="translate(-753.5738,-684.98832)">
+      <rect
+         ry="4.5564518"
+         y="1179.8743"
+         x="973.24524"
+         height="40.35714"
+         width="205"
+         id="rect4491"
+         style="opacity:0.5;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         sodipodi:linespacing="100%"
+         id="text4525"
+         y="1195.3547"
+         x="975.66522"
+         style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+         xml:space="preserve"><tspan
+           id="tspan4527"
+           y="1195.3547"
+           x="975.66522"
+           sodipodi:role="line">Alignment Padding to</tspan><tspan
+           id="tspan4529"
+           y="1213.3547"
+           x="975.66522"
+           sodipodi:role="line">Quadword Boundary</tspan></text>
+    </g>
+    <g
+       id="g4962"
+       transform="translate(-753.5738,-685.10748)">
+      <rect
+         ry="6.6948795"
+         y="1227.9821"
+         x="973.24524"
+         height="59.297497"
+         width="205"
+         id="rect4533"
+         style="opacity:0.5;fill:#2cc517;fill-opacity:1;stroke:#000000;stroke-width:1.99999976;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         sodipodi:linespacing="100%"
+         id="text4535"
+         y="1245.5708"
+         x="978.60242"
+         style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+         xml:space="preserve"><tspan
+           id="tspan4537"
+           y="1245.5708"
+           x="978.60242"
+           sodipodi:role="line">Additional Category</tspan><tspan
+           id="tspan4539"
+           y="1263.5708"
+           x="978.60242"
+           sodipodi:role="line">Specific Register</tspan><tspan
+           id="tspan4541"
+           y="1281.5708"
+           x="978.60242"
+           sodipodi:role="line">Save Areas</tspan></text>
+    </g>
+    <g
+       id="g4969"
+       transform="translate(-753.5738,-685.22659)">
+      <rect
+         ry="2.5"
+         y="1295.0302"
+         x="973.24524"
+         height="22.142857"
+         width="205"
+         id="rect4545"
+         style="opacity:0.5;fill:#2cc517;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         sodipodi:linespacing="100%"
+         id="text4547"
+         y="1312.0776"
+         x="978.60242"
+         style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+         xml:space="preserve"><tspan
+           y="1312.0776"
+           x="978.60242"
+           id="tspan4549"
+           sodipodi:role="line">Local Variable Space</tspan></text>
+    </g>
+    <g
+       id="g4974"
+       transform="translate(-753.5738,-685.34579)">
+      <rect
+         ry="2.5"
+         y="1324.9237"
+         x="973.24524"
+         height="22.142857"
+         width="205"
+         id="rect4553"
+         style="opacity:0.5;fill:#2cc517;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         sodipodi:linespacing="100%"
+         id="text4555"
+         y="1342.3221"
+         x="978.60242"
+         style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+         xml:space="preserve"><tspan
+           y="1342.3221"
+           x="978.60242"
+           id="tspan4557"
+           sodipodi:role="line">Parameter Save Area</tspan></text>
+    </g>
+    <g
+       id="g4979"
+       transform="translate(-753.5738,-685.46487)">
+      <rect
+         ry="2.5"
+         y="1354.8171"
+         x="973.24524"
+         height="22.142857"
+         width="205"
+         id="rect4561"
+         style="opacity:0.5;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         sodipodi:linespacing="100%"
+         id="text4563"
+         y="1372.2156"
+         x="978.60242"
+         style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+         xml:space="preserve"><tspan
+           y="1372.2156"
+           x="978.60242"
+           id="tspan4565"
+           sodipodi:role="line">LR Save Area</tspan></text>
+    </g>
+    <g
+       id="g4984"
+       transform="translate(-753.5738,-685.58407)">
+      <rect
+         ry="2.5"
+         y="1384.7107"
+         x="973.24524"
+         height="22.142857"
+         width="205"
+         id="rect4569"
+         style="opacity:0.5;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         sodipodi:linespacing="100%"
+         id="text4571"
+         y="1400.8671"
+         x="978.60242"
+         style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+         xml:space="preserve"><tspan
+           y="1400.8671"
+           x="978.60242"
+           id="tspan4573"
+           sodipodi:role="line">Back Chain</tspan></text>
+    </g>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-start:url(#Arrow2Sstart);marker-end:none;stroke-opacity:1"
+       d="M 437.2063,728.52046 C 455.4044,727.81626 467.7322,726.40796 467.7322,710.21176 C 467.7322,694.01566 464.3941,550.87956 469.0904,541.02106 C 473.7867,531.16246 485.5275,531.66316 485.5275,531.66316"
+       id="path4579"
+       sodipodi:nodetypes="cssc" />
+    <g
+       id="g4581"
+       transform="translate(-340.10168,125.95879)">
+      <path
+         sodipodi:nodetypes="cssc"
+         id="path4583"
+         d="M 777.42664,195.46471 C 786.69903,195.23759 793.53714,195.98826 800.75109,189.02399 C 810.34123,179.76576 804.08516,145.3387 808.69003,142.15909 C 813.29488,138.97947 824.80704,139.14094 824.80704,139.14094"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000012px;stroke-linecap:butt;stroke-linejoin:miter;marker-start:url(#Arrow2Sstart);marker-end:none;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="cssc"
+         id="path4585"
+         d="M 777.42664,82.57698 C 786.69903,82.804097 793.53714,82.053429 800.75109,89.0177 C 810.34123,98.275927 804.08516,132.70299 808.69003,135.8826 C 813.29488,139.06222 824.80704,138.90075 824.80704,138.90075"
+         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000012px;stroke-linecap:butt;stroke-linejoin:miter;marker-start:url(#Arrow2Sstart);marker-end:none;stroke-opacity:1" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+       x="494.24249"
+       y="252.70583"
+       id="text4587"
+       sodipodi:linespacing="100%"><tspan
+         sodipodi:role="line"
+         id="tspan4589"
+         x="494.24249"
+         y="252.70583">Caller's</tspan><tspan
+         sodipodi:role="line"
+         x="494.24249"
+         y="270.70584"
+         id="tspan5032">Stack</tspan><tspan
+         sodipodi:role="line"
+         x="494.24249"
+         y="288.70584"
+         id="tspan4591">Frame</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+       x="494.24249"
+       y="520.10205"
+       id="text4593"
+       sodipodi:linespacing="100%"><tspan
+         sodipodi:role="line"
+         id="tspan4595"
+         x="494.24249"
+         y="520.10205">Current</tspan><tspan
+         sodipodi:role="line"
+         x="494.24249"
+         y="538.10205"
+         id="tspan5030">Stack</tspan><tspan
+         sodipodi:role="line"
+         x="494.24249"
+         y="556.10205"
+         id="tspan4597">Frame</tspan></text>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M -173.84647,893.14415 C -225.92355,888.81427 -388.14926,871.68218 -362.303,847.10391 C -344.81117,830.47022 -294.16183,831.02395 -294.16183,831.02395"
+       id="path4878"
+       sodipodi:nodetypes="csc" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:8;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M -207.00858,890.08089 C -154.9315,894.41077 -64.839947,901.03758 -61.409187,927.86981 C -57.732547,956.62499 -107.4075,951.651 -107.4075,951.651"
+       id="path4880"
+       sodipodi:nodetypes="csc" />
+    <g
+       id="g5016"
+       transform="translate(-753.50658,-654.56763)">
+      <rect
+         ry="4.5564518"
+         y="1101.8729"
+         x="973.24524"
+         height="40.35714"
+         width="205"
+         id="rect5018"
+         style="opacity:0.5;fill:#2cc517;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         sodipodi:linespacing="100%"
+         id="text5020"
+         y="1117.9385"
+         x="978.60242"
+         style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+         xml:space="preserve"><tspan
+           y="1117.9385"
+           x="978.60242"
+           id="tspan5022"
+           sodipodi:role="line">Category Specific Save-</tspan><tspan
+           id="tspan5024"
+           y="1135.9385"
+           x="978.60242"
+           sodipodi:role="line">Register Save Area</tspan></text>
+    </g>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;marker-start:url(#Arrow2Sstart);marker-end:none;stroke-opacity:1"
+       d="M 437.1343,334.78806 C 455.3324,335.49226 467.6602,336.90056 467.6602,353.09676 C 467.6602,369.29286 464.3221,512.42896 469.0184,522.28746 C 473.7147,532.14606 485.4555,531.64536 485.4555,531.64536"
+       id="path5028"
+       sodipodi:nodetypes="cssc" />
+    <g
+       id="g5034"
+       transform="translate(219.93511,312.58036)">
+      <g
+         transform="translate(10.606602,-111.11678)"
+         id="g5036">
+        <rect
+           style="opacity:0.5;fill:#cf4c18;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect5038"
+           width="205"
+           height="22.142857"
+           x="-11.664536"
+           y="569.5495"
+           ry="2.5" />
+        <text
+           xml:space="preserve"
+           style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+           x="-5.1129918"
+           y="586.94794"
+           id="text5040"
+           sodipodi:linespacing="100%"><tspan
+             sodipodi:role="line"
+             id="tspan5042"
+             x="-5.1129918"
+             y="586.94794">Stack Pointer</tspan></text>
+      </g>
+      <text
+         sodipodi:linespacing="100%"
+         id="text5044"
+         y="450.81635"
+         x="27.405937"
+         style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+         xml:space="preserve"><tspan
+           y="450.81635"
+           x="27.405937"
+           id="tspan5046"
+           sodipodi:role="line">    GPR1</tspan></text>
+    </g>
+    <rect
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect5050"
+       width="562.14288"
+       height="668.20886"
+       x="1418.0051"
+       y="762.70447"
+       ry="0"
+       inkscape:export-filename="/home/ryanarn/Desktop/StackFrame.png"
+       inkscape:export-xdpi="91.559402"
+       inkscape:export-ydpi="91.559402" />
+    <path
+       style="opacity:0.5;fill:url(#linearGradient5240);fill-opacity:1;stroke:none;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 1615.3054,767.7764 C 1614.1094,767.7764 1613.1179,768.76793 1613.1179,769.9639 L 1613.1179,816.1514 C 1613.1179,817.34738 1614.1094,818.3389 1615.3054,818.3389 L 1831.8366,818.3389 C 1833.0326,818.3389 1834.0241,817.34737 1834.0241,816.1514 L 1834.0241,769.9639 C 1834.0241,768.76792 1833.0326,767.7764 1831.8366,767.7764 L 1615.3054,767.7764 z M 1615.3054,769.7764 L 1831.8366,769.7764 C 1831.9592,769.7764 1832.0241,769.84133 1832.0241,769.9639 L 1832.0241,816.1514 C 1832.0241,816.27399 1831.9592,816.3389 1831.8366,816.3389 L 1615.3054,816.3389 C 1615.1829,816.3389 1615.1179,816.27398 1615.1179,816.1514 L 1615.1179,769.9639 C 1615.1179,769.84132 1615.1828,769.7764 1615.3054,769.7764 z"
+       id="path5052" />
+    <path
+       style="opacity:0.5;fill:url(#linearGradient5242);fill-opacity:1;stroke:none;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 1623.5554,786.5889 C 1621.6337,786.5889 1620.0554,788.1672 1620.0554,790.0889 L 1620.0554,807.2139 C 1620.0554,809.13561 1621.6337,810.7139 1623.5554,810.7139 L 1823.5554,810.7139 C 1825.4771,810.7139 1827.0554,809.13561 1827.0554,807.2139 L 1827.0554,790.0889 C 1827.0554,788.1672 1825.4771,786.5889 1823.5554,786.5889 L 1623.5554,786.5889 z M 1623.5554,788.5889 L 1823.5554,788.5889 C 1824.4037,788.5889 1825.0554,789.24061 1825.0554,790.0889 L 1825.0554,807.2139 C 1825.0554,808.0622 1824.4037,808.7139 1823.5554,808.7139 L 1623.5554,808.7139 C 1622.7071,808.7139 1622.0554,808.0622 1622.0554,807.2139 L 1622.0554,790.0889 C 1622.0554,789.24061 1622.7071,788.5889 1623.5554,788.5889 z"
+       id="path5054" />
+    <text
+       xml:space="preserve"
+       style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+       x="1626.4274"
+       y="803.7359"
+       id="text5056"
+       sodipodi:linespacing="100%"><tspan
+         sodipodi:role="line"
+         id="tspan5058"
+         x="1626.4274"
+         y="803.7359">Back Chain</tspan></text>
+    <g
+       id="g5060"
+       transform="matrix(1,0,0,1.0313238,1062.9304,738.13824)"
+       style="stroke:#262626;stroke-width:0.04923483;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+      <g
+         id="g5062"
+         style="stroke:#262626;stroke-width:0.04923483;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+        <path
+           style="fill:url(#linearGradient5244);fill-opacity:1;fill-rule:evenodd;stroke:#262626;stroke-width:0.05;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="M 532.4375,47.84375 C 531.44585,47.83404 530.77471,47.905404 530.59375,48.0625 C 530.16382,48.435732 530.04683,50.024666 530.09375,52.03125 C 527.75376,52.261199 525.32497,52.536328 522.8125,52.875 C 507.64969,54.918897 490.09659,58.724197 479.9375,68.6875 C 477.90152,70.684242 476.42045,73.04209 476.03125,75.75 C 475.64205,78.457908 476.5241,81.16362 478,83.25 C 480.95179,87.422762 485.88512,90.228172 492.375,93 C 505.35476,98.543657 524.9581,103.18622 547,107.28125 C 576.72836,112.8043 610.61573,117.11322 637.65625,120.03125 L 637.65625,120.125 C 639.04806,120.24434 640.71331,120.37688 642.15625,120.5 C 653.34623,121.67781 663.29151,122.63634 670.8125,123.28125 L 670.8125,123.09375 C 689.91408,124.95883 710.30343,127.34972 728.28125,130.84375 C 742.84191,133.67364 755.818,137.24166 765.03125,141.59375 C 774.2445,145.94585 779.04401,150.81366 779.625,155.5 C 780.40229,161.76961 778.64843,165.27371 775.34375,168.21875 C 772.03907,171.16379 769.62003,172.8001 764.02855,173.93369 C 764.08355,177.46355 764.09364,180.56874 764.13896,182.09058 C 770.50664,180.79963 775.58719,178.87135 780.5625,174.4375 C 785.53781,170.00366 788.62354,162.99584 787.5625,154.4375 C 786.42811,145.28749 778.64622,138.91435 768.375,134.0625 C 758.10378,129.21065 744.68196,125.61473 729.78125,122.71875 C 701.71527,117.26407 668.72762,114.48425 643.21875,112.3125 C 615.61373,109.41614 579.54452,105.00374 548.40625,99.21875 C 526.61287,95.169889 507.23321,90.381696 495.4375,85.34375 C 489.53965,82.824775 485.64496,80.037737 484.46875,78.375 C 483.88064,77.543635 483.88893,77.275421 483.9375,76.9375 C 483.98607,76.599578 484.2427,75.859274 485.4375,74.6875 C 492.77024,67.496077 509.30893,63.021744 523.84375,61.0625 C 526.30749,60.730396 528.67755,60.473227 530.96875,60.25 C 531.44172,62.933509 532.01224,65.034011 532.53125,65.125 C 534.05272,65.39173 563.76103,55.587821 563.5,53.5 C 563.27124,51.670585 539.37902,47.911717 532.4375,47.84375 z"
+           transform="matrix(1,0,0,0.9696276,0,5.5881253)"
+           id="path5064"
+           sodipodi:nodetypes="cscsssssscccccssssccsssscsssssscssc" />
+      </g>
+    </g>
+    <g
+       id="g5066"
+       transform="translate(1062.9304,743.9014)">
+      <rect
+         ry="2.8183954"
+         y="82.565239"
+         x="551.18073"
+         height="114.97538"
+         width="218.91806"
+         id="rect5068"
+         style="opacity:0.5;fill:#e3e3e3;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <g
+         id="g5070">
+        <g
+           id="g5072">
+          <rect
+             ry="4.5564518"
+             y="89.784058"
+             x="558.13977"
+             height="40.35714"
+             width="205"
+             id="rect5074"
+             style="opacity:0.5;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+          <text
+             sodipodi:linespacing="100%"
+             id="text5076"
+             y="105.26462"
+             x="563.49695"
+             style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+             xml:space="preserve"><tspan
+               id="tspan5078"
+               y="105.26462"
+               x="563.49695"
+               sodipodi:role="line">Alignment Padding to</tspan><tspan
+               id="tspan5080"
+               y="123.26462"
+               x="563.49695"
+               sodipodi:role="line">Quadword Boundary</tspan></text>
+        </g>
+        <g
+           id="g5082">
+          <rect
+             ry="2.5"
+             y="137.89183"
+             x="558.13977"
+             height="22.142857"
+             width="205"
+             id="rect5084"
+             style="opacity:0.5;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+          <text
+             sodipodi:linespacing="100%"
+             id="text5086"
+             y="155.29027"
+             x="563.49695"
+             style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+             xml:space="preserve"><tspan
+               y="155.29027"
+               x="563.49695"
+               id="tspan5088"
+               sodipodi:role="line">LR Save Area</tspan></text>
+        </g>
+        <g
+           id="g5090">
+          <rect
+             ry="2.5"
+             y="167.78532"
+             x="558.13977"
+             height="22.142857"
+             width="205"
+             id="rect5092"
+             style="opacity:0.5;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+          <text
+             sodipodi:linespacing="100%"
+             id="text5094"
+             y="183.94176"
+             x="563.49695"
+             style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+             xml:space="preserve"><tspan
+               y="183.94176"
+               x="563.49695"
+               id="tspan5096"
+               sodipodi:role="line">Back Chain</tspan></text>
+        </g>
+      </g>
+    </g>
+    <g
+       id="g5098"
+       style="stroke:#262626;stroke-width:0.05;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="translate(1062.9304,743.9014)">
+      <path
+         style="fill:#61c7fd;fill-opacity:1;fill-rule:evenodd;stroke:#262626;stroke-width:0.05;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 532.4375,171.59375 C 531.44585,171.58404 530.77472,171.62415 530.59375,171.78125 C 530.07738,172.22952 530.01222,174.39525 530.15625,177 C 524.87571,178.43965 519.01087,180.46129 513.125,183.375 C 494.47743,192.60621 475.3751,211.33477 475.375,245.65625 C 475.37494,264.6983 484.05331,280.98302 497.34375,294.46875 C 510.63419,307.95448 528.54242,318.86299 547.8125,327.84375 C 586.35267,345.80527 630.51124,356.08498 654,361.90625 L 654,361.84375 C 686.77184,370.59113 715.89927,380.03896 737.46875,394.09375 C 762.5992,410.46889 777.75663,432.51336 778.15625,468.6875 C 778.51304,500.98481 770.8366,517.78376 762.18223,526.72638 C 764.80644,527.99687 764.0989,530.01843 764.18285,537.09231 C 774.53978,527.7775 786.57176,506.20645 786.15625,468.59375 C 785.73155,430.14895 768.56894,404.78928 741.84375,387.375 C 715.11856,369.96072 679.056,359.8952 639.46875,349.8125 L 639.40625,350.03125 C 614.94295,343.8609 581.1829,334.57301 551.1875,320.59375 C 532.45065,311.8615 515.30176,301.32581 503.03125,288.875 C 490.76074,276.42419 483.37495,262.29808 483.375,245.65625 C 483.37509,214.21528 499.78565,198.8828 516.65625,190.53125 C 521.62558,188.07125 526.6017,186.29595 531.15625,185 C 531.5894,187.15152 532.08327,188.76521 532.53125,188.84375 C 534.05272,189.11048 563.76107,179.30658 563.5,177.21875 C 563.38483,176.2977 557.2119,174.89946 550.28125,173.71875 L 550.28125,173.59375 C 550.28125,173.59375 549.95932,173.6091 549.65625,173.625 C 542.98805,172.51008 535.77852,171.62646 532.4375,171.59375 z"
+         id="path5100"
+         sodipodi:nodetypes="cscssssccssccssccsssscsscccc" />
+    </g>
+    <rect
+       style="opacity:0.5;fill:#e3e3e3;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect5102"
+       width="218.91806"
+       height="350.68967"
+       x="1614.1111"
+       y="950.57391"
+       ry="4.6678967" />
+    <rect
+       style="opacity:0.5;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect5104"
+       width="205"
+       height="40.35714"
+       x="1621.1447"
+       y="1066.4664"
+       ry="4.5564518" />
+    <g
+       id="g5106"
+       transform="translate(1062.9304,743.9014)">
+      <g
+         id="g5108">
+        <rect
+           style="opacity:0.5;fill:#2cc517;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect5110"
+           width="205"
+           height="22.142857"
+           x="558.21429"
+           y="214.67021"
+           ry="2.5" />
+        <text
+           xml:space="preserve"
+           style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+           x="563.57147"
+           y="230.62865"
+           id="text5112"
+           sodipodi:linespacing="100%"><tspan
+             sodipodi:role="line"
+             id="tspan5114"
+             x="563.57147"
+             y="230.62865">Register Save Areas</tspan></text>
+      </g>
+      <g
+         id="g5116">
+        <rect
+           style="opacity:0.5;fill:#2cc517;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect5118"
+           width="205"
+           height="40.35714"
+           x="558.21429"
+           y="244.56372"
+           ry="4.5564518" />
+        <text
+           xml:space="preserve"
+           style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+           x="563.57147"
+           y="260.6293"
+           id="text5120"
+           sodipodi:linespacing="100%"><tspan
+             sodipodi:role="line"
+             id="tspan5122"
+             x="563.57147"
+             y="260.6293">Category Specific</tspan><tspan
+             sodipodi:role="line"
+             x="563.57147"
+             y="278.6293"
+             id="tspan5124">Register Save Areas</tspan></text>
+      </g>
+      <g
+         id="g5126">
+        <rect
+           style="opacity:0.5;fill:#2cc517;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect5128"
+           width="205"
+           height="22.142857"
+           x="558.21429"
+           y="292.67151"
+           ry="2.5" />
+        <text
+           xml:space="preserve"
+           style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+           x="563.57147"
+           y="309.21494"
+           id="text5130"
+           sodipodi:linespacing="100%"><tspan
+             sodipodi:role="line"
+             id="tspan5132"
+             x="563.57147"
+             y="309.21494">CR Save Area</tspan></text>
+      </g>
+      <text
+         sodipodi:linespacing="100%"
+         id="text5134"
+         y="338.04556"
+         x="563.57147"
+         style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+         xml:space="preserve"><tspan
+           id="tspan5136"
+           y="338.04556"
+           x="563.57147"
+           sodipodi:role="line">Alignment Padding to</tspan><tspan
+           id="tspan5138"
+           y="356.04556"
+           x="563.57147"
+           sodipodi:role="line">Quadword Boundary</tspan></text>
+      <g
+         id="g5140">
+        <rect
+           style="opacity:0.5;fill:#2cc517;fill-opacity:1;stroke:#000000;stroke-width:1.99999976;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect5142"
+           width="205"
+           height="59.297497"
+           x="558.21429"
+           y="370.67279"
+           ry="6.6948795" />
+        <text
+           xml:space="preserve"
+           style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+           x="563.57147"
+           y="388.26154"
+           id="text5144"
+           sodipodi:linespacing="100%"><tspan
+             sodipodi:role="line"
+             x="563.57147"
+             y="388.26154"
+             id="tspan5146">Additional Category</tspan><tspan
+             sodipodi:role="line"
+             x="563.57147"
+             y="406.26154"
+             id="tspan5148">Specific Register</tspan><tspan
+             sodipodi:role="line"
+             x="563.57147"
+             y="424.26154"
+             id="tspan5150">Save Areas</tspan></text>
+      </g>
+      <g
+         id="g5152">
+        <rect
+           style="opacity:0.5;fill:#2cc517;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect5154"
+           width="205"
+           height="22.142857"
+           x="558.21429"
+           y="437.72095"
+           ry="2.5" />
+        <text
+           xml:space="preserve"
+           style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+           x="563.57147"
+           y="454.76837"
+           id="text5156"
+           sodipodi:linespacing="100%"><tspan
+             sodipodi:role="line"
+             id="tspan5158"
+             x="563.57147"
+             y="454.76837">Local Variable Space</tspan></text>
+      </g>
+      <g
+         id="g5160">
+        <rect
+           style="opacity:0.5;fill:#2cc517;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect5162"
+           width="205"
+           height="22.142857"
+           x="558.21429"
+           y="467.61444"
+           ry="2.5" />
+        <text
+           xml:space="preserve"
+           style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+           x="563.57147"
+           y="485.01288"
+           id="text5164"
+           sodipodi:linespacing="100%"><tspan
+             sodipodi:role="line"
+             id="tspan5166"
+             x="563.57147"
+             y="485.01288">Parameter Save Area</tspan></text>
+      </g>
+      <g
+         id="g5168">
+        <rect
+           style="opacity:0.5;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect5170"
+           width="205"
+           height="22.142857"
+           x="558.21429"
+           y="497.50793"
+           ry="2.5" />
+        <text
+           xml:space="preserve"
+           style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+           x="563.57147"
+           y="514.90637"
+           id="text5172"
+           sodipodi:linespacing="100%"><tspan
+             sodipodi:role="line"
+             id="tspan5174"
+             x="563.57147"
+             y="514.90637">LR Save Area</tspan></text>
+      </g>
+      <g
+         id="g5176">
+        <rect
+           style="opacity:0.5;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect5178"
+           width="205"
+           height="22.142857"
+           x="558.21429"
+           y="527.40143"
+           ry="2.5" />
+        <text
+           xml:space="preserve"
+           style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+           x="563.57147"
+           y="543.55786"
+           id="text5180"
+           sodipodi:linespacing="100%"><tspan
+             sodipodi:role="line"
+             id="tspan5182"
+             x="563.57147"
+             y="543.55786">Back Chain</tspan></text>
+      </g>
+    </g>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;marker-start:url(#Arrow2Sstart);marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 1838.624,951.76522 C 1856.8049,952.46873 1869.1209,953.87578 1869.1209,970.05673 C 1869.1209,982.56582 1867.1278,1057.5995 1868.391,1095.56 C 1868.7618,1106.7028 1869.4132,1114.6512 1870.4779,1116.8863 C 1875.1697,1126.7356 1886.8993,1126.381 1886.8993,1126.381"
+       id="path5184"
+       sodipodi:nodetypes="csssc" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;marker-start:url(#Arrow2Sstart);marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 1838.6237,1301.0062 C 1856.8218,1300.302 1869.1496,1298.8936 1869.1496,1282.6975 C 1869.1496,1270.3966 1867.2241,1197.6915 1868.3554,1159.1123 C 1868.7136,1146.8957 1869.3784,1138.1011 1870.5079,1135.7301 C 1875.2042,1125.8716 1886.9449,1126.3722 1886.9449,1126.3722"
+       id="path5186"
+       sodipodi:nodetypes="csssc" />
+    <text
+       xml:space="preserve"
+       style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+       x="1895.7157"
+       y="873.14844"
+       id="text5188"
+       sodipodi:linespacing="100%"><tspan
+         sodipodi:role="line"
+         x="1895.7157"
+         y="873.14844"
+         id="tspan5190">Caller's</tspan><tspan
+         sodipodi:role="line"
+         x="1895.7157"
+         y="891.14844"
+         id="tspan5192">Stack</tspan><tspan
+         sodipodi:role="line"
+         x="1895.7157"
+         y="909.14844"
+         id="tspan5194">Frame</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+       x="1895.7157"
+       y="1113.4019"
+       id="text5196"
+       sodipodi:linespacing="100%"><tspan
+         sodipodi:role="line"
+         id="tspan5198"
+         x="1895.7157"
+         y="1113.4019">Current</tspan><tspan
+         sodipodi:role="line"
+         x="1895.7157"
+         y="1131.4019"
+         id="tspan5200">Stack</tspan><tspan
+         sodipodi:role="line"
+         x="1895.7157"
+         y="1149.4019"
+         id="tspan5202">Frame</tspan></text>
+    <g
+       id="g5204"
+       transform="translate(1373.3097,702.48515)">
+      <text
+         sodipodi:linespacing="100%"
+         id="text5206"
+         y="96.246468"
+         x="66.807205"
+         style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+         xml:space="preserve"><tspan
+           y="96.246468"
+           x="66.807205"
+           id="tspan5208"
+           sodipodi:role="line">High Address</tspan></text>
+      <text
+         sodipodi:linespacing="100%"
+         id="text5210"
+         y="607.11566"
+         x="66.699234"
+         style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+         xml:space="preserve"><tspan
+           y="607.11566"
+           x="66.699234"
+           id="tspan5212"
+           sodipodi:role="line">Low Address</tspan></text>
+      <g
+         id="g5214">
+        <path
+           id="path5216"
+           d="M 114.4375,103.625 L 114.4375,584.28125 L 119.4375,584.28125 L 119.4375,103.625 L 114.4375,103.625 z"
+           style="fill:#696969;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <path
+           id="path5218"
+           style="font-size:12px;fill:#696969;fill-opacity:1;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+           d="M 122.98247,574.66198 L 116.95589,591.05079 L 110.92931,574.66198 C 114.4874,577.28023 119.35549,577.26514 122.98247,574.66198 z" />
+      </g>
+    </g>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;marker-start:url(#Arrow2Sstart);marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 1838.7419,826.85831 C 1856.9227,827.56182 1869.2387,828.96887 1869.2387,845.14982 C 1869.2387,861.33077 1865.9039,864.89688 1870.5957,874.74613 C 1875.2875,884.59542 1887.0171,884.24081 1887.0171,884.24081"
+       id="path5220"
+       sodipodi:nodetypes="cssc" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;marker-start:url(#Arrow2Sstart);marker-end:none;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 1838.7415,941.51719 C 1856.9223,940.81368 1869.2384,939.40663 1869.2384,923.22568 C 1869.2384,907.04473 1865.9035,903.47862 1870.5953,893.62937 C 1875.2872,883.78008 1887.0167,884.13469 1887.0167,884.13469"
+       id="path5222"
+       sodipodi:nodetypes="cssc" />
+    <g
+       id="g5224"
+       transform="translate(1622.3119,885.53631)">
+      <g
+         transform="translate(10.606602,-111.11678)"
+         id="g5226">
+        <rect
+           style="opacity:0.5;fill:#cf4c18;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect5228"
+           width="205"
+           height="22.142857"
+           x="-11.664536"
+           y="569.5495"
+           ry="2.5" />
+        <text
+           xml:space="preserve"
+           style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+           x="-5.1129918"
+           y="586.94794"
+           id="text5230"
+           sodipodi:linespacing="100%"><tspan
+             sodipodi:role="line"
+             id="tspan5232"
+             x="-5.1129918"
+             y="586.94794">Stack Pointer</tspan></text>
+      </g>
+      <text
+         sodipodi:linespacing="100%"
+         id="text5234"
+         y="450.81635"
+         x="27.405937"
+         style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+         xml:space="preserve"><tspan
+           y="450.81635"
+           x="27.405937"
+           id="tspan5236"
+           sodipodi:role="line">    GPR1</tspan></text>
+    </g>
+    <path
+       style="fill:#3bb7fa;fill-opacity:1;fill-rule:evenodd;stroke:#262626;stroke-width:0.05;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 1591.5409,1275.1726 C 1591.231,1275.1783 1591.0133,1275.228 1590.9159,1275.2976 C 1590.4234,1275.6496 1590.1416,1277.3878 1590.0096,1279.5789 C 1580.7718,1280.549 1573.2549,1282.6886 1567.2596,1286.4851 C 1557.1965,1292.8576 1552.4683,1303.9377 1551.8846,1318.9851 C 1551.1775,1337.2164 1559.5734,1348.5328 1571.4471,1353.9539 C 1583.3209,1359.375 1606.2378,1359.9004 1620.2552,1359.9226 L 1620.2552,1351.9226 C 1606.4811,1351.9008 1584.457,1351.0858 1574.7909,1346.6726 C 1565.1247,1342.2595 1559.268,1335.1943 1559.8846,1319.2976 C 1560.414,1305.6492 1563.9265,1298.0569 1571.5409,1293.2351 C 1575.9358,1290.452 1582.079,1288.6351 1590.1346,1287.7039 C 1590.3564,1290.2923 1590.7369,1292.319 1591.2284,1292.4539 C 1592.7179,1292.8628 1623.1977,1285.9008 1623.1346,1283.7976 C 1623.1081,1282.9147 1617.6628,1281.0802 1611.2909,1279.3289 L 1611.2909,1279.0789 C 1610.9301,1279.0667 1610.5856,1279.0584 1610.2284,1279.0476 C 1602.5897,1276.9933 1593.9962,1275.1281 1591.5409,1275.1726 z"
+       id="path5238"
+       sodipodi:nodetypes="cscsssccssscsscccc" />
+    <text
+       xml:space="preserve"
+       style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Century Schoolbook L;-inkscape-font-specification:Century Schoolbook L"
+       x="224.4989"
+       y="189.18263"
+       id="text5265"
+       sodipodi:linespacing="100%"><tspan
+         sodipodi:role="line"
+         id="tspan5267"
+         x="224.4989"
+         y="189.18263">Back Chain</tspan></text>
+    <g
+       id="g2700"
+       transform="translate(-957.5647,-102.83842)">
+      <path
+         style="fill:#1589c7;fill-opacity:1;fill-rule:evenodd;stroke:#262626;stroke-width:0.05000000000000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 191.45273,703.375 C 190.46108,703.36529 189.78994,703.4054 189.60898,703.5625 C 189.09045,704.01264 189.02477,706.19286 189.17148,708.8125 C 186.67503,709.37128 182.57476,710.04512 179.96875,710.875 C 172.73394,713.17894 165.2754,716.61054 159.3125,722.0625 C 153.3496,727.51448 148.9974,735.15389 148.4375,744.84375 C 147.6177,759.03012 155.96095,770.04818 168.78125,776.53125 C 181.60145,783.01434 198.97835,785.78936 218.40625,785.46875 L 218.25,777.46875 C 199.6839,777.77516 183.3738,774.937 172.375,769.375 C 161.3762,763.81302 155.76915,756.33588 156.40625,745.3125 C 156.84655,737.69269 159.98855,732.29367 164.71875,727.96875 C 169.44904,723.64385 175.88365,720.57708 182.40625,718.5 C 184.50789,717.83074 188.1256,717.28766 190.17148,716.8125 C 190.60324,718.94851 191.10058,720.57807 191.54648,720.65625 C 193.06795,720.92298 222.77629,711.08782 222.51523,709 C 222.28647,707.17059 198.39425,703.44295 191.45273,703.375 z"
+         transform="translate(957.5647,102.83842)"
+         id="path2702"
+         sodipodi:nodetypes="cscssssccsssscssc" />
+    </g>
+  </g>
+</svg>

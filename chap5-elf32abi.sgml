@@ -1,0 +1,1007 @@
+<!-- Author(s): See <authorgroup> in PPC-elf32abi.sgml -->
+<!-- Copyright (c) 2011, Power.org -->
+<!-- Permission is granted to copy, distribute and/or modify this document
+     under the terms of the GNU Free Documentation License, Version 1.3; with
+     no Invariant Sections, with no Front-Cover Texts, and with no Back-Cover 
+     Texts. A copy of the license is available in the COPYING.txt file. -->
+
+<chapter id="PROG-LOAD-DL"><title>Program Loading and Dynamic Linking</title> 
+
+	<sect1 id="LINUX-ABI-PROGRAM-LOADING" CONDITION="ATR-LINUX"><title>Program Loading</title>
+		<para>A number of criteria constrain the mapping of an executable file or
+		shared object file to virtual memory segments.  During mapping, the
+		operating system may employ delayed physical reads to improve
+		performance, which necessitates that file offsets and virtual addresses
+		are congruent, modulo the page size.</para>
+
+		<para>Page size must be less than or equal to the operating system
+		implemented congruency.  This ABI defines 64 KB congruency as the minimum
+		allowable.  To maintain interoperability between operating system
+		implementations, 64K congruency is recommended.</para>
+
+		<note><title>Note</title><para>Note: There is historical precedence
+		for 64 KB congruency in that there is synergy with the Power
+		Architecture instruction set whereby <emphasis>high</emphasis>
+		and <emphasis>high adjusted</emphasis> relocations can be
+		easily performed using <varname>addi</varname> or <varname>addis</varname>
+		instructions.</para></note>
+
+		<para>The value of the <varname>p_align</varname> member of
+		the program header struct must be 0x10000 which indicates that segments
+		are aligned on 64 KB boundaries.  The size of each segment is defined
+		to be a positive, integral power of two, but no less than 64
+		KB.</para>
+
+		<para>The following program header information will illustrate
+		an application that is mapped with a base address of
+		<emphasis>0x10000000</emphasis>:</para>
+
+		<table id="PROGRAM-HEADER-EXAMPLE" frame="none"><title>Program Header Example</title>
+			<tgroup cols='3' colsep='0' rowsep='0'>
+				<colspec colwidth='90' colname='c1' align="left">
+				<colspec colwidth='90' colname='c2' align="left">
+				<colspec colwidth='90' colname='c2' align="left">
+				<thead>
+					<row rowsep="1">
+						<entry>Header Member</entry>
+						<entry>Text Segment</entry>
+						<entry>Data Segment</entry>
+					</row>
+				</thead>
+				<tbody>
+					<row>
+						<entry>p_type</entry>
+						<entry>PT_LOAD</entry>
+						<entry>PT_LOAD</entry>
+					</row>
+
+					<row>
+						<entry>p_offset</entry>
+						<entry>0x000000</entry>
+						<entry>0x000af0 </entry>
+					</row>
+
+					<row>
+						<entry>p_vaddr</entry>
+						<entry>0x10000000</entry>
+						<entry>0x10010af0 </entry>
+					</row>
+
+					<row>
+						<entry>p_paddr</entry>
+						<entry>0x10000000</entry>
+						<entry>0x10010af0 </entry>
+					</row>
+
+					<row>
+						<entry>p_filesz</entry>
+						<entry>0x00af0</entry>
+						<entry>0x00124  </entry>
+					</row>
+
+					<row>
+						<entry>p_memsz</entry>
+						<entry>0x00af0</entry>
+						<entry>0x00128  </entry>
+					</row>
+
+					<row>
+						<entry>p_flags</entry>
+						<entry>R-E</entry>
+						<entry>RW-</entry>
+					</row>
+
+					<row>
+						<entry>p_align</entry>
+						<entry>0x10000</entry>
+						<entry>0x10000</entry>
+					</row>
+
+				</tbody>
+			</tgroup>
+		</table>
+
+		<note><title>note</title><para>Note: For the PT_LOAD entry describing
+		the data segment, the <varname>p_memsz</varname> may be greater than the <varname>p_filesz</varname>.
+		The difference is the size of the .bss section. On
+		implementations that use virtual memory file mapping, only the
+		portion of the file between the .data <varname>p_offset</varname> (rounded down to
+		the nearest page) to <varname>p_offset</varname> &plus; <varname>p_filesz</varname> (rounded up to the
+		next page size) is included. If the distance between <varname>p_offset</varname> &plus;
+		<varname>p_filesz</varname> and <varname>p_offset</varname> &plus; <varname>p_memsz</varname> crosses a page boundary then
+		additional memory must be allocated out of anonymous memory
+		to include data through <varname>p_vaddr</varname> &plus; <varname>p_memsz</varname>.</para></note>
+
+		<para><emphasis><xref linkend="MSM"></emphasis> demonstrates a typical mapping of file to
+		memory segments.</para>
+
+		<table id="MSM" frame="none"><title>Memory Segment Mappings</title>
+			<tgroup cols='3' colsep='0' rowsep='0'>
+				<colspec colwidth='90' colname='c1' align="left">
+				<colspec colwidth='90' colname='c2' align="left">
+				<colspec colwidth='90' colname='c2' align="left">
+				<thead>
+					<row rowsep="1">
+						<entry>File</entry>
+						<entry>Section</entry>
+						<entry>Virtual Address</entry>
+					</row>
+				</thead>
+				<tbody>
+						<row>
+							<entry>0x0</entry>
+							<entry>header</entry>
+							<entry>0x10000000</entry>
+						</row>
+
+						<row>
+							<entry>0x100</entry>
+							<entry>.text</entry>
+							<entry>0x10000100</entry>
+						</row>
+
+						<row>
+							<entry>0xaf0</entry>
+							<entry>.data</entry>
+							<entry>0x10010af0</entry>
+						</row>
+
+						<row>
+							<entry>0xc14</entry>
+							<entry>.bss</entry>
+							<entry>0x10010c14</entry>
+						</row>
+
+						<row>
+							<entry>0xc18</entry>
+							<entry>.dataend</entry>
+							<entry>0x10010c18</entry>
+						</row>
+				</tbody>
+			</tgroup>
+		</table>
+
+		<para>Operating systems typically enforce memory permission on a per-page granularity.  This ABI
+		maintains that the memory permissions are consistent across each memory segment when a File image is
+		mapped to a process Memory Segment.  The Text Segment and Data Segment require differing memory
+		permissions.  To maintain congruency of file offset to virtual address modulo the page size the system
+		will map the file region holding the overlapped text and data twice at different virtual addresses for
+		each segment (see <emphasis><xref linkend="FItoPIM"></emphasis>).</para>
+
+		<para CONDITION="ATR-SECURE-PLT">Under the Secure-PLT ABI, certain sections of
+		the Data Segment may be protected as read-only after the pages are mapped and relocations are resolved.
+		See <emphasis><xref linkend="SECURE-PLT"></emphasis> for more information.</para>
+
+		<figure id="FItoPIM"><title>File Image to Process Memory Image Mapping</title>
+			<mediaobject><imageobject><imagedata scale=75 fileref="graphics/file-to-process-mapping.png" format="PNG"></imageobject></mediaobject>
+		</figure>
+
+		<para>As a result of this mapping there can be up to four pages of impure text or data in the virtual memory segments
+		for the application as described in the following list:</para>
+
+		<orderedlist>
+			<listitem><para>ELF header information, program headers, and other
+			information will precede the .text section and reside at the beginning
+			of the Text Segment.</para></listitem>
+
+			<listitem><para>The last memory page of the Text Segment can contain a copy of
+			the partial, first file image Data page as an artifact of page faulting the
+			last file image Text page from the file image to the Text Segment while maintaining the
+			required offsets as shown in <emphasis><xref linkend="FItoPIM"></emphasis>.</para></listitem>
+
+			<listitem><para>Likewise, the first memory page of the Data Segment may contain a copy of
+			the partial, last file image Text page as an artifact of page faulting the first
+			file image Data page from the file image to the Data Segment while maintaining the required
+			offsets.</para></listitem>
+
+			<listitem><para>The last faulted Data Segment memory page may contain residual data from the
+			last file image Data page that is not part of the actual file image.  The system is required
+			to zero this residual memory; after that page is mapped to the Data Segment.  If the application
+			requires static data, the remainder of this page is used for that purpose.  If the static
+			data requirements exceed the remnant left in the last faulted memory page, additional pages shall be
+			mapped from anonymous memory and zeroed.</para> </listitem>
+
+		</orderedlist>
+
+		<note><title>Note</title><para>Note: The handling of the contents of the first three impure
+		pages is undefined by this ABI.</para></note>
+		<sect2 id="ADDRESSING-MODELS"><title>Addressing Models</title>
+			<para>When mapping an executable file or shared object file to memory the
+			system can utilize the following addressing models.  Each application is
+			allocated its own virtual address space.</para>
+	
+			<itemizedlist>
+
+				<listitem>
+
+					<para>Traditionally executable files have been mapped to virtual memory using an
+					<emphasis role="bold">absolute</emphasis> addressing model, where the mapping of
+					the sections to segments uses the section <varname>p_vaddr</varname> specified
+					by the ELF header directly as an absolute address.</para>
+
+				</listitem>
+	
+				<listitem>
+
+					<para> The Position-Independent Code (<emphasis role="bold">PIC</emphasis>)
+					addressing model allows the file image Text of an executable file or shared object file to be loaded
+					into the virtual address space of a process at an arbitrary starting address
+					chosen by the kernel loader or program interpreter (dynamic linker).</para>
+
+					<note><title>note</title><para>Note: Shared objects need to use the PIC addressing model so that all
+					references to global variables go through the <emphasis><link linkend="GLOBAL-OFFSET-TABLE">Global Offset Table</link></emphasis>.</para></note>
+
+					<note><title>note</title><para>Note: Position-independent executables should use the
+					PIC addressing model.</para></note>
+
+				</listitem>
+			</itemizedlist>
+		</sect2>
+	</sect1>
+
+	<sect1 CONDITION="ATR-LINUX || ATR-TLS"><title>Dynamic Linking</title>
+
+		<sect2 id="PROG-INT"><title>Program Interpreter</title>
+			<para>For dynamic linking the standard program interpreter is /lib/ld.so.1.</para>
+		</sect2>
+
+		<sect2 id="DYNAM-SECT"><title>Dynamic Section</title>
+			<para>The dynamic section provides information used by
+			the dynamic linker to manage dynamically loaded shared
+			objects, including relocation, initialization, and
+			termination when loaded or unloaded, resolving
+			dependencies on other shared objects, resolving
+			references to symbols in the shared object, and
+			supporting debugging.  The following dynamic tags
+			are relevant to this processor specific ABI:</para>
+
+			<variablelist>
+				<varlistentry><term>DT_PLTGOT</term>
+					<listitem>
+						<para>The <emphasis role="bold"><varname>d_ptr</varname></emphasis> member of this dynamic tag holds the address of
+						the first byte of the <emphasis><link linkend="PLT">Procedure Linkage Table</link></emphasis>.</para>
+					</listitem>
+				</varlistentry>
+				<varlistentry><term>DT_JMPREL</term>
+					<listitem>
+
+						<para>The <emphasis role="bold"><varname>d_ptr</varname></emphasis> member of this dynamic
+						tag points to the first byte of the table of relocation entries which
+						have a one-to-one correspondence with PLT entries.  Any executable or
+						shared object with a PLT must have DT_JMPREL.  A shared object
+						containing only data will not have a PLT and thus will not have
+						DT_JMPREL.</para>
+
+					</listitem>
+				</varlistentry>
+			</variablelist>
+
+		</sect2>
+
+		<sect2 id="GLOBAL-OFFSET-TABLE"><title>Global Offset Table</title>
+
+			<para>To support position independent code, a Global Offset Table (GOT) shall be constructed by
+			the link editor in the Data Segment when linking code containing any of the various R_PPC_GOT*
+			relocations or when linking code that references the _GLOBAL_OFFSET_TABLE_ symbol.  The link
+			editor shall emit dynamic relocations as appropriate for each entry in the GOT.  At runtime, the
+			dynamic linker will apply these relocations once addresses of all memory segments are known (and
+			thus the addresses of all symbols).  At that point, the GOT may be considered to be an array of
+			absolute addresses, but note that this ABI does not preclude the GOT containing nonaddress
+			entries.</para>
+
+<!--<para>An executable file and accompanying shared object files each have
+their own GOT. The dynamic linker processes all GOT relocations before
+giving control to any code in the process image, ensuring that the
+absolute addresses are available during execution. The dynamic linker
+can choose different memory segment addresses for the same shared
+object in different programs; it can even choose different library
+addresses for different executions of the same program. Nonetheless,
+memory segments do not change addresses once the process image is
+established. As long as a process exists, its memory segments reside
+at fixed virtual addresses.</para> -->
+
+			<para>Absolute addresses are generated for all GOT relocations by the dynamic linker before
+			giving control to any process image code.  The dynamic linker is free to choose different memory
+			segment addresses for the executable or shared objects in a different process image.  After the
+			initial mapping of the process image by the dynamic linker, memory segments reside at fixed
+			addresses for the life of a process.</para>
+
+			<para>The symbol _GLOBAL_OFFSET_TABLE_ may be used to access the GOT or in GOT-relative
+			addressing to other data constructs, such as the Procedure Linkage Table. The symbol may be
+			offset by 0x8000 bytes from the start of the .got section. This offset allows the use of the
+			full (64KB) signed range of 16-bit displacement fields by using both positive and negative
+			subscripts into the array of addresses.</para>
+
+			<sect3 id="GOT-AND-SECURE-PLT" CONDITION="ATR-SECURE-PLT"><title>Global Offset Table Under The Secure-PLT ABI</title>
+
+			<para>Under the Secure-PLT ABI, a writable segment cannot be executable and an executable
+			segment cannot be writable.  Therefore, the GOT shall be nonexecutable.  A program may
+			calculate the address of the GOT by using the position independent code shown in <emphasis><xref
+			linkend="RELOCATION-TABLE"></emphasis>.</para>
+
+			
+			<figure id="SECURE-PLT-GOT-LOAD"><title>Loading the Address of _GLOBAL_OFFSET_TABLE_ Under the Secure-PLT ABI</title>
+			<programlisting>bcl 20,31,1f
+1: mflr 30
+  addis 30,30,(got-1b)@ha
+  addi 30,30,(got-1b)@l</programlisting></figure>
+
+			<para>In <emphasis><xref linkend="SECURE-PLT-GOT-LOAD"></emphasis> the computed address of the
+			<varname>_GLOBAL_OFFSET_TABLE_</varname> symbol is placed in r30.</para>
+
+			<para>Using r30 to hold the address of the <varname>_GLOBAL_OFFSET_TABLE_</varname> symbol is
+			the current convention used by the compiler and link-editor and is only required for nonleaf
+			routines which use the PIC addressing model.  Leaf routines or code not using the PIC addressing
+			model may use any available unreserved general-purpose register to hold the address of the
+			<varname>_GLOBAL_OFFSET_TABLE_</varname> symbol.  See <emphasis><xref
+			linkend="SECURE-PLT"></emphasis> for more information on this convention.</para>
+
+
+			<para>Under the Secure-PLT ABI three words in the <emphasis><link
+			linkend="GLOBAL-OFFSET-TABLE">Global Offset Table</link></emphasis> are reserved:</para>
+			<variablelist> <varlistentry> <term><emphasis
+			role="bold"><varname>_GLOBAL_OFFSET_TABLE_[0]</varname></emphasis></term> <listitem>
+			<para>Initialized to the link-time address of the .dynamic section by the link editor.</para>
+			</listitem> </varlistentry>
+
+				<varlistentry>
+					<term><emphasis role="bold"><varname>_GLOBAL_OFFSET_TABLE_[1]</varname></emphasis></term>
+					<listitem>
+						<para>Initialized to the address of <varname>dl_runtime_resolve</varname> by the dynamic linker.</para>
+					</listitem>
+				</varlistentry>
+
+				<varlistentry>
+					<term><emphasis role="bold"><varname>_GLOBAL_OFFSET_TABLE_[2]</varname></emphasis></term>
+					<listitem>
+						<para>Reserved for use by the dynamic linker.  This entry holds a parameter of dl_runtime_resolve.</para>
+					</listitem>
+				</varlistentry>
+			</variablelist>
+			</sect3>
+			<sect3 id="GOT-AND-BSS-PLT" CONDITION="ATR-BSS-PLT"><title>Global Offset Table Under The BSS-PLT ABI</title>
+			<para>Under the BSS-PLT ABI four words in the <emphasis><link linkend="GLOBAL-OFFSET-TABLE">Global Offset Table</link></emphasis> are reserved:</para>
+			<variablelist>
+				<varlistentry>
+					<term><emphasis role="bold"><varname>_GLOBAL_OFFSET_TABLE_[-1]</varname></emphasis></term>
+					<listitem>
+						<para>Holds the <varname>blrl</varname> instruction.</para>
+					</listitem>
+				</varlistentry>
+
+				<varlistentry>
+					<term><emphasis role="bold"><varname>_GLOBAL_OFFSET_TABLE_[0]</varname></emphasis></term>
+					<listitem>
+						<para>Initialized by the link editor to the address of the .dynamic section.  The dynamic linker uses this address (by referencing the symbol _DYNAMIC, which holds the address of the .dynamic section) to determine the run-time load address of shared objects and of the dynamic linker itself.</para>
+					</listitem>
+				</varlistentry>
+
+				<varlistentry>
+					<term><emphasis role="bold"><varname>_GLOBAL_OFFSET_TABLE_[1]</varname></emphasis></term>
+					<listitem>
+						<para>Reserved for future use.</para>
+					</listitem>
+				</varlistentry>
+
+				<varlistentry>
+					<term><emphasis role="bold"><varname>_GLOBAL_OFFSET_TABLE_[2]</varname></emphasis></term>
+					<listitem>
+						<para>Reserved for future use.</para>
+					</listitem>
+				</varlistentry>
+			</variablelist>
+
+			<para>The program text in <emphasis><xref linkend="BSS-PLT-GOT-LOAD"></emphasis> may be used
+			to load the address of the <varname>_GLOBAL_OFFSET_TABLE_</varname> symbol into a general purpose register
+			(in this case r31).</para>
+
+			<figure id="BSS-PLT-GOT-LOAD"><title>Loading the Address of _GLOBAL_OFFSET_TABLE_ Under the BSS-PLT ABI</title>
+			<programlisting>bl      _GLOBAL_OFFSET_TABLE_-4@local
+mflr    r31
+			</programlisting></figure>
+<!--
+			<para> The program text in <emphasis><xref linkend="BSS-PLT-GOT-LOAD"></emphasis> utilizes the
+			fact that the <varname>bl</varname> and <varname>blrl</varname> instructions load the address of
+			the instruction following the branch instruction into the link register.  When the
+			<varname>bl</varname> instruction branches into the GOT the address of the
+			<varname>mflr</varname> instruction is placed in the link register. When the
+			<varname>blrl</varname> instruction at <varname>_GLOBAL_OFFSET_TABLE_[-1]</varname> branches to
+			the <varname>mflr</varname> instruction held in the link register the address of
+			<varname>_GLOBAL_OFFSET_TABLE_[0]</varname> is loaded into the link register.  When the
+			<varname>mflr</varname> instruction is executed the address of
+			<varname>_GLOBAL_OFFSET_TABLE_[0]</varname>, held in the link register, is loaded into
+			r31.</para> -->
+
+			</sect3> </sect2>
+
+		<sect2 id="FUNC-ADDRESS"><title>Function Addresses</title>
+
+			<para>The following requirements concern function addresses.</para>
+
+			<variablelist>
+				<varlistentry>
+					<term><emphasis role="bold">When referencing a function address:</emphasis></term>
+					<listitem>
+
+						<para>Intraobject executable or shared object function address
+						references may be resolved by the dynamic linker to the absolute virtual
+						address of the symbol.</para>
+
+						<para CONDITION="ATR-SECURE-PLT">Function address references from within the executable
+						file to a function defined in a shared object file are resolved by the
+						link editor to the .text section address of the <emphasis><link
+						linkend="SECURE-PLT">Secure-PLT call stub</link></emphasis> for that function
+						within the executable file.</para>
+
+						<para CONDITION="ATR-BSS-PLT">Function address references from within the executable file
+						to a function defined in a shared object file are resolved by the link
+						editor to the address of the <emphasis><link linkend="BSS-PLT">PLT entry</link></emphasis>
+						for that function within the executable file.</para>
+
+					</listitem>
+				</varlistentry>
+
+				<varlistentry>
+					<term><emphasis role="bold">When comparing function addresses:</emphasis></term>
+					<listitem>
+
+						<para>The address of a function shall compare to the same value in
+						executables and shared objects.</para>
+
+						<para>For intraobject comparisons of function addresses within the
+						executable or shared object the link editor may directly compare the
+						absolute virtual addresses.</para>
+
+						<para CONDITION="ATR-SECURE-PLT">For a function address comparison where
+						an executable references a function defined in a shared object, the link
+						editor will place the address of a .text section <link
+						linkend="SECURE-PLT">Secure-PLT call stub</link> for that function in
+						the corresponding dynamic symbol table entry's
+						<varname>st_value</varname> field (see <emphasis><xref
+						linkend="SYMBOL-VALUES"></emphasis>).</para>
+
+						<para CONDITION="ATR-BSS-PLT">For a function address comparison where an
+						executable references a function defined in a shared object, the link
+						editor will place the address of the <link linkend="BSS-PLT">PLT
+						entry</link> for that function in the function's dynamic symbol table
+						entry's <varname>st_value</varname> field (see
+						<emphasis><xref linkend="SYMBOL-VALUES"></emphasis>).</para>
+
+						<para>When the dynamic linker loads shared objects associated with an
+						executable and resolves any outstanding relocations into absolute
+						addresses it will search the dynamic symbol table of the executable for each
+						symbol that needs to be resolved.</para>
+
+						<para>If it finds the symbol and the <varname>st_value</varname> of the
+						symbol table entry is nonzero it shall use the address indicated in the
+						<varname>st_value</varname> entry as the symbol's address.  If the
+						dynamic linker does not find the symbol in the executable's dynamic
+						symbol table, or the entry's <varname>st_value</varname> member is zero
+						the dynamic linker may consider the symbol as undefined in the
+						executable file.</para>
+
+					</listitem>
+				</varlistentry>
+			</variablelist>
+		
+		</sect2>
+
+		<sect2 id="PLT"><title>Procedure Linkage Table</title>
+
+		<para>When the link editor builds an executable file or shared object file it doesn't know the absolute
+		address of undefined function calls; therefore, it can't generate code to directly transfer execution to
+		another shared object or executable.  For each execution transfer to an undefined function call in the
+		file image the link editor places a relocation against an entry in the <emphasis>Procedure Linkage
+		Table</emphasis> (PLT) of the executable or shared object that corresponds to that function call.</para>
+
+		<para>Additionally, for all nonstatic functions with standard (nonhidden) visibility in a shared object
+		the link editor will invoke the function through the PLT, even if the shared object defines the
+		function.  The same is not true for executables.</para>
+
+		<para>The link editor knows the number of functions invoked via the PLT and it reserves space for an
+		appropriately sized .plt section.</para>
+
+		<para>A unique PLT shall be constructed for the executable and each dependent shared object in the Data
+		segment of the process image at object load time by the dynamic linker using the information about the
+		.plt section stored in the file image.  The individual PLT entries are populated by the dynamic linker
+		using one of the following binding methods.  Execution can then be redirected to a dependent shared
+		object or executable.</para>
+
+		<variablelist>
+			<varlistentry><term><emphasis role="bold">Lazy Binding</emphasis></term>
+				<listitem>
+
+					<para>The lazy binding method is the default.  It delays the resolution of a PLT
+					entry to an absolute address until the function call is made the first time.
+					The benefit of this method is that the application doesn't pay the resolution
+					cost until the first time it needs to call the function, if at all.</para>
+
+				</listitem>
+			</varlistentry>
+			<varlistentry><term><emphasis role="bold">Immediate Binding</emphasis></term>
+				<listitem>
+
+					<para>The immediate binding method will resolve the absolute addresses of all
+					PLT entries in the executable and dependent shared objects at load time, prior
+					to passing execution control to the application.  The environment variable
+					<varname>LD_BIND_NOW</varname> may be set to a nonnull value to signal the
+					dynamic linker that immediate binding is desired at load time, before control is
+					given to the application. </para>
+
+					<para>For some performance sensitive situations it may be better to pay the
+					resolution cost to populate the PLT entries upfront rather than during
+					execution.</para>
+				</listitem>
+			</varlistentry>
+		</variablelist>
+
+		<sect3 id="BSS-PLT" CONDITION="ATR-BSS-PLT"><title>BSS Procedure Linkage Table</title>
+			
+			<para>Under the BSS-PLT ABI, PLT entries hold executable stubs which transfer program control
+			from the executable or shared object to the requested function once the absolute address of the
+			function has been calculated by the dynamic linker.</para>
+			
+			<para>The PLT is created in the .plt section of the Data segment at load time by the dynamic linker. It is
+			composed of the following parts:</para>
+
+			<itemizedlist>
+				<listitem>
+
+					<para>The first 18 words (72 bytes) are reserved for the dynamic linker.  This
+					space may be used for trampoline code that transfers execution to the runtime
+					resolver in order to resolve PLT relocations into absolute addresses.</para>
+			
+				</listitem>
+				<listitem>
+					<para>For PLT entries 1 through 8192 the link editor reserves two words.</para>
+				</listitem>
+				<listitem>
+					<para>For PLT entries 8193 through <emphasis>n</emphasis> the link editor reserves four words.</para>
+				</listitem>
+				<listitem>
+					<para>The link editor reserves an additional word for each entry in the PLT following the actual entries.</para>
+				</listitem>
+			</itemizedlist>
+	
+			<para><emphasis><xref linkend="BSS-PLT-SECTION-IMPLEMENTATION"></emphasis> shows a possible rule
+			conforming example implementation of a .plt section after an executable or shared object is
+			loaded but before outstanding PLT entry relocations are resolved.  This example uses a
+			trampoline to branch to the dynamic linker's runtime resolver for resolving outstanding
+			PLT entries. This example is for demonstration purposes only since the exact method is not
+			mandated by the ABI.</para>
+
+			<figure id="BSS-PLT-SECTION-IMPLEMENTATION"><title>Example BSS-PLT .plt Section Implementation</title>
+			<programlisting>
+.plt
+                # Use when the plt entry target address exceeds +/- 32MB.
+                # Convert the index into the .plt_datawords array held in
+                # r11 into an actual address.
+.plt_farcall:   addis   r11,r11,.plt_datawords@ha
+                lwz     r11,.plt_datawords@l(r11)
+                mtctr   r11
+                bctr
+                nop
+                nop
+
+                # Subtract .plt_datawords for long entries
+.plt_longbranch:addis   r11,r11,&minus;.plt_datawords@ha
+                addi    r11,r11,&minus;.plt_datawords@l
+
+                # Multiply index of the entry in r11 by 3
+.plt_trampoline:rlwinm  r12,r11,1,0,30
+                # Add it to the index in r11 which will then hold the
+                # relocation offset of the corresponding entry in the
+                # relocation table.
+                add     r11,r12,r11
+                # Load the address of dl_runtime_resolve into r12
+                li      r12,dl_runtime_resolve@l
+                addis   r12,r12,dl_runtime_resolve@ha
+                mtctr   r12
+                # Get the address of the dynamic linker's link map in
+                # order to later locate the symbol table for the object
+                li      r12,link_map@l
+                addis   r12,r12,link_map@ha
+                # Pass execution to the runtime resolver code.
+                bctr
+                nop
+                nop
+
+                # Each entry in .plt_n loads the index of the
+                # entry into the PLT entry list into r11
+                # .plt_1
+                li      r11,4&times;0
+                b       .plt_trampoline
+                ...
+                # .plt_<emphasis>i</emphasis>
+                li      r11,4&times;i
+                b       .plt_trampoline
+                ...
+                # Entries 8193 - <emphasis>n</emphasis> use every other slot due to
+                # the extra instructions required for branching.
+                # .plt_8193       
+                lis     r11,8193&times;4&plus;.plt_datawords@ha
+                lwzu    r12,8193&times;4&plus;.plt_datawords@l(r11)
+                b       .plt_longbranch
+                bctr
+                ...
+                # .plt_<emphasis>n</emphasis>
+                lis     r11,n&times;4&plus;.plt_datawords@ha
+                lwzu    r12,n&times;4&plus;.plt_datawords@l(r11)
+                b       .plt_longbranch
+                bctr
+
+                # .plt_datawords1	
+.plt_datawords: nop
+                ...
+                # .plt_datawords<emphasis>i</emphasis>
+                nop
+                ...
+                # .plt_datawords8193	
+                nop
+                ...
+                # .plt_datawords<emphasis>n</emphasis>
+                nop
+			</programlisting></figure>
+
+			<para>The address of relocation entries 1 through 8192 are close enough to the address of the runtime resolver trampoline
+			<varname>.plt_trampoline</varname> to use a relative branch.  Relocations 8193 through
+			<emphasis>n</emphasis> must use additional instructions to reach the trampoline code.  As a
+			result PLT entries 8193 through <emphasis>n</emphasis> consist of four words rather than two.
+			These entries branch to <varname>.plt_longbranch</varname> which cascades into the trampoline
+			code.</para>
+
+			<note><title>note</title><para>Note: there are exactly 18 instructions between <varname>.plt</varname>
+			and the first PLT entry indicated by <varname>.plt_1</varname>.  These 18 instructions (including
+			<varname>nop</varname> instructions) correspond with the space reserved at the head of the plt section
+			for the dynamic linker trampolines.  Following the <varname>.plt_n</varname> entry there are exactly
+			<emphasis>n</emphasis> word entries in <varname>.plt_datawords</varname>.</para></note>
+		
+			<note><title>note</title><para>Note: In the case where the address of the runtime resolver is
+			too far away from the <varname>.plt_trampoline</varname> to use a relative branch the trampoline
+			code may need to perform additional instructions to pass control to the resolver.  This is not
+			shown in the <emphasis><xref linkend="BSS-PLT-SECTION-IMPLEMENTATION"></emphasis></para></note>
+
+			<para>When the instructions in a PLT entry are executed for the first time they pass execution
+			to the dynamic linker's runtime resolver code.  The resolver will attempt to find the absolute
+			virtual address of the function associated with the PLT slot and populate the entry with the
+			address.</para>
+
+			<para>The <varname>DT_JMPREL</varname> entry of the <varname>_DYNAMIC</varname> array to holds
+			the address of the relocation table of the shared object or executable.  Since PLT entries don't
+			have symbol names attached to them the dynamic linker must find the symbol name.  There is a one
+			to one correspondence between PLT entries and relocation entries and the dynamic linker uses an
+			offset into the relocation table (held in r11 in <emphasis><xref
+			linkend="BSS-PLT-SECTION-IMPLEMENTATION"></emphasis>), corresponding to the PLT entry, to find
+			the relocation entry.</para>
+
+			<para>The relocation table contains <varname>R_PPC_JMP_SLOT</varname> relocations.  Each of
+			these relocations contain an offset to the corresponding PLT entry from the start of the shared
+			object or executable followed by the index into the dynamic symbol table for the symbol.  The
+			dynamic linker uses this symbol table entry to look up the name of the symbol in a dependent
+			shared library or executable.</para>
+
+			<para>After the dynamic linker has resolved the absolute address of the function corresponding
+			to a PLT entry subsequent execution of the PLT entry will result in control passing directly to
+			the target function either directly or indirectly through the <varname>.plt_farcall</varname>
+			trampoline.</para>
+
+			<para><emphasis><xref linkend="POST-BSS-PLT-RESOLUTION"></emphasis> shows an example of how the
+			PLT entries for functions <emphasis>name1</emphasis> (corresponding to PLT slot 1),
+			<emphasis>name2</emphasis> (corresponding to PLT slot 2), <emphasis>name8193</emphasis>
+			(corresponding to PLT slot 8193), and <emphasis>name8194</emphasis> have been resolved by the
+			dynamic linker after executing the runtime resolver (where <emphasis>[stale]</emphasis> is a
+			comment which indicates that these memory locations in the .plt retained their content after the
+			resolver has run but are unreachable for execution).</para>
+
+		
+			<figure id="POST-BSS-PLT-RESOLUTION"><title>Example BSS-PLT Entries Post Resolution</title>
+			<programlisting>
+                ....
+                # .plt_1
+                b	&lt;absolute address of <emphasis>name1</emphasis>&gt;
+                b       .plt_trampoline	# [stale]
+                .plt_2
+                li      r11,4&times;2
+                b       .plt_farcall
+                ...
+                # .plt_8193
+                b       &lt;absolute address of <emphasis>name8193</emphasis>&gt;
+                lwzu    r12,8193&times;8&plus;.plt_datawords@l(r11)	# [stale]
+                b       .plt_longbranch         # [stale]
+                bctr                            # [stale]
+                ...
+                # .plt_8194
+                li	r11,4&times;8194
+                b	.plt_farcall
+                b       .plt_longbranch         # [stale]
+                bctr                            # [stale]
+                # .plt_datawords1
+.plt_datawords: nop
+                ...
+                # .plt_datawords2	
+                &lt;absolute address <emphasis>name2</emphasis>&gt;
+                ...
+                # .plt_datawords8193	
+                nop
+                ...
+                # .plt_datawords8194	
+                &lt;absolute address of <emphasis>name8194</emphasis>&gt;
+			</programlisting></figure>
+
+			<para>The following list explains the resolution of four different PLT entry examples shown in <emphasis><xref linkend="POST-BSS-PLT-RESOLUTION"></emphasis>.
+
+			<variablelist>
+				<varlistentry><term><emphasis>name1</emphasis></term>
+
+					<listitem><para>The address of function <emphasis>name1</emphasis> is within
+					&plusmn; 32 MB of the address of the <varname>.plt_1</varname> PLT entry such
+					that a relative branch to absolute virtual address of <emphasis>name1</emphasis>
+					is possible.</para></listitem>
+
+				</varlistentry>
+				<varlistentry><term><emphasis>name2</emphasis></term>
+
+					<listitem><para>The address of function <emphasis>name2</emphasis> is beyond
+					&plusmn; 32 MB of the address of the <varname>.plt_2</varname> PLT entry;
+					therefore, a relative branch to <varname>.plt_2</varname> is impossible so a
+					relative branch to the <varname>.plt_farcall</varname> trampoline is made which
+					loads the absolute virtual address of <emphasis>name2</emphasis> from
+					<varname>.plt_datawords2</varname> where it was placed by the dynamic linker
+					into the <emphasis>count register</emphasis>.  The <emphasis>bctr</emphasis>
+					instruction is executed to pass control to
+					<emphasis>name2</emphasis>.</para></listitem>
+
+				</varlistentry>
+				<varlistentry><term><emphasis>name8193</emphasis></term>
+
+					<listitem><para>The address of function <emphasis>name8193</emphasis> within
+					&plusmn; 32 MB of the address of the <varname>.plt_8193</varname> PLT entry;
+					therefore a relative branch to the absolute virtual address of
+					<emphasis>name8193</emphasis> is possible.</para></listitem>
+
+				</varlistentry>
+				<varlistentry><term><emphasis>name8194</emphasis></term>
+
+					<listitem><para>The address of function <emphasis>name8194</emphasis> is beyond
+					&plusmn; 32 MB of the address of the <varname>.plt_8194</varname> PLT entry;
+					therefore, a relative branch to <varname>.plt_8194</varname> is impossible so a
+					relative branch to the <varname>.plt_farcall</varname> trampoline is made which
+					loads the absolute virtual address of <emphasis>name8194</emphasis> from
+					<varname>.plt_datawords8194</varname> where it was placed by the dynamic linker
+					into the <emphasis>count register</emphasis>.  The <emphasis>bctr</emphasis>
+					instruction is executed to pass control to
+					<emphasis>name8194</emphasis>.</para></listitem>
+
+				</varlistentry>
+			</variablelist></para>
+
+		</sect3>
+
+		<sect3 id="SECURE-PLT" CONDITION="ATR-SECURE-PLT"><title>Secure Procedure Linkage Table</title>
+
+			<para>Under the Secure-PLT ABI, PLT entries corresponding to function calls hold absolute
+			addresses of those calls that are calculated by the dynamic linker.  These PLT entries are
+			nonexecutable and an executable fragment in the object .text section uses the absolute
+			addresses in the PLT entries as the target for indirect function invocation.</para>
+
+			<para><emphasis>Procedure Linkage Table</emphasis> (PLT) support under the Secure-PLT ABI is split into the following:</para>
+
+			<itemizedlist>
+				<listitem>
+					<para>The <emphasis>.plt section</emphasis>, residing in the Data Segment, contains an array of function addresses.</para>
+				</listitem>
+				<listitem>
+					<para><emphasis>Call stubs</emphasis>, residing in the .text section, use index relative addressing to load an absolute address of a function from a specific .plt slot.</para>
+				</listitem>
+				<listitem>
+			
+					<para>The <emphasis>.glink</emphasis>, residing in the .text section, is a symbol resolver stub.</para>
+			
+				</listitem>
+			</itemizedlist>
+
+			<para>The <emphasis>.glink</emphasis> and <emphasis>call stubs</emphasis> are
+			generated by the link editor and placed in the .text section.  The
+			<emphasis>call stubs</emphasis> need not be adjacent to one another or
+			unique, and they can be scattered throughout the text segment so that they
+			can be reached with a branch and link instruction.  The .plt section shall be
+			allocated by the dynamic linker in the Data Segment.</para>
+			
+			<para>The details of the <emphasis>call stub</emphasis> and
+			<emphasis>.glink</emphasis> implementation are left to the link editor except
+			for how the symbol resolver stub interfaces with the dynamic linker for lazy
+			PLT resolution.  Upon initialization by the dynamic linker, every .plt slot
+			holds the address of the symbol resolver stub that is located in the
+			.glink.</para>
+			
+			<para>The symbol resolver stub shall call the
+			<varname>dl_runtime_resolve()</varname> function specified by
+			<varname>_GLOBAL_OFFSET_TABLE_[1]</varname> with r11 set to the PLT
+			relocation offset, and r12 set to the value of
+			<varname>_GLOBAL_OFFSET_TABLE_[2]</varname>.</para>
+			
+			<para>The PIC <emphasis>call stub</emphasis> sequence requires that the
+			compiler ensure that the register used to hold the
+			<varname>_GLOBAL_OFFSET_TABLE_</varname> pointer is set before any calls are
+			made from the PLT.  The current convention between the compiler and link
+			editor is that r30 be used for this purpose.  This is a change from the
+			BSS-PLT ABI which only required GOT addressing to access static
+			storage.</para>
+			
+			<para>A possible implementation for PIC code follows, where <emphasis>n</emphasis> is the
+			<emphasis>n</emphasis>th <emphasis>call stub</emphasis>.</para>
+
+			<itemizedlist mark='none'>
+
+				<listitem>
+					<para>If (plt &plus;(<emphasis>n</emphasis> &minus; 1) &times; 4 &minus; got) is less than 32 KB the following PIC call stub implementation may be used.</para>
+				</listitem>
+
+				<listitem>
+					<programlisting>
+		 lwz 11,(plt &plus; (n &minus; 1) &times; 4 &minus; got)(30)
+		 mtctr 11
+		 bctr</programlisting>
+				</listitem>
+
+
+  	<listitem>
+  		<para>Otherwise, the following PIC call stub implementation may be used for greater addressability.</para>
+		<programlisting>
+		 addis 11,30,(plt &plus; (n &minus; 1) &times; 4 &minus; got)@ha
+		 lwz 11,(plt &plus; (n &minus; 1) &times; 4 &minus; got)@l(11)
+		 mtctr 11
+		 bctr</programlisting>
+	 </listitem>
+
+	<listitem>
+	  <para>For a PIC .glink the following implementation may be used.</para>
+	  <programlisting>
+  # A table of branches, one for each plt entry.
+  # The idea is that the plt call stub loads ctr (and r11) with these
+  # addresses, so (r11 &minus; res_0) gives the plt index &times; 4.
+  res_0:		 b PLTresolve
+  res_1:		 b PLTresolve
+  .
+  # Some number of entries towards the end can be nops
+  res_n_m3: nop
+  res_n_m2: nop
+  res_n_m1:
+
+  PLTresolve:
+		 addis 11,11,(1f&minus;res_0)@ha
+		 mflr 0
+		 bcl 20,31,1f
+  1:		 addi 11,11,(1b&minus;res_0)@l
+		 mflr 12
+		 mtlr 0
+		 sub 11,11,12		 	# r11 = index &times; 4
+		 addis 12,12,(got&plus;4&minus;1b)@ha
+		 lwz 0,(got&plus;4&minus;1b)@l(12)		# got[1] address of dl_runtime_resolve
+		 lwz 12,(got&plus;8&minus;1b)@l(12)	# got[2] contains the map address
+		 mtctr 0
+		 add 0,11,11
+		 add 11,0,11		 	# r11 = index &times; 12 = reloc offset.
+		 bctr
+	</programlisting>
+	</listitem>
+	</itemizedlist>
+
+
+
+<para>For non-PIC code, r30 will not hold the GOT pointer; so the stubs
+  must be different, as shown in the following implementation.</para>
+
+	<itemizedlist mark="none">
+	<listitem>
+  		<para>For a non-PIC call stub the following implementation may be used.</para>
+		<programlisting>  
+		 lis 11,(plt&plus;(i&minus;1)&times;4)@ha
+		 lwz 11,(plt&plus;(i&minus;1)&times;4)@l(11)
+		 mtctr 11
+		 bctr
+		 </programlisting>
+	 </listitem>
+	 <listitem>
+	  	<para>For a non-PIC .glink the following implementation may be used.</para>
+		 <programlisting>
+
+  res_0:		 b PLTresolve
+  res_1:		 b PLTresolve
+  .
+  res_n_m3: nop
+  res_n_m2: nop
+  res_n_m1:
+
+  NonPIC_PLTresolve:
+		 lis 12,got&plus;4@ha
+		 addis 11,11,&minus;res_0@ha
+		 lwz 0,got&plus;4@l(12)
+		 addi 11,11,&minus;res_0@l
+		 mtctr 0
+		 add 0,11,11
+		 lwz 12,got&plus;8(12)
+		 add 11,0,11
+		 bctr
+		</programlisting>
+	</listitem>
+</itemizedlist>
+
+<para>The .plt will be a loaded section following the .got, consisting
+  of an array of addresses.  There will also be an array of R_PPC_JMP_SLOT
+  relocations in .rela.plt, with a one-one correspondence between elements of
+  each array.  Each R_PPC_JMP_SLOT reloc will have <varname>r_offset</varname> pointing at
+  the .plt word it relocates.  To support lazy linking, the link editor will set each
+  .plt word to point to the symbol resolver stub in .glink.  On loading
+  a shared library, the dynamic linker should relocate the contents of the .plt section by adding
+  the load address to each word in .plt.</para>
+
+<note><title>Note</title><para>Note: As a security measure, the .got and the .plt may be protected as read-only after relocations are performed.  This necessitates that any sections in the Data Segment that can be protected as read-only be grouped together, separate from those that remain read-write.  This will affect section ordering in the segment as shown in <emphasis><xref linkend="SECURE-PLT-SECTION-ORDERING"></emphasis>.</para></note>
+
+<note><title>Note</title><para>Note: This ABI does not require a fixed GOT register, or even one
+register used throughout a binary.  Non-PIC code does not
+set the <varname>_GLOBAL_OFFSET_TABLE_</varname> pointer and does not need to reserve a register for 
+that purpose. Code under the PIC addressing model that accesses static storage or calls
+nonlocal functions will need a register to hold the <varname>_GLOBAL_OFFSET_TABLE_</varname> pointer.  However, leaf 
+functions or functions that only call other functions which
+are static (@local) may use any general-purpose register within
+the constraints for the existing ABI. </para></note>
+
+<para>PIC-code functions that call nonlocal functions will need
+to allocate a register to hold the <varname>_GLOBAL_OFFSET_TABLE_</varname> pointer which is used by the PLT call stubs. 
+This requires a protocol between the compiler (which generates the
+function prologue and sets the <varname>_GLOBAL_OFFSET_TABLE_</varname> pointer) and the link editor (which
+generates the PLT call stubs, that use the pointer).  Allowing an
+arbitrary register for the <varname>_GLOBAL_OFFSET_TABLE_</varname> pointer will require additional relocations to
+allow the compiler to communicate which register it is using
+to the link editor.</para>
+
+  <para>Some code, such as that generated by using the large model PIC, does not have a single
+  GOT section but rather implements multiple GOT sections, one per file
+  in .got2.  To support multiple GOT pointers, the addend on each
+  R_PPC_PLTREL24 reloc will have the offset within .got2 used as the
+  GOT pointer.  The link editor might need to generate multiple plt call
+  stubs for a given destination.</para>
+
+  <para>To allow the dynamic linker to support both old and new shared
+  libraries, a per library flag that indicates the old or new plt
+  layout is required. The dynamic tag, DT_PPC_GOT, shall be set
+  to the link-time address of <varname>_GLOBAL_OFFSET_TABLE_</varname>. This allows the 
+  dynamic linker to check at library load and PLT resolve time and perform
+  the appropriate set-up and relocations.</para>
+
+<note><title>Note</title><para>
+Note: The Secure-PLT ABI enabled dynamic linker shall support BSS-PLT ABI
+libraries as long as the kernel allows the required memory protection
+states.</para>
+
+<para>The link editor will detect the difference between BSS-PLT relocatable objects and Secure-PLT relocatable objects
+by looking at relocations.  A relocatable object using the Secure-PLT ABI will always have R_PPC_REL16*
+relocations if it uses the GOT or (potentially) calls from the PLT.  BSS-PLT ABI
+files will not have these R_PPC_REL16 relocations. </para>
+
+<para>
+The link editor will accept a mix of Secure-PLT ABI and BSS-PLT ABI relocatable objects, but the
+existence of any BSS-PLT relocatable objects as input will force the resulting
+executable file  or shared object file to use the BSS-PLT ABI.</para></note>
+
+		</sect3>
+		</sect2>
+	</sect1>
+
+	<sect1 id="EABI-PROGRAM-LOADING" CONDITION="ATR-EABI"><title>EABI Program Loading and Dynamic Linking </title>
+		<para>Unlike the SVR4 ABI, an EABI-conforming entity shall not have program loading or program interpreter requirements.</para>
+
+		<para>An EABI-compliant ELF file contains absolute load
+		addresses and sizes for each of its segments.  There is no
+		requirement that the dynamic linker follow the Read (PF_X), Write
+		(PF_W), or Execute (PF_X) segment flags in the program header
+		when loading the executable file.</para>
+	</sect1>
+</chapter>
+<!-- Keep this comment at the end of the file
+Local Variables:
+mode: sgml
+sgml-parent-document: ("PPC-elf32abi.sgml" "book" "chapter")
+End:
+-->

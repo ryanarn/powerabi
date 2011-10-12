@@ -1,0 +1,99 @@
+<!-- Author(s): See <authorgroup> in PPC-elf32abi.sgml -->
+<!-- Copyright (c) 2011, Power.org -->
+<!-- Permission is granted to copy, distribute and/or modify this document
+     under the terms of the GNU Free Documentation License, Version 1.3; with
+     no Invariant Sections, with no Front-Cover Texts, and with no Back-Cover 
+     Texts. A copy of the license is available in the COPYING.txt file. -->
+
+<chapter id="TOCINTRO">
+<title>Introduction</title>
+
+		<para>The <emphasis>Executable and Linkable Format</emphasis> (ELF) defines a linking interface for
+		executables and shared objects in two parts.  The first part is the generic
+		System V ABI.  The second part is a processor-specific supplement.  </para>
+
+		<para>This document is the processor-specific supplement for use with ELF on 32-bit Power Architecture
+		processor systems.  This is not a complete System V Application Binary Interface Supplement because it does
+		not define any library interfaces.</para>
+
+		<para>Furthermore, this document establishes both big-endian and little-endian application binary
+		interfaces (see <xref linkend="BYTEORDER">).  Processors in the 32-bit Power Architecture can execute
+		in either big-endian or little-endian mode.  Executables and executable generated data (in general) that
+		subscribe to either byte ordering are not portable to a system running in the other mode.</para>
+
+		<note><title>note</title><para>Note: This ABI specification does not address little-endian byte ordering prior to Power ISA 2.03.</para></note>
+
+		<para>The <citetitle>&archtitle; &abititle;</citetitle> is not the same as the
+		<citetitle>64-bit PowerPC ELF ABI</citetitle>.</para>
+
+		<para>The <citetitle>&archtitle; &abititle;</citetitle> is intended to use
+		the same structural layout now followed in practice by other processor specific ABIs.  </para>
+
+		<sect1 id="REFERENCES"><title>Reference Documentation</title>
+			<para>The archetypal ELF ABI is described by the <citetitle>System V
+			ABI</citetitle>.  Supersessions and addenda that are 32-bit Power Architecture
+			processor-specific are described in this document.</para>
+
+			<para>The following cited documents are complementary to this document and equally binding:</para>
+
+			<itemizedlist>
+
+				<listitem><para><citetitle>Power Instruction Set Architecture Version 2.05</citetitle>,
+				IBM, 2007.  http://www.power.org/resources/reading/PowerISA_V2.05.pdf</para> </listitem>
+
+				<listitem><para><citetitle>DWARF Debugging Information Format Version
+				4</citetitle>, DWARF Debugging Information Format Workgroup, 2010.
+				http://dwarfstd.org/Dwarf4Std.php</para> </listitem>
+
+				<listitem><para><citetitle>ISO/IEC 9899:1999(E): Programming languages&mdash;C</citetitle>, as
+				amended by  ISO/IEC 9899:1999/Cor.1:2001(E), ISO/IEC 9899:1999/Cor.2:2004(E) and ISO/IEC
+				9899:1999/Cor.3:2007(E), <ulink
+				url="http://www.open-std.org/JTC1/SC22/WG14/www/docs/n1256.pdf">http://www.open-std.org/JTC1/SC22/WG14/www/docs/n1256.pdf</ulink></para>
+				</listitem>
+
+				<listitem CONDITION="ATR-SPE"><para><citetitle>SPEPIM: Signal Processing Engine
+				Auxiliary Processing Unit Programming Interface Manual</citetitle>, Freescale
+				Semiconductor, 2004.
+				http://www.freescale.com/files/32bit/doc/ref_manual/SPEPIM.pdf?fsrch=1</para>
+				</listitem>
+
+				<listitem CONDITION="ATR-VLE"><para><citetitle>VLEPEM: Variable-Length Encoding (VLE)
+				Programming Environments Manual</citetitle>, Freescale Semiconductor, 2007.
+				http://www.freescale.com/files/32bit/doc/ref_manual/VLEPEM.pdf?fsrch=1</para>
+				</listitem>
+
+				<listitem CONDITION="ATR-VECTOR"><para><citetitle>ALTIVECPIM: <trademark>AltiVec</trademark> Technology
+				Programming Interface Manual</citetitle>, Freescale Semiconductor, 1999.
+				http://www.freescale.com/files/32bit/doc/ref_manual/ALTIVECPIM.pdf</para></listitem>
+
+				<listitem CONDITION="ATR-DFP"><para><citetitle>ISO/IEC TR 24732:2009 - Programming
+				languages, their environments and system software interfaces - Extension for the
+				programming language C to support decimal floating-point arithmetic</citetitle>, ISO/IEC, January
+				05, 2009.  Available from ISO.  </para></listitem>
+
+				<listitem CONDITION="ATR-CXX"><para><citetitle>Itanium C++ ABI: Exception Handling. Rev 1.22</citetitle>,
+				CodeSourcery, 2001.
+				http://www.codesourcery.com/public/cxx-abi/abi-eh.html</para></listitem>
+
+				<listitem CONDITION="ATR-TLS"><para><citetitle>ELF Handling for Thread-Local Storage.
+				Version 0.20</citetitle>, Ulrich Drepper, Red Hat Inc., December 21, 2005.
+				http://people.redhat.com/drepper/tls.pdf</para></listitem>
+
+
+			</itemizedlist>
+			
+
+			<para>The following documents are of interest for their historical information but are not normative in any way.</para>
+
+			<itemizedlist>
+				<listitem><para><citetitle>The [32-bit] PowerPC
+				Processor Supplement</citetitle>, Sun
+				Microsystems, 1995.</para> </listitem>
+
+				<listitem><para><citetitle>The 32-bit AIX ABI.</citetitle></para>
+				</listitem>
+				<listitem><para><citetitle>The PowerOpen ABI.</citetitle></para>
+				</listitem>
+			</itemizedlist>
+		</sect1>
+</chapter>
