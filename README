@@ -1,5 +1,11 @@
-Generating the documentation
-============================
+Introduction
+============
+
+This is the DocBook source for the Power Architecture
+32 bit Application Binary Interface Supplement for Linux.
+
+How to generate the documentation
+=================================
 
 In order to build the ABI PDF file you need to have the following
 software installed:
