@@ -1912,7 +1912,7 @@ union {
 				</tgroup>
 			</informaltable>
 
-			<figure id="UNNAMED_BIT_FIELDS"><title>Bit-Field Allocation With Unnamed Bit-Fields</title>
+			<figure id="UNNAMED-BIT-FIELDS"><title>Bit-Field Allocation With Unnamed Bit-Fields</title>
 				<programlisting>
 struct {
   char  c;
@@ -2071,11 +2071,11 @@ struct {
 
 
 			<note><title>Note</title>
-				<para>Note: In <emphasis><xref linkend="UNNAMED_BIT_FIELDS"></emphasis> the alignment of the structure is not
+				<para>Note: In <emphasis><xref linkend="UNNAMED-BIT-FIELDS"></emphasis> the alignment of the structure is not
 				affected by the unnamed short and int fields.  The named members are
 				aligned relative to the start of the structure.  However, it is possible
 				that the alignment of the named members is not on optimum boundaries
-				in memory.  For instance, in an array of the structure in <emphasis><xref linkend="UNNAMED_BIT_FIELDS"></emphasis>, the <emphasis>d</emphasis> members will not all be on 4-byte (integer) boundaries.</para>
+				in memory.  For instance, in an array of the structure in <emphasis><xref linkend="UNNAMED-BIT-FIELDS"></emphasis>, the <emphasis>d</emphasis> members will not all be on 4-byte (integer) boundaries.</para>
 			</note>
 		</sect3>
 	</sect2>
