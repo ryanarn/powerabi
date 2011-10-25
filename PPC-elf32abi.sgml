@@ -6,7 +6,7 @@
      Texts. A copy of the license is available in the COPYING.txt file. -->
 
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook V4.1//EN"[
-<!entity specversion "1.0">
+<!entity specversion "1.1">
 <!entity publishdate "April 19, 2011">
 <!entity archtitle "Power Architecture">
 <!entity abititle "32-bit Application Binary Interface Supplement">
@@ -369,6 +369,13 @@ passing complex data types as structures.  <emphasis role="bold">ATR-PASS-COMPLE
 			</listitem>
 		</varlistentry>
 		<varlistentry>
+			<term>ATR-VECTOR-SCALAR</term>
+			<listitem>
+				<para><emphasis role=bold>(Power ISA Category: VSX)</emphasis></para>
+				<para>The text under this attribute describes the Vector Scalar Extension float SIMD instruction set ABI.  ATR-VECTOR is predicated on ATR-CLASSIC-FLOAT and ATR-VECTOR.</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
 			<term>ATR-VLE</term>
 			<listitem>
 				<para><emphasis role=bold>(Power ISA Category: VLE)</emphasis></para>
@@ -389,7 +396,7 @@ passing complex data types as structures.  <emphasis role="bold">ATR-PASS-COMPLE
    
  ISA-Flavour -> SIMD Encoding Floating-Point
 
- SIMD -> Vector        { atr = ATR-VECTOR }
+ SIMD -> Vector [, VSX] { atr = ATR-VECTOR [, ATTR-VECTOR-SCALAR] }
       |  SPE           { atr = ATR-SPE }
       |  /* Epsilon */ { com = "/* No SIMD. */" }
 
@@ -441,6 +448,7 @@ passing complex data types as structures.  <emphasis role="bold">ATR-PASS-COMPLE
 			<listitem><para>ATR-SPE</para></listitem>
 			<listitem><para>ATR-TLS</para></listitem>
 			<listitem><para>ATR-VECTOR</para></listitem>
+			<listitem><para>ATR-VECTOR-SCALAR</para></listitem>
 			<listitem><para>ATR-PASS-COMPLEX-IN-GPRS</para></listitem>
 		</itemizedlist>
 		<itemizedlist id="ATR-LINUX-EXCLUSIONS">
@@ -494,6 +502,7 @@ high parts of registers on such processors it must implement ATR-SPE.</para></li
 			<listitem><para>ATR-SECURE-PLT</para></listitem>
 			<listitem><para>ATR-TLS</para></listitem>
 			<listitem><para>ATR-VECTOR</para></listitem>
+			<listitem><para>ATR-VECTOR-SCALAR</para></listitem>
 		</itemizedlist>
 		<itemizedlist id="EABI-CONFORMANCE"><title>EABI Conformance</title>
 			<listitem><para>The EABI does not support thread local storage (ATR-TLS) at this time.</para></listitem>
