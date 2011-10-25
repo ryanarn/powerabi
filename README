@@ -18,6 +18,5 @@ Run the following command to generate a draft version of the specification:
 
     ./MAKE.sh --unified --draft --wrapper
 
-You will get two files in the current directory:
-`Draft-Power-Arch-32-bit-ABI-supp-1.0-Unified.pdf` and `PPC-elf32abi.html`.
-The latter will be empty. This is expected.
+You will get the following file in the current directory:
+`Draft-Power-Arch-32-bit-ABI-supp-1.0-Unified.pdf`.
