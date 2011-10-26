@@ -88,22 +88,22 @@ fi
 VERSION=`grep "entity specversion" PPC-elf32abi.sgml | awk -F' ' '{print $3}' |  sed 's/\"\([0-9]*.[0-9]*\)\">/\1/'`
 
 if test ! -z "$unified"; then
-	echo jw -b pdf PPC-elf32abi.sgml -d 'abi.dsl#print' --nochunks  -i UNIFIED${draft:+ -i DRAFT}${wrapper:+ -i WRAPPER}${tagid:+ -i TAGID}
-	jw -b pdf PPC-elf32abi.sgml -d 'abi.dsl#print' --nochunks  -i UNIFIED${draft:+ -i DRAFT}${wrapper:+ -i WRAPPER}${tagid:+ -i TAGID}
+	echo jw -b pdf PPC-elf32abi.sgml -d 'abi.dsl#print' -i UNIFIED${draft:+ -i DRAFT}${wrapper:+ -i WRAPPER}${tagid:+ -i TAGID}
+	jw -b pdf PPC-elf32abi.sgml -d 'abi.dsl#print' -i UNIFIED${draft:+ -i DRAFT}${wrapper:+ -i WRAPPER}${tagid:+ -i TAGID}
 	if test -e "PPC-elf32abi.pdf"; then
 		mv PPC-elf32abi.pdf ${DATE:${DATE}-}${draft:+Draft-}Power-Arch-32-bit-ABI-supp-${VERSION}-Unified.pdf
 	fi
 fi
 
 if test ! -z "$linux"; then
-	jw -b pdf PPC-elf32abi.sgml -d 'abi.dsl#print' --nochunks -i LINUX${draft:+ -i DRAFT}${wrapper:+ -i WRAPPER}${tagid:+ -i TAGID}
+	jw -b pdf PPC-elf32abi.sgml -d 'abi.dsl#print' -i LINUX${draft:+ -i DRAFT}${wrapper:+ -i WRAPPER}${tagid:+ -i TAGID}
 	if test -e "PPC-elf32abi.pdf"; then
 		mv PPC-elf32abi.pdf ${DATE:${DATE}-}${draft:+Draft-}Power-Arch-32-bit-ABI-supp-${VERSION}-Linux.pdf
 	fi
 fi
 
 if test ! -z "$eabi"; then
-	jw -b pdf PPC-elf32abi.sgml -d 'abi.dsl#print' --nochunks -i EABI${draft:+ -i DRAFT}${wrapper:+ -i WRAPPER}${tagid:+ -i TAGID}
+	jw -b pdf PPC-elf32abi.sgml -d 'abi.dsl#print' -i EABI${draft:+ -i DRAFT}${wrapper:+ -i WRAPPER}${tagid:+ -i TAGID}
 	if test -e "PPC-elf32abi.pdf"; then
 		mv PPC-elf32abi.pdf ${DATE:${DATE}-}${draft:+Draft-}Power-Arch-32-bit-ABI-supp-${VERSION}-Embedded.pdf
 	fi

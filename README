@@ -1,0 +1,22 @@
+Introduction
+============
+
+This is the DocBook source for the Power Architecture
+32 bit Application Binary Interface Supplement for Linux.
+
+How to generate the documentation
+=================================
+
+In order to build the ABI PDF file you need to have the following
+software installed:
+
+* OpenJade version 1.3 (version 1.4 dumps core on this document.)
+* DocBook DSSSL stylesheets (we use version 1.79.)
+* docbook-utils
+
+Run the following command to generate a draft version of the specification:
+
+    ./MAKE.sh --unified --draft --wrapper
+
+You will get the following file in the current directory:
+`Draft-Power-Arch-32-bit-ABI-supp-1.0-Unified.pdf`.

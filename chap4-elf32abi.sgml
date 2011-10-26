@@ -3843,7 +3843,7 @@ typedef struct {
 					</listitem>
 				</varlistentry>
 
-				<varlistentry id="R_PPC_REL16" CONDITION="ATR-SECURE-PLT">
+				<varlistentry id="R-PPC-REL16" CONDITION="ATR-SECURE-PLT">
 					<term><emphasis role="bold">R_PPC_REL16*</emphasis></term>
 					<listitem>
 						<para>These relocation types are used to compute the distance
@@ -3857,7 +3857,7 @@ typedef struct {
 					</listitem>
 				</varlistentry>
 
-				<varlistentry id="R_PPC_PLTREL24">
+				<varlistentry id="R-PPC-PLTREL24">
 					<term><emphasis role="bold">R_PPC_PLTREL24</emphasis></term>
 
 					<listitem>
@@ -4674,9 +4674,9 @@ static __thread int x2;
 
 				<para>Given the following code fragment, two different relocation sequences may be used,
 				depending on the size of the offset to the variable.  The sequence in <emphasis><xref
-				linkend="LEIR_SEQUENCE_ONE"></emphasis> handles offsets within 60KB relative to the end of
+				linkend="LEIR-SEQUENCE-ONE"></emphasis> handles offsets within 60KB relative to the end of
 				the TCB (where r2 points 28KB past the end of the TCB, which is immediately before the
-				first TLS block).  The sequence in <emphasis><xref linkend="LEIR_SEQUENCE_TWO"></emphasis>
+				first TLS block).  The sequence in <emphasis><xref linkend="LEIR-SEQUENCE-TWO"></emphasis>
 				handles offsets past 60KB relative to the end of the TCB..</para>
 
 				<programlisting>static __thread int x;
@@ -4688,7 +4688,7 @@ static __thread int x2;
 			<mediaobject><imageobject><imagedata scale=67 fileref="graphics/LocalExec-ModelSequence.png" format="PNG"></imageobject></mediaobject>
 			</figure>
 
-				<table id="LEIR_SEQUENCE_ONE" frame="none">
+				<table id="LEIR-SEQUENCE-ONE" frame="none">
 					<title>Local Exec Initial Relocations (Sequence 1)</title>
 					<tgroup cols='3' colsep='0' rowsep='0'>
 						<colspec colwidth='120' colname='c1' align="left">
@@ -4712,7 +4712,7 @@ static __thread int x2;
 					</tgroup>
 				</table>
 
-				<table id="LEIR_SEQUENCE_TWO" frame="none">
+				<table id="LEIR-SEQUENCE-TWO" frame="none">
 					<title>Local Exec Initial Relocations (Sequence 2)</title>
 					<tgroup cols='3' colsep='0' rowsep='0'>
 						<colspec colwidth='120' colname='c1' align="left">
