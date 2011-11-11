@@ -372,7 +372,7 @@ passing complex data types as structures.  <emphasis role="bold">ATR-PASS-COMPLE
 			<term>ATR-VECTOR-SCALAR</term>
 			<listitem>
 				<para><emphasis role=bold>(Power ISA Category: VSX)</emphasis></para>
-				<para>The text under this attribute describes the Vector Scalar Extension float SIMD instruction set ABI.  ATR-VECTOR is predicated on ATR-CLASSIC-FLOAT and ATR-VECTOR.</para>
+				<para>The text under this attribute describes the Vector Scalar Extension float SIMD instruction set ABI.  ATR-VECTOR-SCALAR is predicated on ATR-VECTOR.</para>
 			</listitem>
 		</varlistentry>
 		<varlistentry>
