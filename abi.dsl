@@ -1,8 +1,7 @@
 <!DOCTYPE style-sheet PUBLIC "-//James Clark//DTD DSSSL Style Sheet//EN" [
-<!--<!ENTITY html-ss SYSTEM "/usr/share/sgml/docbook/stylesheet/dsssl/modular/html/docbook.dsl" CDATA dsssl>-->
-<!ENTITY html-ss SYSTEM "/usr/share/sgml/docbook/dsssl-stylesheets-1.79/html/docbook.dsl" CDATA dsssl>
-<!--<!ENTITY print-ss SYSTEM "/usr/share/sgml/docbook/stylesheet/dsssl/modular/print/docbook.dsl" CDATA dsssl>-->
-<!ENTITY print-ss SYSTEM "/usr/share/sgml/docbook/dsssl-stylesheets-1.79/print/docbook.dsl" CDATA dsssl>
+
+<!ENTITY html-ss PUBLIC "-//Norman Walsh//DOCUMENT DocBook HTML Stylesheet//EN" CDATA dsssl>
+<!ENTITY print-ss PUBLIC "-//Norman Walsh//DOCUMENT DocBook Print Stylesheet//EN" CDATA dsssl>
 
 <!ENTITY % UNIFIED "INCLUDE">
 <!ENTITY % EABI "IGNORE">
