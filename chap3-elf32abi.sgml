@@ -2687,8 +2687,16 @@ struct
 					</tgroup>
 					</table></para>
 
-
-
+			<para CONDITION="ATR-VECTOR-SCALAR">The ISA Vector Scalar (VSX) category provides upper doublewords
+			for the 32 floating-point registers, thus allowing them to be used as vector registers.  These new
+			vector registers are mapped to registers 0 to 31 in the VSX registers file, and their lower
+			doublewords correspond to floating-point registers 0 to 31.  The 32 registers from the Vector
+			category are mapped to registers 32 to 63 in the VSX registers file.  Throughout this document
+			the symbol vs<emphasis>N</emphasis> is used, where <emphasis>N</emphasis> is a register number,
+			to refer to vector scalar register <emphasis>N</emphasis>.  VSX registers from 0 to 31 are volatile,
+			but before using registers from the vs14-vs31 interval their corresponding floating-point registers
+			need to be saved in the stack, since they are nonvolatile.  VSX registers from 32-63 retain their
+			volatility and purpose set forth in <emphasis><xref linkend="VR-REGISTER-ROLES-TABLE"></emphasis>.</para>
 
 			<para CONDITION="ATR-SPE">The ISA Signal Processing Engine (SPE) category provides upper words
 			for the 32 general-purpose registers, thus allowing them to be used in SPE APU operations to
@@ -3151,6 +3159,19 @@ stw  0,36(1)       - Store LR in previous LR save area</screen>
 							<emphasis>Vector Register Save Area</emphasis> shall have
 							quadword alignment.</para>
 
+						</listitem>
+					</varlistentry>
+
+					<varlistentry id="VECTOR-SCALAR-SAVE-AREA" CONDITION="ATR-VECTOR-SCALAR">
+						<term>The section <emphasis>Category-Specific Register Save Areas</emphasis> has no defined elements.</term>
+						<listitem>
+							<para>Since all the additional register contents added by the
+							VSX extension (namely the second doubleword on vs0-vs31) is volatile,
+							there is no need to add a save area for VSX registers.  However, VSX
+							registers vs14-vs31 overlap with the non-volatile floating-point
+							registers f14-f31.  Therefore, it is necessary to save the corresponding
+							floating point register in the floating-point register save area before
+							using a VSX register in that interval.</para>
 						</listitem>
 					</varlistentry>
 				</variablelist>
