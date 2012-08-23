@@ -775,7 +775,7 @@
         ((or (equal? (attribute-string (normalize "role")) "italicstrong")
              (equal? (attribute-string (normalize "role")) "italicbold")
              (equal? (attribute-string (normalize "role")) "boldstrong")
-             
+             (equal? (attribute-string (normalize "role")) "bolditalic"))
             ($bold-italic-seq$))
         ((equal? (attribute-string (normalize "role")) "strikethrough")
             ($score-seq$ 'through))

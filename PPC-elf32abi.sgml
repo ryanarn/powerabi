@@ -197,7 +197,6 @@
 		<simplesect><title>Summary of Changes in the <emphasis><phrase>&archtitle &abititle &specversion; - </phrase><phrase CONDITION="ATR-LINUX && !ATR-EABI">Linux</phrase><phrase CONDITION="ATR-EABI && ATR-LINUX"> &amp; </phrase><phrase CONDITION="ATR-EABI && !ATR-LINUX">Embedded</phrase></emphasis></title>
 		<para>This version of the <emphasis><phrase>&archtitle &abititle</phrase></emphasis> was created by applying the following additions to <emphasis><phrase>&archtitle &abititle &prevspecversion</phrase></emphasis>.</para>
 		<para><emphasis role="bold">Vector-Scalar Floating-Point</emphasis>: Document the necessary additions to the ABI to support Vector-Scalar Floating-Point Operations, as described by the Power ISA 2.06 [Category: VSX], under the new ATR-VECTOR-SCALAR attribute as defined by the <emphasis><link linkend="TAXONOMY">Taxonomy</link></emphasis> in <emphasis><xref linkend="TAXONOMY"></emphasis>.</para>
-		<para><emphasis role="bold">VRSAVE</emphasis>: </para>
 		</simplesect>
 	</preface>
 
