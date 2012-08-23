@@ -38,8 +38,8 @@
 
 			<itemizedlist>
 
-				<listitem><para><citetitle>Power Instruction Set Architecture Version 2.05</citetitle>,
-				IBM, 2007.  http://www.power.org/resources/reading/PowerISA_V2.05.pdf</para> </listitem>
+				<listitem><para><citetitle>Power Instruction Set Architecture Version 2.06 Revision B</citetitle>,
+				IBM, 2010.  https://www.power.org/resources/downloads/PowerISA_V2.06B_V2_PUBLIC.pdf</para> </listitem>
 
 				<listitem><para><citetitle>DWARF Debugging Information Format Version
 				4</citetitle>, DWARF Debugging Information Format Workgroup, 2010.

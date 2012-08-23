@@ -362,7 +362,7 @@
 				byte and 0 : 15 for bits within halfwords).</para>
 			</note>
 
-			<para>The bit numbering in the Power ISA is all 64-bit except for the following registers indicated in Power ISA section 1.4:</para>
+			<para>The bit numbering in the Power ISA is all 64-bit except for the following registers indicated in Power ISA, Book I, Section 1.4:</para>
 			<itemizedlist>
 				<listitem>
 					<para>Opcodes marking 0-31</para>
@@ -370,6 +370,13 @@
 				<listitem CONDITION="ATR-VECTOR">
 					<para>Vector registers and the VSCR (see <emphasis><xref linkend="REG"></emphasis>).</para>
 				</listitem>
+				<listitem CONDITION="ATR-VECTOR-SCALAR">
+					<para>Vector-Scalar registers (see <emphasis><xref linkend="REG"></emphasis>).</para>
+					<note>
+						<title>Note</title>
+						<para>Note: <emphasis>Power ISA 2.06 Revision B</emphasis> has erroneously left out the list of Vector-Scalar registers from Book I, Section 1.4.</para></note>
+				</listitem>
+
 				<listitem CONDITION="ATR-CLASSIC-FLOAT">
 
 					<para>As of Power ISA version 2.05 the FPSCR has been extended from 32-bits to 64-bits.
@@ -2687,7 +2694,7 @@ struct
 					</tgroup>
 					</table></para>
 
-			<para CONDITION="ATR-VECTOR-SCALAR">The ISA Vector Scalar (VSX) category provides upper doublewords
+			<para CONDITION="ATR-VECTOR-SCALAR">The ISA Vector-Scalar (VSX) category provides upper doublewords
 			for the 32 floating-point registers, thus allowing them to be used as vector registers.  These new
 			vector registers are mapped to registers 0 to 31 in the VSX registers file, and their lower
 			doublewords correspond to floating-point registers 0 to 31.  The 32 registers from the Vector
@@ -2695,8 +2702,42 @@ struct
 			the symbol vs<emphasis>N</emphasis> is used, where <emphasis>N</emphasis> is a register number,
 			to refer to vector scalar register <emphasis>N</emphasis>.  VSX registers from 0 to 31 are volatile,
 			but before using registers from the vs14-vs31 interval their corresponding floating-point registers
-			need to be saved in the stack, since they are nonvolatile.  VSX registers from 32-63 retain their
-			volatility and purpose set forth in <emphasis><xref linkend="VR-REGISTER-ROLES-TABLE"></emphasis>.</para>
+			need to be saved to the stack, since they are nonvolatile.  VSX registers from 32-63 retain their
+			volatility and purpose set forth in <emphasis><xref linkend="VR-REGISTER-ROLES-TABLE"></emphasis>.
+
+			<table id="VSR-REGISTER-ROLES-TABLE" frame="none"><title>Vector-Scalar Register Roles</title>
+				<tgroup cols='3' colsep='0' rowsep='0'>
+					<colspec colwidth='60' colname='c1' align="left">
+					<colspec colwidth='100' colname='c2' align="left">
+					<colspec colwidth='220' colname='c3' align="left">
+					<thead>
+						<row>
+							<entry namest="c1" rowsep='1'>Register</entry>
+							<entry namest="c2" rowsep='1'>Preservation Rules</entry>
+							<entry namest="c3" rowsep='1'>Purpose</entry>
+						</row>
+					</thead>
+					<tbody>
+						<row>
+							<entry namest="c1">vs0-vs31</entry>
+							<entry namest="c2">volatile</entry>
+							<entry namest="c3">These overlap f0-f31.</entry>
+						</row>
+						<row>
+							<entry namest="c1">vs32-vs51</entry>
+							<entry namest="c2">volatile</entry>
+							<entry namest="c3">These correspond to v0-v19. See <emphasis><xref linkend="VR-REGISTER-ROLES-TABLE"></emphasis>.</entry>
+						</row>
+						<row>
+							<entry namest="c1">vs52-vs63</entry>
+							<entry namest="c2">nonvolatile</entry>
+							<entry namest="c3">These correspond to v20-v31. See <emphasis><xref linkend="VR-REGISTER-ROLES-TABLE"></emphasis>.</entry>
+						</row>
+
+					</tbody>
+					</tgroup>
+					</table></para>
+
 
 			<para CONDITION="ATR-SPE">The ISA Signal Processing Engine (SPE) category provides upper words
 			for the 32 general-purpose registers, thus allowing them to be used in SPE APU operations to
@@ -2927,10 +2968,6 @@ struct
 			<caption><para>In <xref linkend="SFO"> the green areas indicate an <emphasis>optional</emphasis> save area of the stack frame.  Refer to <emphasis><xref linkend="SAVE-AREAS"></emphasis> for a description of the optional save areas described by this ABI.</para></caption>
 			</mediaobject>
 			</figure>
-
-			<!--<figure ID="ZZZ"><title>Stack Frame Organization</title>
-			<mediaobject><imageobject><imagedata fileref="graphics/StackFrame.svg" format="SVG"></imageobject></mediaobject>
-			</figure> -->
 
 			<sect3 id="STACK-REQS"><title>General Stack Frame Requirements</title>
 				<para>The following general requirements apply to all stack frames:</para>
@@ -3166,7 +3203,7 @@ stw  0,36(1)       - Store LR in previous LR save area</screen>
 						<term>The section <emphasis>Category-Specific Register Save Areas</emphasis> has no defined elements.</term>
 						<listitem>
 							<para>Since all the additional register contents added by the
-							VSX extension (namely the second doubleword on vs0-vs31) is volatile,
+							VSX extension (namely the second doubleword on vs0-vs31) are volatile,
 							there is no need to add a save area for VSX registers.  However, VSX
 							registers vs14-vs31 overlap with the non-volatile floating-point
 							registers f14-f31.  Therefore, it is necessary to save the corresponding

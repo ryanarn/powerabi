@@ -6,8 +6,10 @@
      Texts. A copy of the license is available in the COPYING.txt file. -->
 
 <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook V4.1//EN"[
+<!entity version0 "1.0">
+<!entity prevspecversion "1.0">
 <!entity specversion "1.1">
-<!entity publishdate "April 19, 2011">
+<!entity publishdate "-------- --, 20--">
 <!entity archtitle "Power Architecture">
 <!entity abititle "32-bit Application Binary Interface Supplement">
 <!entity INTRO SYSTEM "chap1-elf32abi.sgml">
@@ -45,6 +47,7 @@
 	</copyright>
 	<copyright>
 		<year>2011</year>
+		<year>2012</year>
 		<holder>Power.org</holder>
 	</copyright>
 	<legalnotice>
@@ -57,7 +60,7 @@
 	</legalnotice>
 	<legalnotice>
 		<para>The following terms are trademarks or registered trademarks of International Business Machines Corporation in 
-		the United States and/or other countries: <trademark class='registered'>AIX</trademark>, <trademark class='registered'>PowerPC</trademark>, <trademark class='registered'>VMX</trademark>, <trademark>POWER</trademark>.  A full list of U.S. trademarks owned by IBM may be found at 
+		the United States and/or other countries: <trademark class='registered'>AIX</trademark>, <trademark class='registered'>PowerPC</trademark>, <trademark class='registered'>Power Architecture</trademark>, <trademark class='registered'>POWER</trademark>, <trademark class='registered'>Power</trademark>, <trademark>Power ISA</trademark>.  A full list of U.S. trademarks owned by IBM may be found at 
 		<ulink url="http://www.ibm.com/legal/copytrade.shtml">http://www.ibm.com/legal/copytrade.shtml</ulink>.</para>
 	</legalnotice>
 	<legalnotice>
@@ -69,17 +72,12 @@
 	</legalnotice>
 
 	<legalnotice>
-		<para>The following terms are trademarks or registered
-		     trademarks of Power.org in the United
-		     States and/or other countries: <trademark>Power ISA</trademark>, <trademark class="registered">Power Architecture</trademark>.  Information on the
-		     list of U.S. trademarks owned by Power.org
+		<para>The following terms are wordmarks licensed by Power.org: <trademark>Power.org</trademark>, <trademark class='registered'>Power Architecture</trademark>.  The following logo is licensed by Power.org: <trademark>Power</trademark>. Information on the list of U.S. trademarks owned by Power.org
 		     may be found at <ulink url="http://www.power.org/brand_center/home/">http://www.power.org/brand_center/home/</ulink>.</para>
 	</legalnotice>
 	<legalnotice>
 		<para><trademark class='registered'>Linux</trademark> is the registered trademark of Linus Torvalds in the U.S. and other countries.  Further information on this trademark can be found at <ulink url="http://www.linuxfoundation.org/programs/legal/trademark">http://www.linuxfoundation.org/programs/legal/trademark</ulink>.</para>
 	</legalnotice>
-
-
 
 	<authorgroup>
 		<author>
@@ -88,72 +86,33 @@
 			<affiliation><orgname>IBM</orgname></affiliation>
 		</author>
 		<author>
-			<firstname>Greg</firstname>
-			<surname>Davis</surname>
-			<affiliation><orgname>Green Hills</orgname></affiliation>
-		</author>
-		<author>
-			<firstname>Brian</firstname>
-			<surname>Deitrich</surname>
-			<affiliation><orgname>Freescale Semiconductor</orgname></affiliation>
-		</author>
-		<author>
-			<firstname>Michael</firstname>
-			<surname>Eager</surname>
-			<affiliation><orgname>Eager Consulting</orgname></affiliation>
-		</author>
-		<author>
-			<firstname>Emil</firstname>
-			<surname>Medve</surname>
-			<affiliation><orgname>Freescale Semiconductor</orgname></affiliation>
-		</author>
-
-		<author>
-			<firstname>Steven J.</firstname>
-			<surname>Munroe</surname>
+			<firstname>Thiago</firstname>
+			<surname>Bauermann</surname>
 			<affiliation><orgname>IBM</orgname></affiliation>
-		</author>
-		<author>
-			<firstname>Joseph S.</firstname>
-			<surname>Myers</surname>
-			<affiliation><orgname>CodeSourcery</orgname></affiliation>
-		</author>
-		<author>
-			<firstname>Steve</firstname>
-			<surname>Papacharalambous</surname>
-			<affiliation><orgname>Freescale Semiconductor</orgname></affiliation>
-		</author>
-		<author>
-			<firstname>Anmol P.</firstname>
-			<surname>Paralkar</surname>
-			<affiliation><orgname>Freescale Semiconductor</orgname></affiliation>
-		</author>
-		<author>
-			<firstname>Katherine</firstname>
-			<surname>Stewart</surname>
-			<affiliation><orgname>Freescale Semiconductor</orgname></affiliation>
-		</author>
-		<author>
-			<firstname>Edmar</firstname>
-			<surname>Wienskoski</surname>
-			<affiliation><orgname>Freescale Semiconductor</orgname></affiliation>
 		</author>
 	</authorgroup>
 
 	<abstract>
+
+		<para>Revision &version0 of this document was written by: Ryan S. Arnold, Greg Davis, Brian Deitrich, Michael Eager, Emil Medve, Steven J. Munroe, Joseph S. Myers,
+		Steve Papacharalambous, Anmol P. Paralkar, Katherine Stewart, and Edmar Wienskoski as part of the Power.org PowerABI TSC.</para>
 
 		<para><emphasis>The ATR-LINUX portions of this document are derived from the 64-bit PowerPC ELF Application Binary Interface
 		Supplement 1.8, originally written by Ian Lance Taylor under contract for IBM, with later revisions by:
 		David Edelsohn, Torbjorn Granlund, Mark Mendell, Kristin Thomas, Alan Modra, Steve Munroe, and Chris
 		Lorenze.</emphasis></para>
 
-		<para><emphasis>The ATR-TLS and ATR-SECURE-PLT sections of this document are original contributions of IBM written by Alan Modra and Steven Munroe.</emphasis></para>
+		<para><emphasis>Portions of the ATR-TLS and ATR-SECURE-PLT sections of this document are original contributions of IBM written by Alan Modra and Steven Munroe.  The rest are original content of the Power.org PowerABI TSC.</emphasis></para>
 
 		<para><emphasis>The ATR-SPE and ATR-EABI portions of this document are derived from material used to write the E500 ABI and are contributed by Freescale Semiconductor.</emphasis></para>
 
 	</abstract>
 
 	<revhistory>
+		<revision><revnumber>&version0</revnumber><date>April 19, 2011</date>
+			<authorinitials>Power.org PowerABI TSC</authorinitials>
+		</revision>
+
 		<revision><revnumber>&specversion;</revnumber><date>&publishdate;</date>
 			<authorinitials>Power.org PowerABI TSC</authorinitials>
 		</revision>
@@ -234,6 +193,12 @@
 		<para>The individual <emphasis>Linux</emphasis> and <emphasis>Embedded</emphasis> versions of the <citetitle>&archtitle &abititle;</citetitle> contain a subset of the text, tables, and graphics available.  The subsection numbers of these subset documents remain congruent with those of the <emphasis>Linux &amp; Embedded</emphasis> version of the <citetitle>&archtitle &abititle;</citetitle> (and with each other where they overlap) in order to prevent confusion during cross-reference and therefore subsection numbering can appear to skip digits between sibling subsections.</para>
 		</simplesect>
 
+
+		<simplesect><title>Summary of Changes in the <emphasis><phrase>&archtitle &abititle &specversion; - </phrase><phrase CONDITION="ATR-LINUX && !ATR-EABI">Linux</phrase><phrase CONDITION="ATR-EABI && ATR-LINUX"> &amp; </phrase><phrase CONDITION="ATR-EABI && !ATR-LINUX">Embedded</phrase></emphasis></title>
+		<para>This version of the <emphasis><phrase>&archtitle &abititle</phrase></emphasis> was created by applying the following additions to <emphasis><phrase>&archtitle &abititle &prevspecversion</phrase></emphasis>.</para>
+		<para><emphasis role="bold">Vector-Scalar Floating-Point</emphasis>: Document the necessary additions to the ABI to support Vector-Scalar Floating-Point Operations, as described by the Power ISA 2.06 [Category: VSX], under the new ATR-VECTOR-SCALAR attribute as defined by the <emphasis><link linkend="TAXONOMY">Taxonomy</link></emphasis> in <emphasis><xref linkend="TAXONOMY"></emphasis>.</para>
+		<para><emphasis role="bold">VRSAVE</emphasis>: </para>
+		</simplesect>
 	</preface>
 
 &INTRO;
@@ -245,7 +210,7 @@
 &PROG-LOAD-DL;
 &LIB;
 	<appendix id="TAXONOMY"><title>Taxonomy</title>
-		<para>The following list describes the archetypal ABI attributes used to conditionally define elements of the ABI.  The relationship of these attributes is described in the taxonomy diagram in <xref linkend="TAXONOMY-DIAGRAM">.  A combination of these attributes is used to generate the individual Linux and Embedded ABI documents.  These combinations are described in <xref linkend="INCLUSION-AND-CONFORMANCE">. Each attribute description indicates whether it is an ABI software feature or an attribute that is tied to a specific Power ISA category.</para>
+		<para>The following list describes the archetypal ABI attributes used to conditionally define elements of the ABI.  The relationship of these attributes is described in the taxonomy diagram in <emphasis><xref linkend="TAXONOMY-DIAGRAM"></emphasis>.  A combination of these attributes is used to generate the individual Linux and Embedded ABI documents.  These combinations are described in <emphasis><xref linkend="INCLUSION-AND-CONFORMANCE"></emphasis>. Each attribute description indicates whether it is an ABI software feature or an attribute that is tied to a specific Power ISA category.</para>
 	<variablelist>
 		<title>32-bit PowerPC Archetypal ABI Attributes</title>
 		<varlistentry>
@@ -372,7 +337,7 @@ passing complex data types as structures.  <emphasis role="bold">ATR-PASS-COMPLE
 			<term>ATR-VECTOR-SCALAR</term>
 			<listitem>
 				<para><emphasis role=bold>(Power ISA Category: VSX)</emphasis></para>
-				<para>The text under this attribute describes the Vector Scalar Extension float SIMD instruction set ABI.  ATR-VECTOR-SCALAR is predicated on ATR-VECTOR.</para>
+				<para>The text under this attribute describes the Vector Scalar Extension float SIMD instruction set ABI. This was introduced in Power ISA 2.06. ATR-VECTOR-SCALAR is predicated on ATR-VECTOR.</para>
 			</listitem>
 		</varlistentry>
 		<varlistentry>
@@ -396,7 +361,7 @@ passing complex data types as structures.  <emphasis role="bold">ATR-PASS-COMPLE
    
  ISA-Flavour -> SIMD Encoding Floating-Point
 
- SIMD -> Vector [, VSX] { atr = ATR-VECTOR [, ATTR-VECTOR-SCALAR] }
+ SIMD -> Vector [, VSX] { atr = ATR-VECTOR [, ATR-VECTOR-SCALAR] }
       |  SPE           { atr = ATR-SPE }
       |  /* Epsilon */ { com = "/* No SIMD. */" }
 
@@ -474,7 +439,7 @@ high parts of registers on such processors it must implement ATR-SPE.</para></li
 
 			<listitem><para>An implementation <emphasis role="bold">must</emphasis> implement ATR-SECURE-PLT.  ATR-BSS-PLT should be supported for binary compatibility with previous versions of this ABI.</para></listitem>
 
-			<listitem><para>Availability of Vector data types is subject to conformance to a Power ISA category where the categories <emphasis>Vector</emphasis> and <emphasis>Signal Processing Engine</emphasis> are mutually exclusive.  A conforming application only uses ATR-VECTOR or ATR-SPE.</para></listitem>
+			<listitem><para>Availability of Vector data types is subject to conformance to a Power ISA category where the categories <emphasis>Vector</emphasis> (and by extension <emphasis>VSX</emphasis>) and <emphasis>Signal Processing Engine</emphasis> are mutually exclusive.  A conforming application only uses ATR-VECTOR or ATR-SPE.</para></listitem>
 
 		</itemizedlist>
 		<note><para>Note: An implementation of this ABI shall indicate explicitly which attributes are supported.  Supporting attributes which are mutually exclusive is fine as long as only one is supported at a given time during application execution.</para></note>
@@ -591,7 +556,7 @@ high parts of registers on such processors it must implement ATR-SPE.</para></li
 			</tgroup>
 		</table>
 	
-		<para>The following APUs remain unspecified by the Power ISA (as of version 2.05).</para>
+		<para>The following APUs remain unspecified by the Power ISA (as of version 2.06).</para>
 
 		<table id="APU-ISA-UNSUPPORTED" frame="none"><title>APUs</title>
 			<tgroup cols='4' colsep='0' rowsep='0'>
