@@ -2694,16 +2694,89 @@ struct
 					</tgroup>
 					</table></para>
 
-			<para CONDITION="ATR-VECTOR-SCALAR">The ISA Vector-Scalar (VSX) category provides upper doublewords
-			for the 32 floating-point registers, thus allowing them to be used as vector registers.  These new
-			vector registers are mapped to registers 0 to 31 in the VSX registers file, and their lower
-			doublewords correspond to floating-point registers 0 to 31.  The 32 registers from the Vector
-			category are mapped to registers 32 to 63 in the VSX registers file.  Throughout this document
-			the symbol vs<emphasis>N</emphasis> is used, where <emphasis>N</emphasis> is a register number,
-			to refer to vector scalar register <emphasis>N</emphasis>.  VSX registers from 0 to 31 are volatile,
-			but before using registers from the vs14-vs31 interval their corresponding floating-point registers
-			need to be saved to the stack, since they are nonvolatile.  VSX registers from 32-63 retain their
-			volatility and purpose set forth in <emphasis><xref linkend="VR-REGISTER-ROLES-TABLE"></emphasis>.
+			<para CONDITION="ATR-VECTOR-SCALAR">The ISA Vector-Scalar (VSX) category provides upper doublewords for
+			the 32 floating-point registers, thus allowing them to be used as vector registers.  These new vector
+			registers are mapped to registers 0 to 31 in the VSX registers file.  Doubleword 0 of these vector
+			registers correspond to floating-point registers 0 to 31 as show in <emphasis><xref
+			linkend="VSX-REGISTER-OVERLAY"></emphasis>.  The 32 registers from the Vector category are mapped to
+			registers 32 to 63 in the VSX registers file.  Throughout this document the symbol
+			vs<emphasis>N</emphasis> is used, where <emphasis>N</emphasis> is a register number, to refer to vector
+			scalar register <emphasis>N</emphasis>.  VSX registers from 0 to 31 are volatile, but before using
+			registers from the vs14-vs31 interval their corresponding floating-point registers need to be saved to the
+			stack, since they are nonvolatile.  VSX registers from 32-63 retain their volatility and purpose set forth
+			in <emphasis><xref linkend="VR-REGISTER-ROLES-TABLE"></emphasis>.
+
+			<table id="VSX-REGISTER-OVERLAY" frame="none"><title>Vector-Scalar Register Layout</title>
+				<tgroup cols='3' colsep='0' rowsep='0'>
+				<colspec colwidth="40" colname='c1' align="right" colsep='1'>
+				<colspec colwidth="150" colname='c2' align="center" colsep='1'>
+				<colspec colwidth="150" colname='c3' align="center" colsep='1'>
+				<tbody>
+					<row>
+						<entry namest="c1" colsep='0'></entry>
+						<entry namest="c2" colsep='0'rowsep='1'>vs doubleword 0</entry>
+						<entry namest="c3" colsep='0'rowsep='1'>vs doubleword 1</entry>
+					</row>
+					<row>
+						<entry namest="c1">vs[0]</entry>
+						<entry namest="c2" rowsep='1'>f[0]</entry>
+						<entry namest="c3" rowsep='1'></entry>
+					</row>
+					<row>
+						<entry namest="c1">vs[1]</entry>
+						<entry namest="c2" rowsep='1'>f[1]</entry>
+						<entry namest="c3" rowsep='1'></entry>
+					</row>
+					<row>
+						<entry namest="c1">...</entry>
+						<entry namest="c2">...</entry>
+						<entry namest="c3"></entry>
+					</row>
+					<row>
+						<entry namest="c1">...</entry>
+						<entry namest="c2" rowsep='1'>...</entry>
+						<entry namest="c3" rowsep='1'></entry>
+					</row>
+					<row>
+						<entry namest="c1">vs[30]</entry>
+						<entry namest="c2" rowsep='1'>f[30]</entry>
+						<entry namest="c3" rowsep='1'></entry>
+					</row>
+					<row>
+						<entry namest="c1">vs[31]</entry>
+						<entry namest="c2" rowsep='1'>f[31]</entry>
+						<entry namest="c3" rowsep='1'></entry>
+					</row>
+					<row>
+						<entry namest="c1">vs[32]</entry>
+						<entry namest="c2" nameend='c3' rowsep='1'>v[0]</entry>
+					</row>
+					<row>
+						<entry namest="c1">vs[33]</entry>
+						<entry namest="c2" nameend='c3' rowsep='1'>v[1]</entry>
+					</row>
+					<row>
+						<entry namest="c1">...</entry>
+						<entry namest="c2" nameend='c3'>...</entry>
+					</row>
+
+					<row>
+						<entry namest="c1">...</entry>
+						<entry namest="c2" nameend='c3' rowsep='1'>...</entry>
+					</row>
+					<row>
+						<entry namest="c1">vs[62]</entry>
+						<entry namest="c2" nameend='c3' rowsep='1'>v[30]</entry>
+					</row>
+					<row>
+						<entry namest="c1">vs[63]</entry>
+						<entry namest="c2" nameend='c3' rowsep='1'>v[31]</entry>
+					</row>
+
+
+				</tbody>
+				</tgroup>
+			</table>
 
 			<table id="VSR-REGISTER-ROLES-TABLE" frame="none"><title>Vector-Scalar Register Roles</title>
 				<tgroup cols='3' colsep='0' rowsep='0'>
@@ -2721,22 +2794,24 @@ struct
 						<row>
 							<entry namest="c1">vs0-vs31</entry>
 							<entry namest="c2">volatile</entry>
-							<entry namest="c3">These overlap f0-f31.</entry>
+							<entry namest="c3">Overlay f0-f31.</entry>
 						</row>
 						<row>
 							<entry namest="c1">vs32-vs51</entry>
 							<entry namest="c2">volatile</entry>
-							<entry namest="c3">These correspond to v0-v19. See <emphasis><xref linkend="VR-REGISTER-ROLES-TABLE"></emphasis>.</entry>
+							<entry namest="c3">Correspond to v0-v19. See <emphasis><xref linkend="VR-REGISTER-ROLES-TABLE"></emphasis>.</entry>
 						</row>
 						<row>
 							<entry namest="c1">vs52-vs63</entry>
 							<entry namest="c2">nonvolatile</entry>
-							<entry namest="c3">These correspond to v20-v31. See <emphasis><xref linkend="VR-REGISTER-ROLES-TABLE"></emphasis>.</entry>
+							<entry namest="c3">Correspond to v20-v31. See <emphasis><xref linkend="VR-REGISTER-ROLES-TABLE"></emphasis>.</entry>
 						</row>
 
 					</tbody>
 					</tgroup>
-					</table></para>
+					</table>
+
+</para>
 
 
 			<para CONDITION="ATR-SPE">The ISA Signal Processing Engine (SPE) category provides upper words
