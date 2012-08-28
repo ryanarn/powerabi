@@ -77,7 +77,7 @@
 
 				<listitem CONDITION="ATR-TLS"><para><citetitle>ELF Handling for Thread-Local Storage.
 				Version 0.20</citetitle>, Ulrich Drepper, Red Hat Inc., December 21, 2005.
-				http://people.redhat.com/drepper/tls.pdf</para></listitem>
+				http://www.akkadia.org/drepper/tls.pdf</para></listitem>
 
 
 			</itemizedlist>

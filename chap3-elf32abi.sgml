@@ -1,3 +1,4 @@
+<!-- vim: set tw=140 noet tabstop=8 shiftwidth=8 ai smartindent: -->
 <!-- Author(s): See <authorgroup> in PPC-elf32abi.sgml -->
 <!-- Copyright (c) 2011, Power.org -->
 <!-- Permission is granted to copy, distribute and/or modify this document
@@ -379,18 +380,17 @@
 
 				<listitem CONDITION="ATR-CLASSIC-FLOAT">
 
-					<para>As of Power ISA version 2.05 the FPSCR has been extended from 32-bits to 64-bits.
-					The fields of the original 32-bit FPSCR are now held in bits 32-63 of the 64-bit
-					FPSCR.  The assembly instructions which operate upon the 64-bit FPSCR have
-					either had a <emphasis>W Instruction Field</emphasis> added to select the
-					operative word for the instruction, e.g., <varname>mtfsfi</varname>, or the
-					instruction has been extended to operate upon the entire 64-bit FPSCR, e.g.,
-					<varname>mffs</varname>.  Reference to fields of the FPSCR, representing 1 or
-					more bits, is done by field number with an indication of the operative word
-					rather than by bit-number.</para> <para>If the Power ISA version 2.05 DFP category is
-					not needed by an implementation the FPSCR may continue to be referenced as a
-					32-bit register using the old forms of the instructions to support binary
-					compatibility of ELF files built against an older Power ISA version. See <emphasis><xref linkend="REG"></emphasis> for more information on the
+					<para>As of Power ISA version 2.05 the FPSCR has been extended from 32-bits to 64-bits.  The fields
+					of the original 32-bit FPSCR are now held in bits 32-63 of the 64-bit FPSCR.  The assembly
+					instructions which operate upon the 64-bit FPSCR have either had a <emphasis>W Instruction
+					Field</emphasis> added to select the operative word for the instruction, e.g.,
+					<varname>mtfsfi</varname>, or the instruction has been extended to operate upon the entire 64-bit
+					FPSCR, e.g., <varname>mffs</varname>.  Reference to fields of the FPSCR, representing 1 or more
+					bits, is done by field number with an indication of the operative word rather than by
+					bit-number.</para> <para>If the Power ISA version 2.05 <emphasis>DFP</emphasis> category is not
+					needed by an implementation the FPSCR may continue to be referenced as a 32-bit register using the
+					old forms of the instructions to support binary compatibility of ELF files built against an older
+					Power ISA version. See <emphasis><xref linkend="REG"></emphasis> for more information on the
 					FPSCR.</para>
 
 				</listitem>
@@ -2439,7 +2439,7 @@ struct
 
 
 			<para CONDITION="ATR-CLASSIC-FLOAT">On Power Architecture processors
-			that support Power ISA category <emphasis>Floating-point</emphasis>, there are always 32
+			that support Power ISA <emphasis>Floating-point</emphasis> category, there are always 32
 			floating-point registers, each 64 bits wide, and an associated special-purpose register to provide floating-point status and control.  Throughout this document the symbol f<emphasis>N</emphasis> is used, where <emphasis>N</emphasis> is a register number, to refer to floating-point register <emphasis>N</emphasis>.
 
 			<table id="FP-REGISTER-ROLES-TABLE" frame="none"><title>Floating-Point Register Roles for Binary Floating-Point Types</title>
@@ -2490,10 +2490,10 @@ struct
 					</table></para>
 
 
-			<para CONDITION="ATR-CLASSIC-FLOAT && ATR-DFP">The ISA Decimal Floating-Point category extends the Power Architecture
-			by adding a decimal floating-point unit.  It uses the existing 64-bit floating-point registers
-			and extends the FPSCR register to 64-bits, where it defines a decimal rounding-control field in
-			the extended space.
+			<para CONDITION="ATR-CLASSIC-FLOAT && ATR-DFP">The Power ISA <emphasis>Decimal Floating-Point</emphasis> category extends
+			the Power Architecture by adding a decimal floating-point unit.  It uses the existing 64-bit floating-point
+			registers and extends the FPSCR register to 64-bits, where it defines a decimal rounding-control field in the
+			extended space.
 
 			<table id="DFP-REGISTER-ROLES-TABLE" frame="none"><title>Floating-Point Register Roles for Decimal Floating-Point Types</title>
 				<tgroup cols='3' colsep='0' rowsep='0'>
@@ -2584,7 +2584,7 @@ struct
 						<row>
 							<entry namest="c1" rowsep='0'></entry>
 							<entry namest="c2" rowsep='0'></entry>
-							<entry namest="c3" rowsep='0'>There are special rules governing how parameters that span multiple GPRs should be split between registers and the parameter save area outlined in <emphasis><xref linkend="PARAM-PASS"></emphasis>.</entry>
+							<entry namest="c3" rowsep='0'>There are special rules governing how parameters that span multiple GPRs should be split between registers and the <xref linkend="PARAMETER-SAVE-AREA"> outlined in <emphasis><xref linkend="PARAM-PASS"></emphasis>.</entry>
 						</row>
 					</tbody>
 					</tgroup>
@@ -2631,16 +2631,17 @@ struct
 						<row>
 							<entry namest="c1" rowsep='0'></entry>
 							<entry namest="c2" rowsep='0'></entry>
-							<entry namest="c3" rowsep='0'>There are special rules governing how parameters that span multiple GPRs should be split between registers and the parameter save area outlined in <emphasis><xref linkend="PARAM-PASS"></emphasis>.</entry>
+							<entry namest="c3" rowsep='0'>There are special rules governing how parameters that span multiple GPRs should be split between registers and the <xref linkend="PARAMETER-SAVE-AREA"> outlined in <emphasis><xref linkend="PARAM-PASS"></emphasis>.</entry>
 						</row>
 						</tbody>
 					</tgroup>
 					</table>
 
 
-			<para CONDITION="ATR-VECTOR">The ISA Vector category extends the Power
-			Architecture and provides 32 vector registers, each 128 bits wide, a
-			special-purpose register VRSAVE, and a special-purpose register VSCR. Throughout this document the symbol v<emphasis>N</emphasis> is used, where <emphasis>N</emphasis> is a register number, to refer to vector register <emphasis>N</emphasis>.
+			<para CONDITION="ATR-VECTOR">The Power ISA <emphasis>Vector</emphasis> category provides 32 vector registers, each
+			128 bits wide, a special-purpose register called VRSAVE, and a special-purpose register called VSCR. Throughout this document the
+			symbol v<emphasis>N</emphasis> is used, where <emphasis>N</emphasis> is a register number, to refer to vector
+			register <emphasis>N</emphasis>.
 
 			<table id="VR-REGISTER-ROLES-TABLE" frame="none"><title>Vector Register Roles</title>
 				<tgroup cols='3' colsep='0' rowsep='0'>
@@ -2694,17 +2695,23 @@ struct
 					</tgroup>
 					</table></para>
 
-			<para CONDITION="ATR-VECTOR-SCALAR">The ISA Vector-Scalar (VSX) category provides upper doublewords for
-			the 32 floating-point registers, thus allowing them to be used as vector registers.  These new vector
-			registers are mapped to registers 0 to 31 in the VSX registers file.  Doubleword 0 of these vector
-			registers correspond to floating-point registers 0 to 31 as show in <emphasis><xref
-			linkend="VSX-REGISTER-OVERLAY"></emphasis>.  The 32 registers from the Vector category are mapped to
-			registers 32 to 63 in the VSX registers file.  Throughout this document the symbol
-			vs<emphasis>N</emphasis> is used, where <emphasis>N</emphasis> is a register number, to refer to vector
-			scalar register <emphasis>N</emphasis>.  VSX registers from 0 to 31 are volatile, but before using
-			registers from the vs14-vs31 interval their corresponding floating-point registers need to be saved to the
-			stack, since they are nonvolatile.  VSX registers from 32-63 retain their volatility and purpose set forth
-			in <emphasis><xref linkend="VR-REGISTER-ROLES-TABLE"></emphasis>.
+			<para CONDITION="ATR-VECTOR-SCALAR">The Power ISA <emphasis>Vector-Scalar Extension</emphasis> (VSX) category
+			extends the Power ISA <emphasis>Vector</emphasis> category with an additional 32 vector registers.  This is achieved
+			by providing companion doublewords for the 32 floating-point registers, thus allowing them to be used as vector
+			registers.  These additional vector registers are mapped to registers 0 to 31 in the VSX registers file.  Doubleword
+			0 of these vector registers correspond to floating-point registers 0 to 31 as shown in <emphasis><xref
+			linkend="VSX-REGISTER-OVERLAY"></emphasis>.  The 32 registers from the <emphasis>Vector</emphasis> category are
+			mapped to registers 32 to 63 in the VSX registers file. Throughout this document the symbol vs<emphasis>N</emphasis>
+			is used, where <emphasis>N</emphasis> is a register number, to refer to vector-scalar register
+			<emphasis>N</emphasis>.  Registers vs0 to vs31 are volatile, but before using registers from the vs14-vs31 interval
+			the underlying floating-point registers need to be saved to the <xref linkend="FPR-SAVE-AREA"> of the stack.
+			Registers vs32 to vs63 retain the volatility and purpose of the underlying vector registers they overlap as
+			described in <emphasis><xref linkend="VR-REGISTER-ROLES-TABLE"></emphasis>.
+
+
+
+
+
 
 			<table id="VSX-REGISTER-OVERLAY" frame="none"><title>Vector-Scalar Register Layout</title>
 				<tgroup cols='3' colsep='0' rowsep='0'>
@@ -2778,6 +2785,7 @@ struct
 				</tgroup>
 			</table>
 
+
 			<table id="VSR-REGISTER-ROLES-TABLE" frame="none"><title>Vector-Scalar Register Roles</title>
 				<tgroup cols='3' colsep='0' rowsep='0'>
 					<colspec colwidth='60' colname='c1' align="left">
@@ -2814,9 +2822,9 @@ struct
 </para>
 
 
-			<para CONDITION="ATR-SPE">The ISA Signal Processing Engine (SPE) category provides upper words
+			<para CONDITION="ATR-SPE">The Power ISA <emphasis>Signal Processing Engine</emphasis> (SPE) category provides upper words
 			for the 32 general-purpose registers, thus allowing them to be used in SPE APU operations to
-			hold two 32-bit words.  The Signal Processing Engine category also provides several
+			hold two 32-bit words.  The <emphasis>Signal Processing Engine</emphasis> category also provides several
 			special-purpose registers. The volatility of all 64-bit registers is the same for the upper and
 			lower word. If only the lower word is modified by a function, only the lower word need be saved
 			and restored.
@@ -3062,10 +3070,12 @@ struct
 						<para>There is no maximum stack frame defined.</para>
 					</listitem>
 	
-					<listitem><para>Padding shall be added to the <emphasis>local variable
-					space</emphasis> of the
-					stack frame to maintain the defined stack frame alignment in
-					the absence of register save areas.</para>
+					<listitem>
+
+						<para>Padding shall be added to the <xref linkend="LOCAL-VARIABLE-SAVE-AREA"> of the stack
+						frame to maintain the defined stack frame alignment in the absence of register save
+						areas.</para>
+
 					</listitem>
 	
 					<listitem>
@@ -3151,7 +3161,7 @@ stw  0,36(1)       - Store LR in previous LR save area</screen>
 						<listitem>
 							<para>If a function is to change the value in any nonvolatile
 							floating-point register fr<emphasis>n</emphasis> it shall first save the value fr<emphasis>n</emphasis>
-							in the <emphasis>Floating-Point Register Save Area</emphasis> in
+							in the <emphasis><xref linkend="FPR-SAVE-AREA"></emphasis> in
 							a doubleword located 8 &times; (32 &minus; <emphasis>n</emphasis>) bytes before the back
 							chain word of the previous frame, as shown in <emphasis><xref linkend="FIG-FPR-AND-GPR-SAVE-AREAS"></emphasis>.</para>
 							<figure ID="FIG-FPR-AND-GPR-SAVE-AREAS">
@@ -3165,10 +3175,9 @@ stw  0,36(1)       - Store LR in previous LR save area</screen>
 
 							<para>If a function is to change the value in any nonvolatile
 							general-purpose register r<emphasis>n</emphasis>, it shall first save the value of
-							r<emphasis>n</emphasis> in the <emphasis>general register save area</emphasis>, in a
+							r<emphasis>n</emphasis> in the <emphasis><xref linkend="GPR-SAVE-AREA"></emphasis>, in a
 							word located 4 &times; (32 &minus; <emphasis>n</emphasis>) bytes before the low-addressed
-							end of the <emphasis>Floating-Point Register Save
-							Area</emphasis>, as shown in <emphasis><xref linkend="FIG-FPR-AND-GPR-SAVE-AREAS"></emphasis>.</para>
+							end of the <emphasis><xref linkend="FPR-SAVE-AREA"></emphasis>, as shown in <emphasis><xref linkend="FIG-FPR-AND-GPR-SAVE-AREAS"></emphasis>.</para>
 
 						</listitem>
 	
@@ -3179,7 +3188,7 @@ stw  0,36(1)       - Store LR in previous LR save area</screen>
 
 							<para>If a function is to change the value in any nonvolatile
 							general-purpose register r<emphasis>n</emphasis>, it shall first save the value of
-							r<emphasis>n</emphasis> in the <emphasis>General-Purpose Register Save Area</emphasis>, in a
+							r<emphasis>n</emphasis> in the <emphasis><xref linkend="GPR-SAVE-AREA"></emphasis>, in a
 							word located 4 &times; (32 &minus; <emphasis>n</emphasis>) bytes before the backchain
 							word of the previous frame, as shown in <emphasis><xref linkend="FIG-GPR-SAVE-AREA"></emphasis>.</para>
 
@@ -3200,9 +3209,8 @@ stw  0,36(1)       - Store LR in previous LR save area</screen>
 							<para>If a function changes the value in any nonvolatile field
 							of the condition register, it shall first save the value in all
 							the nonvolatile fields of the condition register in the
-							<emphasis>CR Save Area</emphasis>, which is the word below the
-							low address end of the <emphasis>general register save
-							area</emphasis>, as shown in <xref linkend="FIG-CR-SAVE-AREA">.</para>
+							<xref linkend="CR-SAVE-REGISTER-SAVE-AREA">, which is the word below the
+							low address end of the <xref linkend="GPR-SAVE-AREA">, as shown in <xref linkend="FIG-CR-SAVE-AREA">.</para>
 
 							<figure ID="FIG-CR-SAVE-AREA">
 								<title>CR Save Area</title>
@@ -3229,15 +3237,16 @@ stw  0,36(1)       - Store LR in previous LR save area</screen>
 						<term><emphasis role="bold">VRSAVE Register Save Area</emphasis></term>
 						<listitem>
 
-							<para>Functions must ensure that the appropriate bits in the
-							VRSAVE register are set for any vector registers they use.  A
-							function that changes the value of the VRSAVE register shall
-							save the original value of VRSAVE into the <emphasis>VRSAVE save
-							area</emphasis>.  If the CR save area is present, the <emphasis>VRSAVE
-							save area</emphasis> is located in the word below the <emphasis>CR save area</emphasis>.
-							Otherwise, the <emphasis>VRSAVE save area</emphasis> is located in the word below the
-							low address end of the <emphasis>general register save
-							area</emphasis>.  Both options are shown in <xref
+							<para>Functions must ensure that the appropriate bits in the VRSAVE register are set
+							for any vector registers they use.  A function that changes the value of the VRSAVE
+							register shall save the original value of VRSAVE into the <emphasis><xref
+							linkend="VR-SAVE-REGISTER-SAVE-AREA"> </emphasis>.  If the <emphasis><xref
+							linkend="CR-SAVE-REGISTER-SAVE-AREA"></emphasis> is present, the <emphasis><xref
+							linkend="VR-SAVE-REGISTER-SAVE-AREA"> </emphasis> is located in the word below the
+							<emphasis><xref
+							linkend="CR-SAVE-REGISTER-SAVE-AREA"></emphasis>.  Otherwise, the <emphasis><xref linkend="VR-SAVE-REGISTER-SAVE-AREA">
+							</emphasis> is located in the word below the low address end of the
+							<emphasis><xref linkend="GPR-SAVE-AREA"></emphasis>.  Both options are shown in <xref
 							linkend="FIG-VR-SAVE-AREAS">.</para>
 
 
@@ -3264,26 +3273,29 @@ stw  0,36(1)       - Store LR in previous LR save area</screen>
 						<listitem>
 							<para>If a function changes the value in any nonvolatile vector
 							register vr<emphasis>n</emphasis>, it shall first save the value of vr<emphasis>n</emphasis> in the
-							<emphasis>Vector Register Save Area</emphasis>, in a quadword
+							<emphasis><xref linkend="VR-SAVE-AREA"></emphasis>, in a quadword
 							located 16 &times; (32 &minus; n) bytes before the low-addressed end
-							of the <emphasis>VRSAVE save area</emphasis> (plus any required
+							of the <emphasis><xref linkend="VR-SAVE-REGISTER-SAVE-AREA"></emphasis> (plus any required
 							padding), as shown in <emphasis><xref linkend="FIG-VR-SAVE-AREAS"></emphasis>. The
-							<emphasis>Vector Register Save Area</emphasis> shall have
+							<emphasis><xref linkend="VR-SAVE-AREA"></emphasis> shall have
 							quadword alignment.</para>
 
 						</listitem>
 					</varlistentry>
 
 					<varlistentry id="VECTOR-SCALAR-SAVE-AREA" CONDITION="ATR-VECTOR-SCALAR">
-						<term>The section <emphasis>Category-Specific Register Save Areas</emphasis> has no defined elements.</term>
+						<!--<term>The section <emphasis>Category-Specific Register Save Areas</emphasis> has no defined elements.</term> -->
+						<term></term>
 						<listitem>
-							<para>Since all the additional register contents added by the
-							VSX extension (namely the second doubleword on vs0-vs31) are volatile,
-							there is no need to add a save area for VSX registers.  However, VSX
-							registers vs14-vs31 overlap with the non-volatile floating-point
-							registers f14-f31.  Therefore, it is necessary to save the corresponding
-							floating point register in the floating-point register save area before
-							using a VSX register in that interval.</para>
+
+							<para>Since the additional registers added by the <emphasis>Vector-Scalar
+							Extension</emphasis> (namely the second doubleword of vs0-vs31) are volatile, there
+							is no need for a VSX-specific register save area.  However, vector-scalar registers
+							vs14-vs31 overlap with the non-volatile floating-point registers f14-f31.
+							Therefore, it is necessary to save the corresponding floating-point register in the
+							<emphasis><xref linkend="FPR-SAVE-AREA"></emphasis> before using a vector-scalar
+							register in that interval.</para>
+
 						</listitem>
 					</varlistentry>
 				</variablelist>
@@ -3295,17 +3307,17 @@ stw  0,36(1)       - Store LR in previous LR save area</screen>
 						<term><emphasis role="bold">SPE 64-bit General-Purpose Register Save Area</emphasis></term>
 						<listitem>
 
-						<para>If a function changes the value in the upper word of any
-						nonvolatile general-purpose register r<emphasis>n</emphasis>, it shall first save the value
-						of r<emphasis>n</emphasis> in the <emphasis>64-bit general-purpose register save
-						area</emphasis>, in a doubleword located 8 &times; (32 &minus; <emphasis>n</emphasis>) bytes
-						before the low-addressed end of the <emphasis>CR save area</emphasis>
-						(plus any required padding) if the <emphasis>CR Save Area</emphasis> is
-						present.  Otherwise, it is located in a doubleword 8 &times; (32 &minus; <emphasis>n</emphasis>)
-						bytes before the low-address end of the <emphasis>General-Purpose
-						Register Save Area</emphasis> (plus any required padding).  The
-						<emphasis>64-bit General-Purpose Save Area</emphasis> shall have quadword
-						alignment.  While not technically necessary, quadword alignment is required for congruence with AltiVec and VMX technology.</para>
+						<para>If a function changes the value in the upper word of any nonvolatile general-purpose
+						register r<emphasis>n</emphasis>, it shall first save the value of r<emphasis>n</emphasis>
+						in the <emphasis><xref linkend="SPE-REGISTER-SAVE-AREA"></emphasis>, in a doubleword located
+						8 &times; (32 &minus; <emphasis>n</emphasis>) bytes before the low-addressed end of the
+						<emphasis><xref linkend="CR-SAVE-REGISTER-SAVE-AREA"></emphasis> (plus any required padding)
+						if the <emphasis><xref linkend="CR-SAVE-REGISTER-SAVE-AREA"></emphasis> is present.
+						Otherwise, it is located in a doubleword 8 &times; (32 &minus; <emphasis>n</emphasis>) bytes
+						before the low-address end of the <emphasis><xref linkend="GPR-SAVE-AREA"> </emphasis> (plus
+						any required padding).  The <emphasis><xref linkend="SPE-REGISTER-SAVE-AREA"></emphasis>
+						shall have quadword alignment.  While not technically necessary, quadword alignment is
+						required for congruence with AltiVec and VMX technology.</para>
 
 						<figure ID="FIG-SPE-SAVE-AREA"> <title>SPE 64-bit General-Purpose Register Save Area</title> <mediaobject><imageobject><imagedata scale=62 fileref="graphics/SPE-SaveArea.png" format="PNG"></imageobject></mediaobject></figure>
 
@@ -3349,7 +3361,7 @@ stw  0,36(1)       - Store LR in previous LR save area</screen>
 					<title>Parameter Save Area</title>
 					<varlistentry id="PARAMETER-SAVE-AREA">
 						<term><emphasis role="bold">Parameter Save Area</emphasis></term>
-						<listitem><para>The <emphasis>Parameter Save Area</emphasis> shall be allocated by the caller, and shall be large enough to contain the parameters needed by the caller.  The calling function cannot expect that the contents of this save area are valid when returning from the callee.  Refer to <emphasis><xref linkend="FIG-PARAM-LOCAL-SAVE-AREAS"></emphasis> for information on the location of this space.</para></listitem>
+						<listitem><para>The <emphasis><xref linkend="PARAMETER-SAVE-AREA"></emphasis> shall be allocated by the caller, and shall be large enough to contain the parameters needed by the caller.  The calling function cannot expect that the contents of this save area are valid when returning from the callee.  Refer to <emphasis><xref linkend="FIG-PARAM-LOCAL-SAVE-AREAS"></emphasis> for information on the location of this space.</para></listitem>
 					</varlistentry>
 				</variablelist>
 
@@ -3357,7 +3369,7 @@ stw  0,36(1)       - Store LR in previous LR save area</screen>
 					<title>Local Variable Space</title>
 					<varlistentry id="LOCAL-VARIABLE-SAVE-AREA">
 						<term><emphasis role="bold">Local Variable Space</emphasis></term>
-						<listitem><para>The <emphasis>Local Variable Space</emphasis> is used for allocation of local variables.  If the <emphasis>Parameter Save Area</emphasis> is in use, the <emphasis>Local Variable Space</emphasis> is located immediately above it, at a higher address, otherwise it is located immediately above the LR Save word.  There is no restriction on the size of this area.  Refer to <emphasis><xref linkend="FIG-PARAM-LOCAL-SAVE-AREAS"></emphasis> for information on the location of this space.</para></listitem>
+						<listitem><para>The <emphasis><xref linkend="LOCAL-VARIABLE-SAVE-AREA"></emphasis> is used for allocation of local variables.  If the <emphasis><xref linkend="PARAMETER-SAVE-AREA"></emphasis> is in use, the <emphasis><xref linkend="LOCAL-VARIABLE-SAVE-AREA"></emphasis> is located immediately above it, at a higher address, otherwise it is located immediately above the LR Save word.  There is no restriction on the size of this area.  Refer to <emphasis><xref linkend="FIG-PARAM-LOCAL-SAVE-AREAS"></emphasis> for information on the location of this space.</para></listitem>
 					</varlistentry>
 				</variablelist>
 
@@ -3403,10 +3415,14 @@ stw  0,36(1)       - Store LR in previous LR save area</screen>
 				</listitem>
 
 				<listitem CONDITION="ATR-VECTOR">
-					<para>Up to 12 vector parameters can be
-					passed in v2 through v13.</para>
+					<para>Up to 12 vector arguments can be passed in v2 through v13.</para>
 				</listitem>
+
+
 			</itemizedlist>
+
+			<note CONDITION="ATR-VECTOR-SCALAR"><title>Note</title><para>Note: When the Vector-Scalar Extension facility is available, parameter
+			passing conventions follow those already defined for vector arguments under the Vector facility.</para></note>
 
 			<para>If fewer arguments are needed, then the unused registers defined
 			previously will contain undefined values on entry to the called
@@ -3429,6 +3445,7 @@ stw  0,36(1)       - Store LR in previous LR save area</screen>
 
 			<para CONDITION="ATR-VECTOR"><emphasis>vr</emphasis> contains the number of the next
 			available vector register.</para>
+
 
 			<sect3 id="PARAM-PASSING-REG-SELECTION-ALGORITHM"><title>Parameter Passing Register Selection Algorithm</title>
 
@@ -3633,7 +3650,7 @@ stw  0,36(1)       - Store LR in previous LR save area</screen>
 								<listitem>
 
 									<para>Arguments not otherwise handled are
-									passed in the parameter save area of the caller's stack frame.
+									passed in the <xref linkend="PARAMETER-SAVE-AREA"> of the caller's stack frame.
 									Most of the types handled in SINGLE_GP, as defined previously,
 									are considered to have 4-byte size and alignment, with
 									simple integer types shorter than 32 bits sign- or
@@ -3731,14 +3748,14 @@ x = func(c, ff, d, ld, s, gg, t, e, hh);</programlisting>
 						<row rowsep="1">
 							<entry namest="c1">Parameter</entry>
 							<entry namest="c2">Register</entry>
-							<entry namest="c3">Byte Offset In Parameter Save Area</entry>
+							<entry namest="c3">Byte Offset In <xref linkend="PARAMETER-SAVE-AREA"></entry>
 						</row>
 					</thead>
 					<tbody>
 						<row>
 							<entry>c</entry>
 							<entry>r3</entry>
-							<entry>(not stored in parameter save area)</entry>
+							<entry>(not stored in <xref linkend="PARAMETER-SAVE-AREA">)</entry>
 						</row>
 
 						<row>
@@ -3802,14 +3819,14 @@ x = func(c, ff, d, ld, s, gg, t, e, hh);</programlisting>
 						<row rowsep="1">
 							<entry namest="c1">Parameter</entry>
 							<entry namest="c2">Register</entry>
-							<entry namest="c3">Byte Offset In Parameter Save Area</entry>
+							<entry namest="c3">Byte Offset In <xref linkend="PARAMETER-SAVE-AREA"></entry>
 						</row>
 					</thead>
 					<tbody>
 						<row>
 							<entry>c</entry>
 							<entry>r3</entry>
-							<entry>(not stored in parameter save area)</entry>
+							<entry>(not stored in <xref linkend="PARAMETER-SAVE-AREA">)</entry>
 						</row>
 
 						<row>
@@ -3827,7 +3844,7 @@ x = func(c, ff, d, ld, s, gg, t, e, hh);</programlisting>
 						<row>
 							<entry>ld</entry>
 							<entry>(none)</entry>
-							<entry>08-23 (stored in parameter save area)</entry>
+							<entry>08-23 (stored in <xref linkend="PARAMETER-SAVE-AREA">)</entry>
 						</row>
 
 						<row>
@@ -3874,7 +3891,7 @@ x = func(c, ff, d, ld, s, gg, t, e, hh);</programlisting>
 						<row rowsep="1">
 							<entry namest="c1">Parameter</entry>
 							<entry namest="c2">Register</entry>
-							<entry namest="c3">Byte Offset In Parameter Save Area</entry>
+							<entry namest="c3">Byte Offset In <xref linkend="PARAMETER-SAVE-AREA"></entry>
 						</row>
 					</thead>
 					<tbody>
@@ -3882,7 +3899,7 @@ x = func(c, ff, d, ld, s, gg, t, e, hh);</programlisting>
 						<row>
 							<entry>c</entry>
 							<entry>r3</entry>
-							<entry>(not stored in parameter save area)</entry>
+							<entry>(not stored in <xref linkend="PARAMETER-SAVE-AREA">)</entry>
 						</row>
 
 						<row>
@@ -3947,14 +3964,14 @@ x = func(c, ff, d, ld, s, gg, t, e, hh);</programlisting>
 						<row rowsep="1">
 							<entry namest="c1">Parameter</entry>
 							<entry namest="c2">Register</entry>
-							<entry namest="c3">Byte Offset In Parameter Save Area</entry>
+							<entry namest="c3">Byte Offset In <xref linkend="PARAMETER-SAVE-AREA"></entry>
 						</row>
 					</thead>
 					<tbody>
 						<row>
 							<entry>c</entry>
 							<entry>r3</entry>
-							<entry>(not stored in parameter save area)</entry>
+							<entry>(not stored in <xref linkend="PARAMETER-SAVE-AREA">)</entry>
 						</row>
 
 						<row>
@@ -3978,7 +3995,7 @@ x = func(c, ff, d, ld, s, gg, t, e, hh);</programlisting>
 						<row>
 							<entry>ptr to s</entry>
 							<entry>(none)</entry>
-							<entry>08-11 (stored in parameter save area)</entry>
+							<entry>08-11 (stored in <xref linkend="PARAMETER-SAVE-AREA">)</entry>
 						</row>
 
 						<row>
@@ -4036,14 +4053,14 @@ x = func(c, ff, va, ld, s, gg, t, vb, hh);
 						<row rowsep="1">
 							<entry namest="c1">Parameter</entry>
 							<entry namest="c2">Register</entry>
-							<entry namest="c3">Byte Offset In Parameter Save Area</entry>
+							<entry namest="c3">Byte Offset In <xref linkend="PARAMETER-SAVE-AREA"></entry>
 						</row>
 					</thead>
 					<tbody>
 						<row>
 							<entry>c</entry>
 							<entry>r3</entry>
-							<entry>(not stored in parameter save area)</entry>
+							<entry>(not stored in <xref linkend="PARAMETER-SAVE-AREA">)</entry>
 						</row>
 
 						<row>
@@ -4125,14 +4142,14 @@ x = func(c, ff, va, gg, vb, s);
 						<row rowsep="1">
 							<entry namest="c1">Parameter</entry>
 							<entry namest="c2">Register</entry>
-							<entry namest="c3">Byte Offset In Parameter Save Area</entry>
+							<entry namest="c3">Byte Offset In <xref linkend="PARAMETER-SAVE-AREA"></entry>
 						</row>
 					</thead>
 					<tbody>
 						<row>
 							<entry>c</entry>
 							<entry>r3</entry>
-							<entry>(not stored in parameter save area)</entry>
+							<entry>(not stored in <xref linkend="PARAMETER-SAVE-AREA">)</entry>
 						</row>
 
 						<row>
@@ -4192,14 +4209,14 @@ x = func(d128, d64, d32, s, t, d128, e64, e128);</programlisting></figure>
 						<row rowsep="1">
 							<entry namest="c1">Parameter</entry>
 							<entry namest="c2">Register</entry>
-							<entry namest="c3">Byte Offset In Parameter Save Area</entry>
+							<entry namest="c3">Byte Offset In <xref linkend="PARAMETER-SAVE-AREA"></entry>
 						</row>
 					</thead>
 					<tbody>
 						<row>
 							<entry>d128</entry>
 							<entry>f2-f3</entry>
-							<entry>(not stored in parameter save area)</entry>
+							<entry>(not stored in <xref linkend="PARAMETER-SAVE-AREA">)</entry>
 						</row>
 
 						<row>
@@ -4235,7 +4252,7 @@ x = func(d128, d64, d32, s, t, d128, e64, e128);</programlisting></figure>
 						<row>
 							<entry>e128</entry>
 							<entry>(none)</entry>
-							<entry>08-23 (stored in parameter save area)</entry>
+							<entry>08-23 (stored in <xref linkend="PARAMETER-SAVE-AREA">)</entry>
 						</row>
 
 					</tbody>
@@ -4252,14 +4269,14 @@ x = func(d128, d64, d32, s, t, d128, e64, e128);</programlisting></figure>
 						<row rowsep="1">
 							<entry namest="c1">Parameter</entry>
 							<entry namest="c2">Register</entry>
-							<entry namest="c3">Byte Offset In Parameter Save Area</entry>
+							<entry namest="c3">Byte Offset In <xref linkend="PARAMETER-SAVE-AREA"></entry>
 						</row>
 					</thead>
 					<tbody>
 						<row>
 							<entry>d128</entry>
 							<entry>r3-r6</entry>
-							<entry>(not stored in parameter save area)</entry>
+							<entry>(not stored in <xref linkend="PARAMETER-SAVE-AREA">)</entry>
 						</row>
 
 						<row>
@@ -4283,7 +4300,7 @@ x = func(d128, d64, d32, s, t, d128, e64, e128);</programlisting></figure>
 						<row>
 							<entry>ptr to t</entry>
 							<entry>(none)</entry>
-							<entry>08-11 (stored in parameter save area)</entry>
+							<entry>08-11 (stored in <xref linkend="PARAMETER-SAVE-AREA">)</entry>
 						</row>
 
 						<row>
@@ -4363,11 +4380,12 @@ x = func(d128, d64, d32, s, t, d128, e64, e128);</programlisting></figure>
 
 			<para CONDITION="ATR-SOFT-FLOAT && ATR-LONG-DOUBLE-IBM">Functions shall return long double values in r3 through r6.</para>
 
-			<para CONDITION="ATR-SPE">Functions shall return values of 64-bit vector
-			types in r3.</para>
+			<para CONDITION="ATR-SPE">Functions shall return 64-bit vector values in r3.</para>
 
-			<para CONDITION="ATR-VECTOR">When the Vector facility is supported,
-			functions shall return vector data type values in v2.</para>
+			<para CONDITION="ATR-VECTOR">When the Vector facility is supported, functions shall return vector values in v2.</para>
+
+			<para CONDITION="ATR-VECTOR-SCALAR">When the Vector-Scalar Extension facility is supported, functions shall return
+			vector values as defined under the Vector facility.</para>
 
 			<para>Functions that return values of the following list of types shall
 			place the result in register r3 as signed or unsigned integers as
@@ -4403,7 +4421,7 @@ x = func(d128, d64, d32, s, t, d128, e64, e128);</programlisting></figure>
 			pass the address of this buffer as a hidden first argument in r3,
 			causing the first explicit argument to be passed in r4.  This hidden
 			argument is treated as a normal formal parameter, and corresponds to the
-			first doubleword of the parameter save area.</para>
+			first doubleword of the <xref linkend="PARAMETER-SAVE-AREA">.</para>
 
 			<para CONDITION="ATR-EABI">Aggregates or unions whose size is less than
 			or equal to eight bytes shall be returned in r3 and r4, as if they were
@@ -4556,12 +4574,12 @@ x = func(d128, d64, d32, s, t, d128, e64, e128);</programlisting></figure>
 
 				<listitem>
 					<para>The calling sequence does not restrict how languages leverage
-					the <emphasis>local variable space</emphasis> of the stack frame, and there is no
+					the <emphasis><xref linkend="LOCAL-VARIABLE-SAVE-AREA"></emphasis> of the stack frame, and there is no
 					restriction on the size of this section.</para>
 				</listitem>
 
 				<listitem>
-					<para>The <emphasis>parameter save area</emphasis> shall be allocated by the caller,
+					<para>The <xref linkend="PARAMETER-SAVE-AREA"> shall be allocated by the caller,
 					and shall be large enough to contain the parameters needed by the
 					caller. Its contents are not saved across function calls.</para>
 				</listitem>

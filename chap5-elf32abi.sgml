@@ -652,7 +652,7 @@ mflr    r31
 
 			<note><title>note</title><para>Note: there are exactly 18 instructions between <varname>.plt</varname>
 			and the first PLT entry indicated by <varname>.plt_1</varname>.  These 18 instructions (including
-			<varname>nop</varname> instructions) correspond with the space reserved at the head of the plt section
+			<varname>nop</varname> instructions) correspond to the space reserved at the head of the plt section
 			for the dynamic linker trampolines.  Following the <varname>.plt_n</varname> entry there are exactly
 			<emphasis>n</emphasis> word entries in <varname>.plt_datawords</varname>.</para></note>
 		
