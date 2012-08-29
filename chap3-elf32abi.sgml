@@ -3236,23 +3236,36 @@ stw  0,36(1)       - Store LR in previous LR save area</screen>
 					<varlistentry id="VR-SAVE-REGISTER-SAVE-AREA" CONDITION="ATR-VECTOR">
 						<term><emphasis role="bold">VRSAVE Register Save Area</emphasis></term>
 						<listitem>
+							<para></para>
 
-							<para>Functions must ensure that the appropriate bits in the VRSAVE register are set
-							for any vector registers they use.  A function that changes the value of the VRSAVE
-							register shall save the original value of VRSAVE into the <emphasis><xref
+							<para CONDITION="ATR-VRSAVE-MASK">Functions must ensure that the corresponding bits
+							in the VRSAVE register are set for any <emphasis role="bold">nonvolatile</emphasis>
+							vector registers they use.</para>
+							
+							<para CONDITION="ATR-VRSAVE-BOOL">Functions must ensure that if any <emphasis
+							role="bold">nonvolatile</emphasis> vector register is used that all of the bits in
+							the VRSAVE register be set to &lsquo;1&rsquo;.  If no <emphasis
+							role="bold">nonvolatile</emphasis> vector registers are used, all of the bits in the
+							VRSAVE register shall be set to &lsquo;0&rsquo;.</para>
+
+
+							<para>A function that changes the value of the VRSAVE register shall save the
+							original value of VRSAVE into the <emphasis><xref
 							linkend="VR-SAVE-REGISTER-SAVE-AREA"> </emphasis>.  If the <emphasis><xref
 							linkend="CR-SAVE-REGISTER-SAVE-AREA"></emphasis> is present, the <emphasis><xref
-							linkend="VR-SAVE-REGISTER-SAVE-AREA"> </emphasis> is located in the word below the
-							<emphasis><xref
-							linkend="CR-SAVE-REGISTER-SAVE-AREA"></emphasis>.  Otherwise, the <emphasis><xref linkend="VR-SAVE-REGISTER-SAVE-AREA">
-							</emphasis> is located in the word below the low address end of the
-							<emphasis><xref linkend="GPR-SAVE-AREA"></emphasis>.  Both options are shown in <xref
+							linkend="VR-SAVE-REGISTER-SAVE-AREA"> </emphasis> is located in the word below
+							the <emphasis><xref linkend="CR-SAVE-REGISTER-SAVE-AREA"></emphasis>.  Otherwise,
+							the <emphasis><xref linkend="VR-SAVE-REGISTER-SAVE-AREA"> </emphasis> is
+							located in the word below the low address end of the <emphasis><xref
+							linkend="GPR-SAVE-AREA"></emphasis>.  Both options are shown in <xref
 							linkend="FIG-VR-SAVE-AREAS">.</para>
+
 
 
 						</listitem>
 
 					</varlistentry>
+
 				</variablelist>
 
 				<figure ID="FIG-VR-SAVE-AREAS" CONDITION="ATR-VECTOR"> <title>VRSAVE and Vector Register Save Areas</title>

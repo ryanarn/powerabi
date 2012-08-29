@@ -194,9 +194,41 @@
 		</simplesect>
 
 
-		<simplesect><title>Summary of Changes in the <emphasis><phrase>&archtitle &abititle &specversion; - </phrase><phrase CONDITION="ATR-LINUX && !ATR-EABI">Linux</phrase><phrase CONDITION="ATR-EABI && ATR-LINUX"> &amp; </phrase><phrase CONDITION="ATR-EABI && !ATR-LINUX">Embedded</phrase></emphasis></title>
-		<para>This version of the <emphasis><phrase>&archtitle &abititle</phrase></emphasis> was created by applying the following additions to <emphasis><phrase>&archtitle &abititle &prevspecversion</phrase></emphasis>.</para>
-		<para><emphasis role="bold">Vector-Scalar Extension</emphasis>: Document the necessary additions to the ABI to support the <emphasis>Vector-Scalar Extension</emphasis>, as described by the Power ISA 2.06 [Category: VSX], under the new ATR-VECTOR-SCALAR attribute as defined by the <emphasis><link linkend="TAXONOMY">Taxonomy</link></emphasis> in <emphasis><xref linkend="TAXONOMY"></emphasis>.</para>
+		<simplesect><title>Summary of Changes</title>
+		<para>This version of the <emphasis><phrase>&archtitle &abititle</phrase></emphasis> was created by applying the following changes to <emphasis><phrase>&archtitle &abititle &prevspecversion</phrase></emphasis>.</para>
+		<variablelist>
+			<varlistentry CONDITION="ATR-VECTOR-SCALAR">
+				<term><emphasis role="bold">Vector-Scalar Extension:</emphasis></term>
+				<listitem>
+					<para>Document the necessary additions to the ABI to support the <emphasis>Vector-Scalar Extension</emphasis>, as described by the Power ISA 2.06 Revision B [Category: VSX], under the new ATR-VECTOR-SCALAR attribute as defined by the <emphasis><link linkend="TAXONOMY">Taxonomy</link></emphasis> in <emphasis><xref linkend="TAXONOMY"></emphasis>.</para>
+				</listitem>
+			</varlistentry>
+
+			<varlistentry CONDITION="ATR-VECTOR">
+				<term><emphasis role="bold">VRSAVE Update Rules:</emphasis></term>
+				<listitem>
+					<para>The Power ISA leaves the definition of the rules regarding the update of the VRSAVE register to the ABI.  The <emphasis>&archtitle &abititle &prevspecversion</emphasis> required that <emphasis role="bold">any</emphasis> vector register used have its corresponding bit in the VRSAVE register recorded, whereas this ABI revision narrows the scope of the VRSAVE register update rules to only record the set of used <emphasis role="bold">nonvolatile</emphasis> vector registers under the following two options:</para>
+					<note><title>Note</title><para><emphasis role="bold">Rationale:</emphasis> Saving and restoring the VRSAVE register is expensive.  Limiting the scenarios under which the save and restore is necessary improves performance.</para></note>
+					<variablelist>
+						<varlistentry CONDITION="ATR-VRSAVE-MASK">
+							<term><emphasis role="bold">VRSAVE as a Nonvolatile Mask:</emphasis></term>
+							<listitem><para>Any <emphasis role="bold">nonvolatile</emphasis> vector register that is used has its corresponding bit saved in the VRSAVE register as described in <xref linkend="VR-SAVE-REGISTER-SAVE-AREA">. </para></listitem>
+						</varlistentry>
+
+						<varlistentry CONDITION="ATR-VRSAVE-BOOL">
+							<term><emphasis role="bold">VRSAVE as a Boolean:</emphasis></term>
+							<listitem><para>If any <emphasis role="bold">nonvolatile</emphasis> vector register is used, all of the bits in the VRSAVE register are set to &lsquo;1&rsquo;.  Otherwise, if no <emphasis role="bold">nonvolatile</emphasis> vector registers are used, then all of the bits in the VRSAVE register are unset to &lsquo;0&rsquo; as described in <xref linkend="VR-SAVE-REGISTER-SAVE-AREA">.</para></listitem>
+						</varlistentry>
+
+					</variablelist>
+				</listitem>
+			</varlistentry>
+
+		</variablelist>
+
+
+
+
 		</simplesect>
 	</preface>
 
@@ -333,6 +365,20 @@ passing complex data types as structures.  <emphasis role="bold">ATR-PASS-COMPLE
 			</listitem>
 		</varlistentry>
 		<varlistentry>
+			<term>ATR-VRSAVE-MASK</term>
+			<listitem>
+				<para><emphasis role=bold>(ABI Software Feature)</emphasis></para>
+				<para>The text under this attribute describes the rules regarding the update of the VRSAVE register as a mask of bits corresponding to nonvolatile registers that have been used.  <emphasis role="bold">ATR-VRSAVE-MASK is mutually exclusive with ATR-VRSAVE-BOOL.</emphasis>  ATR-VRSAVE-MASK is predicated on ATR-VECTOR.</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
+			<term>ATR-VRSAVE-BOOL</term>
+			<listitem>
+				<para><emphasis role=bold>(ABI Software Feature)</emphasis></para>
+				<para>The text under this attribute describes the rules regarding the update of the VRSAVE register as a boolean indicating whether, at least, one nonvolatile vector register has been used.  <emphasis role="bold">ATR-VRSAVE-BOOL is mutually exclusive with ATR-VRSAVE-MASK.</emphasis>  ATR-VRSAVE-BOOL is predicated on ATR-VECTOR.</para>
+			</listitem>
+		</varlistentry>
+		<varlistentry>
 			<term>ATR-VECTOR-SCALAR</term>
 			<listitem>
 				<para><emphasis role=bold>(Power ISA Category: VSX)</emphasis></para>
@@ -361,8 +407,11 @@ passing complex data types as structures.  <emphasis role="bold">ATR-PASS-COMPLE
  ISA-Flavour -> SIMD Encoding Floating-Point
 
  SIMD -> Vector [, VSX] { atr = ATR-VECTOR [, ATR-VECTOR-SCALAR] }
-      |  SPE           { atr = ATR-SPE }
-      |  /* Epsilon */ { com = "/* No SIMD. */" }
+      |  SPE            { atr = ATR-SPE }
+      |  /* Epsilon */  { com = "/* No SIMD. */" }
+
+ VRSAVE -> Boolean { atr = ATR-VRSAVE-BOOL }
+        |  Mask    { atr = ATR-VRSAVE-MASK }
 
  Encoding -> VLE { atr = ATR-VLE }
 
@@ -412,6 +461,8 @@ passing complex data types as structures.  <emphasis role="bold">ATR-PASS-COMPLE
 			<listitem><para>ATR-SPE</para></listitem>
 			<listitem><para>ATR-TLS</para></listitem>
 			<listitem><para>ATR-VECTOR</para></listitem>
+			<listitem><para>ATR-VRSAVE-MASK</para></listitem>
+			<listitem><para>ATR-VRSAVE-BOOL</para></listitem>
 			<listitem><para>ATR-VECTOR-SCALAR</para></listitem>
 			<listitem><para>ATR-PASS-COMPLEX-IN-GPRS</para></listitem>
 		</itemizedlist>
@@ -440,6 +491,8 @@ high parts of registers on such processors it must implement ATR-SPE.</para></li
 
 			<listitem><para>Availability of Vector data types is subject to conformance to a Power ISA category where the categories <emphasis>Vector</emphasis> (and by extension <emphasis>VSX</emphasis>) and <emphasis>Signal Processing Engine</emphasis> are mutually exclusive.  A conforming application only uses ATR-VECTOR or ATR-SPE.</para></listitem>
 
+			<listitem><para>If an implementation implements ATR-VECTOR is must implement either ATR-VRSAVE-MASK or ATR-VRSAVE-BOOL.</para></listitem>
+
 		</itemizedlist>
 		<note><para>Note: An implementation of this ABI shall indicate explicitly which attributes are supported.  Supporting attributes which are mutually exclusive is fine as long as only one is supported at a given time during application execution.</para></note>
 		</sect1>
@@ -466,6 +519,8 @@ high parts of registers on such processors it must implement ATR-SPE.</para></li
 			<listitem><para>ATR-SECURE-PLT</para></listitem>
 			<listitem><para>ATR-TLS</para></listitem>
 			<listitem><para>ATR-VECTOR</para></listitem>
+			<listitem><para>ATR-VRSAVE-MASK</para></listitem>
+			<listitem><para>ATR-VRSAVE-BOOL</para></listitem>
 			<listitem><para>ATR-VECTOR-SCALAR</para></listitem>
 		</itemizedlist>
 		<itemizedlist id="EABI-CONFORMANCE"><title>EABI Conformance</title>
