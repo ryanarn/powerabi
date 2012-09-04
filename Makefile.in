@@ -1,0 +1,101 @@
+ifneq (,)
+This Makefile requires GNU Make.
+endif
+
+top_srcdir := @top_srcdir@
+top_builddir = .
+
+release = @release@
+version = @version@
+publish = @publish@
+bitness = @bitness@
+attributes = @attributes@
+tags = @tags@
+
+unifiedabi = @unifiedabi@
+linuxabi = @linuxabi@
+embeddedabi = @embeddedabi@
+
+ifeq ($(attributes), yes)
+wrapper := -i WRAPPER
+else
+wrapper := 
+endif
+
+ifeq ($(tags), yes)
+tagid := -i TAGID
+else
+tagid := 
+endif
+
+ifeq ($(release), no)
+draft := -i DRAFT
+draft_title += $(shell date +'%F')-DRAFT-
+else
+draft :=  
+draft_title := 
+endif
+
+clean:
+	rm -f $(top_builddir)/ABI_entities.sgml
+	rm -f *.pdf
+
+.PHONY: clean
+
+distclean:
+	rm -f $(top_builddir)/config.log
+	rm -f $(top_builddir)/config.status
+	rm -f Makefile
+	rm -rf autom4te.cache/
+
+.PHONY: distclean
+
+linux: $(top_builddir)/ABI_entities.sgml
+	jw -b pdf $^ -d 'abi.dsl#print' -i LINUX $(draft) $(wrapper) $(tagid)
+	mv ABI_entities.pdf $(draft_title)Power-Arch-$(bitness)-bit-ABI-supp-$(version)-$@.pdf
+
+embedded: $(top_builddir)/ABI_entities.sgml
+	jw -b pdf $^ -d 'abi.dsl#print' -i EMBEDDED $(draft) $(wrapper) $(tagid)
+	mv ABI_entities.pdf $(draft_title)Power-Arch-$(bitness)-bit-ABI-supp-$(version)-$@.pdf
+
+unified: $(top_builddir)/ABI_entities.sgml
+	jw -b pdf $^ -d 'abi.dsl#print' -i UNIFIED $(draft) $(wrapper) $(tagid)
+	mv ABI_entities.pdf $(draft_title)Power-Arch-$(bitness)-bit-ABI-supp-$(version)-$@.pdf
+
+targets: $(unifiedabi) $(linuxabi) $(embeddedabi)
+
+powerabi: $(top_builddir)/ABI_entities.sgml targets
+
+# We want $(top_builddir)/ABI_entities.sgml to be rebuilt after a new configure.
+.PHONY: powerabi
+
+all: powerabi
+
+
+# DSSSL doesn't allow entities to be specified outside of the root level document.
+# So in order to be able to dynamically specify some of these entity variables
+# we have to do it here, and generate the root level document.
+$(top_builddir)/ABI_entities.sgml:
+	@echo "Generating ABI_entites.sgml"
+	@echo '<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook V4.1//EN"[' > $@
+	@echo '<!entity specversion "$(version)">' >> $@
+ifeq ($(publish),yes)
+	@echo '<!entity publishdate "'`date +"%B %d, %Y"`'">' >> $@
+else
+	@echo '<!entity publishdate "------ --, 20--">' >> $@
+endif
+	@echo '<!entity archtitle "Power Architecture">' >> $@
+	@echo '<!entity abititle "$(bitness)-bit Application Binary Interface Supplement">' >> $@
+	@echo '<!entity BOOK SYSTEM "book-elfabi.sgml">' >> $@
+	@echo '<!entity INTRO SYSTEM "chap1-elf32abi.sgml">' >> $@
+	@echo '<!entity INSTALL SYSTEM "chap2-elf32abi.sgml">' >> $@
+	@echo '<!entity LOW-LEVEL SYSTEM "chap3-elf32abi.sgml">' >> $@
+	@echo '<!entity OBJ-FILES SYSTEM "chap4-elf32abi.sgml">' >> $@
+	@echo '<!entity PROG-LOAD-DL SYSTEM "chap5-elf32abi.sgml">' >> $@
+	@echo '<!entity LIB SYSTEM "chap6-elf32abi.sgml">' >> $@
+	@echo ']>' >> $@
+	@echo '<book>' >> $@
+	@echo '&BOOK;' >> $@
+	@echo '</book>' >> $@
+
+
