@@ -162,11 +162,16 @@ AC_ARG_WITH([unified],
     ;;
   yes|*)
     unifiedabi="unified"
-    AC_MSG_NOTICE([Generating the Unified ABI document.])
     ;;
   esac],
 	    [unifiedabi="unified"])
 AC_SUBST(unifiedabi)
+
+if test "$unifiedabi" = "unified"; then
+    AC_MSG_NOTICE([Generating the Unified ABI document.])
+fi
+
+
 
 AC_CONFIG_FILES([Makefile])
 

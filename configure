@@ -1853,12 +1853,17 @@ if test "${with_unified+set}" = set; then :
     ;;
   yes|*)
     unifiedabi="unified"
-    { $as_echo "$as_me:${as_lineno-$LINENO}: Generating the Unified ABI document." >&5
-$as_echo "$as_me: Generating the Unified ABI document." >&6;}
     ;;
   esac
 else
   unifiedabi="unified"
+fi
+
+
+
+if test "$unifiedabi" = "unified"; then
+    { $as_echo "$as_me:${as_lineno-$LINENO}: Generating the Unified ABI document." >&5
+$as_echo "$as_me: Generating the Unified ABI document." >&6;}
 fi
 
 
