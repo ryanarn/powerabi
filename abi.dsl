@@ -951,8 +951,8 @@
     (make sequence
       (make paragraph
 	font-family-name: %title-font-family%
-	font-weight:  (if (< hlevel 5) 'bold 'medium)
-	font-posture: (if (< hlevel 5) 'upright 'italic)
+	font-weight:  (if (< hlevel 6) 'bold 'medium)
+	font-posture: (if (< hlevel 6) 'upright 'italic)
 	font-size: hs
 	line-spacing: (* hs %line-spacing-factor%)
 	space-before: (* hs %head-before-factor%)

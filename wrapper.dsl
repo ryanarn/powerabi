@@ -45,6 +45,7 @@
 				(match-element? '(sect1) (current-node))
 				(match-element? '(sect2) (current-node))
 				(match-element? '(sect3) (current-node)))
+;;				(match-element? '(sect4) (current-node)))
 			(make display-group
 				(make display-group
 					keep: #t

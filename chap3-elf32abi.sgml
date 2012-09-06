@@ -2131,7 +2131,8 @@ struct
 			preserving the original values upon return to the original execution
 			path.  Signals that can interrupt the original execution path are
 			documented in (BA-OS) in the System V Interface Definition.</para>
-			<para>The tables in <emphasis><xref linkend="REGISTER-ROLES"></emphasis> give an overview of the registers that are global during program
+
+			<para>The tables in the following subsections give an overview of the registers that are global during program
 			execution.  The tables use three terms to describe register
 			<emphasis>Preservation Rules</emphasis>:</para>
 
@@ -2193,10 +2194,10 @@ struct
 				</varlistentry>
 			</variablelist>
 
-			<sect3 id="REGISTER-ROLES"><title>Register Roles</title>
+			<sect3 id="GENERAL-REGISTER-ROLES"><title>General-Purpose Register Roles</title>
 
 			<para>In the 32-bit Power Architecture, there are always 32 general-purpose registers, each 32 bits wide.  Throughout this document the symbol r<emphasis>N</emphasis> is used, where <emphasis>N</emphasis> is a register number, to refer to general-purpose register <emphasis>N</emphasis>.</para>
-			<table id="REGISTER-ROLES-TABLE" frame="none"><title>Register Roles</title>
+			<table id="REGISTER-ROLES-TABLE" frame="none"><title>General-Purpose Register Roles</title>
 				<tgroup cols='3' colsep='0' rowsep='0'>
 					<colspec colwidth='60' colname='c1' align="left">
 					<colspec colwidth='100' colname='c2' align="left">
@@ -2437,281 +2438,327 @@ struct
 				</tgroup>
 			</table></para>
 
+			</sect3>
+			<sect3 id="FP-REGISTER-ROLES" CONDITION="ATR-CLASSIC-FLOAT"><title>Floating-Point Register Roles for Binary Floating-Point Types</title>
 
-			<para CONDITION="ATR-CLASSIC-FLOAT">On Power Architecture processors
-			that support Power ISA <emphasis>Floating-point</emphasis> category, there are always 32
-			floating-point registers, each 64 bits wide, and an associated special-purpose register to provide floating-point status and control.  Throughout this document the symbol f<emphasis>N</emphasis> is used, where <emphasis>N</emphasis> is a register number, to refer to floating-point register <emphasis>N</emphasis>.
+				<para>On Power Architecture processors that support the Power ISA <emphasis>Floating-point</emphasis>
+				category, there are always 32 floating-point registers, each 64 bits wide, and an associated special-purpose
+				register to provide floating-point status and control.  Throughout this document the symbol
+				f<emphasis>N</emphasis> is used, where <emphasis>N</emphasis> is a register number, to refer to
+				floating-point register <emphasis>N</emphasis>.</para>
+		
+				<table id="FP-REGISTER-ROLES-TABLE" frame="none"><title>Floating-Point Register Roles for Binary Floating-Point Types</title>
+					<tgroup cols='3' colsep='0' rowsep='0'>
+						<colspec colwidth='60' colname='c1' align="left">
+						<colspec colwidth='100' colname='c2' align="left">
+						<colspec colwidth='220' colname='c3' align="left">
+						<thead>
+							<row>
+								<entry namest="c1" rowsep='1'>Register</entry>
+								<entry namest="c2" rowsep='1'>Preservation Rules</entry>
+								<entry namest="c3" rowsep='1'>Purpose</entry>
+							</row>
+						</thead>
+						<tbody>
+							<row>
+								<entry namest="c1">f0</entry>
+								<entry namest="c2">volatile</entry>
+								<entry namest="c3"></entry>
+							</row>
+							<row>
+								<entry namest="c1">f1</entry>
+								<entry namest="c2">volatile</entry>
+								<entry namest="c3">Used for <emphasis>parameter passing</emphasis> and <emphasis>return values</emphasis> of binary float types.</entry>
+							</row>
+							<row>
+								<entry namest="c1">f2-f8</entry>
+								<entry namest="c2">volatile</entry>
+								<entry namest="c3">Used for <emphasis>parameter passing</emphasis> of binary float types.</entry>
+							</row>
+							<row>
+								<entry namest="c1">f9-f13</entry>
+								<entry namest="c2">volatile</entry>
+								<entry namest="c3"></entry>
+							</row>
+							<row>
+								<entry namest="c1">f14-f31</entry>
+								<entry namest="c2">nonvolatile</entry>
+								<entry namest="c3"></entry>
+							</row>
+							<row>
+								<entry namest="c1" rowsep='0'>FPSCR</entry>
+								<entry namest="c2" rowsep='0'>limited-access</entry>
 
-			<table id="FP-REGISTER-ROLES-TABLE" frame="none"><title>Floating-Point Register Roles for Binary Floating-Point Types</title>
-				<tgroup cols='3' colsep='0' rowsep='0'>
-					<colspec colwidth='60' colname='c1' align="left">
-					<colspec colwidth='100' colname='c2' align="left">
-					<colspec colwidth='220' colname='c3' align="left">
-					<thead>
-						<row>
-							<entry namest="c1" rowsep='1'>Register</entry>
-							<entry namest="c2" rowsep='1'>Preservation Rules</entry>
-							<entry namest="c3" rowsep='1'>Purpose</entry>
-						</row>
-					</thead>
-					<tbody>
-						<row>
-							<entry namest="c1">f0</entry>
-							<entry namest="c2">volatile</entry>
-							<entry namest="c3"></entry>
-						</row>
-						<row>
-							<entry namest="c1">f1</entry>
-							<entry namest="c2">volatile</entry>
-							<entry namest="c3">Used for <emphasis>parameter passing</emphasis> and <emphasis>return values</emphasis> of binary float types.</entry>
-						</row>
-						<row>
-							<entry namest="c1">f2-f8</entry>
-							<entry namest="c2">volatile</entry>
-							<entry namest="c3">Used for <emphasis>parameter passing</emphasis> of binary float types.</entry>
-						</row>
-						<row>
-							<entry namest="c1">f9-f13</entry>
-							<entry namest="c2">volatile</entry>
-							<entry namest="c3"></entry>
-						</row>
-						<row>
-							<entry namest="c1">f14-f31</entry>
-							<entry namest="c2">nonvolatile</entry>
-							<entry namest="c3"></entry>
-						</row>
-						<row>
-							<entry namest="c1" rowsep='0'>FPSCR</entry>
-							<entry namest="c2" rowsep='0'>limited-access</entry>
-							<entry namest="c3" rowsep='0'>Floating point status and control register limited-access bits.  Preservation rules governing the limited-access bits for the bit-fields [VE], [OE], [UE], [ZE], [XE], and [RN] are presented in <emphasis><xref linkend="LIMITED-ACCESS"></emphasis>.</entry>
-						</row>
-					</tbody>
-					</tgroup>
-					</table></para>
+								<entry namest="c3" rowsep='0'>Floating point status and control register
+								limited-access bits.  Preservation rules governing the limited-access bits
+								for the bit-fields [VE], [OE], [UE], [ZE], [XE], and [RN] are presented in
+								<emphasis><xref linkend="LIMITED-ACCESS"></emphasis>.</entry>
 
-
-			<para CONDITION="ATR-CLASSIC-FLOAT && ATR-DFP">The Power ISA <emphasis>Decimal Floating-Point</emphasis> category extends
-			the Power Architecture by adding a decimal floating-point unit.  It uses the existing 64-bit floating-point
-			registers and extends the FPSCR register to 64-bits, where it defines a decimal rounding-control field in the
-			extended space.
-
-			<table id="DFP-REGISTER-ROLES-TABLE" frame="none"><title>Floating-Point Register Roles for Decimal Floating-Point Types</title>
-				<tgroup cols='3' colsep='0' rowsep='0'>
-					<colspec colwidth='60' colname='c1' align="left">
-					<colspec colwidth='100' colname='c2' align="left">
-					<colspec colwidth='220' colname='c3' align="left">
-					<thead>
-						<row rowsep="1">
-							<entry namest="c1">Register</entry>
-							<entry namest="c2" rowsep='1'>Preservation Rules</entry>
-							<entry namest="c3">Purpose</entry>
-						</row>
-					</thead>
-					<tbody>
-						<row>
-							<entry namest="c1">f0</entry>
-							<entry namest="c2">volatile</entry>
-							<entry namest="c3"></entry>
-						</row>
-						<row>
-							<entry namest="c1">f1</entry>
-							<entry namest="c2">volatile</entry>
-							<entry namest="c3">Used for <emphasis>parameter passing</emphasis> and <emphasis>return values</emphasis> of <emphasis role="bold">single-precision</emphasis> and <emphasis role="bold">double-precision</emphasis> decimal floating-point types.</entry>
-						</row>
-						<row>
-							<entry namest="c1">f2-f8</entry>
-							<entry namest="c2">volatile</entry>
-							<entry namest="c3">Used for <emphasis>parameter passing</emphasis> and <emphasis>return values</emphasis> of <emphasis role="bold">quad-precision</emphasis> decimal floating-point types.</entry>
-						</row>
-						<row>
-							<entry namest="c1">f9-f13</entry>
-							<entry namest="c2">volatile</entry>
-							<entry namest="c3"></entry>
-						</row>
-						<row>
-							<entry namest="c1">f14-f31</entry>
-							<entry namest="c2">nonvolatile</entry>
-							<entry namest="c3"></entry>
-						</row>
-						<row>
-							<entry namest="c1" rowsep='0'>FPSCR</entry>
-							<entry namest="c2" rowsep='0'>limited-access</entry>
-							<entry namest="c3" rowsep='0'>Floating point status and control register limited-access bits.  Preservation rules governing the limited-access bits for the bit-field [DRN] are presented in <emphasis><xref linkend="LIMITED-ACCESS"></emphasis>.</entry>
-
-						</row>
-					</tbody>
-					</tgroup>
-					</table></para>
-
-			<table id="SOFT-FP-REGISTER-ROLES-TABLE" frame="none" CONDITION="ATR-SOFT-FLOAT"><title>Soft-Float General-Purpose Register Roles for Binary Floating-Point Types</title>
-				<tgroup cols='3' colsep='0' rowsep='0'>
-					<colspec colwidth='60' colname='c1' align="left">
-					<colspec colwidth='100' colname='c2' align="left">
-					<colspec colwidth='220' colname='c3' align="left">
-					<thead>
-						<row>
-							<entry namest="c1" rowsep='1'>Register</entry>
-							<entry namest="c2" rowsep='1'>Preservation Rules</entry>
-							<entry namest="c3" rowsep='1'>Purpose</entry>
-						</row>
-					</thead>
-					<tbody>
-						<row>
-							<entry namest="c1">r3-r10</entry>
-							<entry namest="c2">volatile</entry>
-							<entry namest="c3">Volatile parameter and return value registers for float, double, and long double binary floating-point types.</entry>
-						</row>
-						<row>
-							<entry namest="c1"></entry>
-							<entry namest="c2"></entry>
-							<entry namest="c3">If the parameters are within the first eight words of the parameter list:</entry>
-						</row>
-						<row>
-							<entry namest="c1"></entry>
-							<entry namest="c2"></entry>
-							<entry namest="c3">&bull; Float values occupy a single GPR.</entry>
-						</row>
-						<row>
-							<entry namest="c1"></entry>
-							<entry namest="c2"></entry>
-							<entry namest="c3">&bull; Double values occupy adjacent GPRs.</entry>
-						</row>
-						<row>
-							<entry namest="c1"></entry>
-							<entry namest="c2"></entry>
-							<entry namest="c3">&bull; Long double values occupy four adjacent GPRs.</entry>
-						</row>
-						<row>
-							<entry namest="c1" rowsep='0'></entry>
-							<entry namest="c2" rowsep='0'></entry>
-							<entry namest="c3" rowsep='0'>There are special rules governing how parameters that span multiple GPRs should be split between registers and the <xref linkend="PARAMETER-SAVE-AREA"> outlined in <emphasis><xref linkend="PARAM-PASS"></emphasis>.</entry>
-						</row>
-					</tbody>
-					</tgroup>
-					</table>
-
-			<table id="SOFT-DFP-REGISTER-ROLES-TABLE" frame="none" CONDITION="ATR-SOFT-FLOAT && ATR-DFP"><title>Soft-Float General-Purpose Register Roles for Decimal Floating-Point Types</title>
-				<tgroup cols='3' colsep='0' rowsep='0'>
-					<colspec colwidth='60' colname='c1' align="left">
-					<colspec colwidth='100' colname='c2' align="left">
-					<colspec colwidth='220' colname='c3' align="left">
-					<thead>
-						<row>
-							<entry namest="c1" rowsep='1'>Register</entry>
-							<entry namest="c2" rowsep='1'>Preservation Rules</entry>
-							<entry namest="c3" rowsep='1'>Purpose</entry>
-						</row>
-					</thead>
-					<tbody>
-						<row>
-							<entry namest="c1">r3-r10</entry>
-							<entry namest="c2">volatile</entry>
-							<entry namest="c3">Volatile parameter and return value registers for _Decimal32, _Decimal64, and _Decimal128 Decimal floating-point types</entry>
-						</row>
-						<row>
-							<entry namest="c1"></entry>
-							<entry namest="c2"></entry>
-							<entry namest="c3">If the parameters are within the first eight words of the parameter list:</entry>
-						</row>
-						<row>
-							<entry namest="c1"></entry>
-							<entry namest="c2"></entry>
-							<entry namest="c3">&bull; _Decimal32 values occupy a single GPR.</entry>
-						</row>
-						<row>
-							<entry namest="c1"></entry>
-							<entry namest="c2"></entry>
-							<entry namest="c3">&bull; _Decimal64 values occupy adjacent GPRs.</entry>
-						</row>
-						<row>
-							<entry namest="c1"></entry>
-							<entry namest="c2"></entry>
-							<entry namest="c3">&bull; _Decimal128 values occupy four adjacent GPRs.</entry>
-						</row>
-						<row>
-							<entry namest="c1" rowsep='0'></entry>
-							<entry namest="c2" rowsep='0'></entry>
-							<entry namest="c3" rowsep='0'>There are special rules governing how parameters that span multiple GPRs should be split between registers and the <xref linkend="PARAMETER-SAVE-AREA"> outlined in <emphasis><xref linkend="PARAM-PASS"></emphasis>.</entry>
-						</row>
+							</row>
 						</tbody>
 					</tgroup>
-					</table>
+				</table>
+		
+			</sect3>
+			<sect3 id="DFP-REGISTER-ROLES" CONDITION="ATR-DFP && ATR-CLASSIC-FLOAT"><title>Floating-Point Register Roles for Decimal Floating-Point Types</title>
 
+				<para>The Power ISA <emphasis>Decimal Floating-Point</emphasis> category extends the Power Architecture by
+				adding a decimal floating-point unit.  It uses the existing 64-bit floating-point registers and extends the
+				FPSCR register to 64-bits, where it defines a decimal rounding-control field in the extended space.</para>
 
-			<para CONDITION="ATR-VECTOR">The Power ISA <emphasis>Vector</emphasis> category provides 32 vector registers, each
-			128 bits wide, a special-purpose register called VRSAVE, and a special-purpose register called VSCR. Throughout this document the
-			symbol v<emphasis>N</emphasis> is used, where <emphasis>N</emphasis> is a register number, to refer to vector
-			register <emphasis>N</emphasis>.
-
-			<table id="VR-REGISTER-ROLES-TABLE" frame="none"><title>Vector Register Roles</title>
-				<tgroup cols='3' colsep='0' rowsep='0'>
-					<colspec colwidth='60' colname='c1' align="left">
-					<colspec colwidth='100' colname='c2' align="left">
-					<colspec colwidth='220' colname='c3' align="left">
-					<thead>
-						<row>
-							<entry namest="c1" rowsep='1'>Register</entry>
-							<entry namest="c2" rowsep='1'>Preservation Rules</entry>
-							<entry namest="c3" rowsep='1'>Purpose</entry>
-						</row>
-					</thead>
-					<tbody>
-						<row>
-							<entry namest="c1">v0-v1</entry>
-							<entry namest="c2">volatile</entry>
-							<entry namest="c3"></entry>
-						</row>
-						<row>
-							<entry namest="c1">v2</entry>
-							<entry namest="c2">volatile</entry>
-							<entry namest="c3">Used for <emphasis>parameter passing</emphasis> and <emphasis>return values</emphasis></entry>
-						</row>
-						<row>
-							<entry namest="c1">v3-v13</entry>
-							<entry namest="c2">volatile</entry>
-							<entry namest="c3">Used for <emphasis>parameter passing</emphasis></entry>
-						</row>
-						<row>
-							<entry namest="c1">v14-v19</entry>
-							<entry namest="c2">volatile</entry>
-							<entry namest="c3"></entry>
-						</row>
-						<row>
-							<entry namest="c1">v20-v31</entry>
-							<entry namest="c2">nonvolatile</entry>
-							<entry namest="c3"></entry>
-						</row>
-						<row>
-							<entry namest="c1" rowsep='0'>VRSAVE</entry>
-							<entry namest="c2" rowsep='0'>nonvolatile</entry>
-							<entry namest="c3" rowsep='0'>32-bit VR Save Register.</entry>
-						</row>
-						<row>
-							<entry namest="c1" rowsep='0'>VSCR</entry>
-							<entry namest="c2" rowsep='0'>limited-access</entry>
-							<entry namest="c3" rowsep='0'>32-bit vector status and control register.  Preservation rules governing the limited-access bits for the bit-field [NJ] are presented in <emphasis><xref linkend="LIMITED-ACCESS"></emphasis>.</entry>
-						</row>
-					</tbody>
+				<table id="DFP-REGISTER-ROLES-TABLE" frame="none"><title>Floating-Point Register Roles for Decimal Floating-Point Types</title>
+					<tgroup cols='3' colsep='0' rowsep='0'>
+						<colspec colwidth='60' colname='c1' align="left">
+						<colspec colwidth='100' colname='c2' align="left">
+						<colspec colwidth='220' colname='c3' align="left">
+						<thead>
+							<row rowsep="1">
+								<entry namest="c1">Register</entry>
+								<entry namest="c2" rowsep='1'>Preservation Rules</entry>
+								<entry namest="c3">Purpose</entry>
+							</row>
+						</thead>
+						<tbody>
+							<row>
+								<entry namest="c1">f0</entry>
+								<entry namest="c2">volatile</entry>
+								<entry namest="c3"></entry>
+							</row>
+							<row>
+								<entry namest="c1">f1</entry>
+								<entry namest="c2">volatile</entry>
+								<entry namest="c3">Used for <emphasis>parameter passing</emphasis> and <emphasis>return values</emphasis> of <emphasis role="bold">single-precision</emphasis> and <emphasis role="bold">double-precision</emphasis> decimal floating-point types.</entry>
+							</row>
+							<row>
+								<entry namest="c1">f2-f8</entry>
+								<entry namest="c2">volatile</entry>
+								<entry namest="c3">Used for <emphasis>parameter passing</emphasis> and <emphasis>return values</emphasis> of <emphasis role="bold">quad-precision</emphasis> decimal floating-point types.</entry>
+							</row>
+							<row>
+								<entry namest="c1">f9-f13</entry>
+								<entry namest="c2">volatile</entry>
+								<entry namest="c3"></entry>
+							</row>
+							<row>
+								<entry namest="c1">f14-f31</entry>
+								<entry namest="c2">nonvolatile</entry>
+								<entry namest="c3"></entry>
+							</row>
+							<row>
+								<entry namest="c1" rowsep='0'>FPSCR</entry>
+								<entry namest="c2" rowsep='0'>limited-access</entry>
+								<entry namest="c3" rowsep='0'>Floating point status and control register limited-access bits.  Preservation rules governing the limited-access bits for the bit-field [DRN] are presented in <emphasis><xref linkend="LIMITED-ACCESS"></emphasis>.</entry>
+		
+							</row>
+						</tbody>
 					</tgroup>
-					</table></para>
+				</table>
 
-			<para CONDITION="ATR-VECTOR-SCALAR">The Power ISA <emphasis>Vector-Scalar Extension</emphasis> (VSX) category
-			extends the Power ISA <emphasis>Vector</emphasis> category with an additional 32 vector registers.  This is achieved
-			by providing companion doublewords for the 32 floating-point registers, thus allowing them to be used as vector
-			registers.  These additional vector registers are mapped to registers 0 to 31 in the VSX registers file.  Doubleword
-			0 of these vector registers correspond to floating-point registers 0 to 31 as shown in <emphasis><xref
+			</sect3>
+			<sect3 id="SOFT-FP-REGISTER-ROLES" CONDITION="ATR-SOFT-FLOAT"><title>Soft-Float General-Purpose Register Roles for Binary Floating-Point Types</title>
+
+				<para>On Power Architecture processors that <emphasis role="bold">do not</emphasis> support the Power ISA
+				<emphasis>Floating-point</emphasis> category, a number of general-purpose registers are used to provide
+				software emulated 64-bit (double) floating-point support, as described in <xref
+				linkend="SOFT-FP-REGISTER-ROLES-TABLE">.</para>
+		
+				<table id="SOFT-FP-REGISTER-ROLES-TABLE" frame="none"><title>Soft-Float General-Purpose Register Roles for Binary Floating-Point Types</title>
+					<tgroup cols='3' colsep='0' rowsep='0'>
+						<colspec colwidth='60' colname='c1' align="left">
+						<colspec colwidth='100' colname='c2' align="left">
+						<colspec colwidth='220' colname='c3' align="left">
+						<thead>
+							<row>
+								<entry namest="c1" rowsep='1'>Register</entry>
+								<entry namest="c2" rowsep='1'>Preservation Rules</entry>
+								<entry namest="c3" rowsep='1'>Purpose</entry>
+							</row>
+						</thead>
+						<tbody>
+							<row>
+								<entry namest="c1">r3-r10</entry>
+								<entry namest="c2">volatile</entry>
+								<entry namest="c3">Volatile parameter and return value registers for float, double, and long double binary floating-point types.</entry>
+							</row>
+							<row>
+								<entry namest="c1"></entry>
+								<entry namest="c2"></entry>
+								<entry namest="c3">If the parameters are within the first eight words of the parameter list:</entry>
+							</row>
+							<row>
+								<entry namest="c1"></entry>
+								<entry namest="c2"></entry>
+								<entry namest="c3">&bull; Float values occupy a single GPR.</entry>
+							</row>
+							<row>
+								<entry namest="c1"></entry>
+								<entry namest="c2"></entry>
+								<entry namest="c3">&bull; Double values occupy adjacent GPRs.</entry>
+							</row>
+							<row>
+								<entry namest="c1"></entry>
+								<entry namest="c2"></entry>
+								<entry namest="c3">&bull; Long double values occupy four adjacent GPRs.</entry>
+							</row>
+							<row>
+								<entry namest="c1" rowsep='0'></entry>
+								<entry namest="c2" rowsep='0'></entry>
+
+								<entry namest="c3" rowsep='0'>There are special rules governing how
+								parameters that span multiple GPRs should be split between registers and the
+								<xref linkend="PARAMETER-SAVE-AREA"> outlined in <emphasis><xref
+								linkend="PARAM-PASS"></emphasis>.</entry>
+
+							</row>
+						</tbody>
+					</tgroup>
+				</table>
+		
+			</sect3>
+
+			<sect3 id="SOFT-DFP-REGISTER-ROLES" CONDITION="ATR-DFP && ATR-SOFT-FLOAT"><title>Soft-Float General-Purpose Register Roles for Decimal Floating-Point Types</title>
+
+				<para>On Power Architecture processors that <emphasis role="bold">do not</emphasis> support the Power ISA
+				<emphasis>Floating-point</emphasis> category, a number of general-purpose registers are used to provide
+				software emulated decimal floating-point support, as described in <xref
+				linkend="SOFT-DFP-REGISTER-ROLES-TABLE">.</para>
+
+				<table id="SOFT-DFP-REGISTER-ROLES-TABLE" frame="none"><title>Soft-Float General-Purpose Register Roles for Decimal Floating-Point Types</title>
+					<tgroup cols='3' colsep='0' rowsep='0'>
+						<colspec colwidth='60' colname='c1' align="left">
+						<colspec colwidth='100' colname='c2' align="left">
+						<colspec colwidth='220' colname='c3' align="left">
+						<thead>
+							<row>
+								<entry namest="c1" rowsep='1'>Register</entry>
+								<entry namest="c2" rowsep='1'>Preservation Rules</entry>
+								<entry namest="c3" rowsep='1'>Purpose</entry>
+							</row>
+						</thead>
+						<tbody>
+							<row>
+								<entry namest="c1">r3-r10</entry>
+								<entry namest="c2">volatile</entry>
+								<entry namest="c3">Volatile parameter and return value registers for _Decimal32, _Decimal64, and _Decimal128 Decimal floating-point types</entry>
+							</row>
+							<row>
+								<entry namest="c1"></entry>
+								<entry namest="c2"></entry>
+								<entry namest="c3">If the parameters are within the first eight words of the parameter list:</entry>
+							</row>
+							<row>
+								<entry namest="c1"></entry>
+								<entry namest="c2"></entry>
+								<entry namest="c3">&bull; _Decimal32 values occupy a single GPR.</entry>
+							</row>
+							<row>
+								<entry namest="c1"></entry>
+								<entry namest="c2"></entry>
+								<entry namest="c3">&bull; _Decimal64 values occupy adjacent GPRs.</entry>
+							</row>
+							<row>
+								<entry namest="c1"></entry>
+								<entry namest="c2"></entry>
+								<entry namest="c3">&bull; _Decimal128 values occupy four adjacent GPRs.</entry>
+							</row>
+							<row>
+								<entry namest="c1" rowsep='0'></entry>
+								<entry namest="c2" rowsep='0'></entry>
+								<entry namest="c3" rowsep='0'>There are special rules governing how parameters that span multiple GPRs should be split between registers and the <xref linkend="PARAMETER-SAVE-AREA"> outlined in <emphasis><xref linkend="PARAM-PASS"></emphasis>.</entry>
+							</row>
+						</tbody>
+					</tgroup>
+				</table>
+			</sect3>
+			<sect3 id="VR-REGISTER-ROLES" CONDITION="ATR-VECTOR"><title>Vector Register Roles</title>
+
+				<para>The Power ISA <emphasis>Vector</emphasis> category provides 32 vector registers, each 128 bits wide, a
+				special-purpose register called VRSAVE, and a special-purpose register called VSCR. Throughout this document the
+				symbol v<emphasis>N</emphasis> is used, where <emphasis>N</emphasis> is a register number, to refer to vector
+				register <emphasis>N</emphasis>.</para>
+		
+				<table id="VR-REGISTER-ROLES-TABLE" frame="none"><title>Vector Register Roles</title>
+					<tgroup cols='3' colsep='0' rowsep='0'>
+						<colspec colwidth='60' colname='c1' align="left">
+						<colspec colwidth='100' colname='c2' align="left">
+						<colspec colwidth='220' colname='c3' align="left">
+						<thead>
+							<row>
+								<entry namest="c1" rowsep='1'>Register</entry>
+								<entry namest="c2" rowsep='1'>Preservation Rules</entry>
+								<entry namest="c3" rowsep='1'>Purpose</entry>
+							</row>
+						</thead>
+						<tbody>
+							<row>
+								<entry namest="c1">v0-v1</entry>
+								<entry namest="c2">volatile</entry>
+								<entry namest="c3"></entry>
+							</row>
+							<row>
+								<entry namest="c1">v2</entry>
+								<entry namest="c2">volatile</entry>
+								<entry namest="c3">Used for <emphasis>parameter passing</emphasis> and <emphasis>return values</emphasis></entry>
+							</row>
+							<row>
+								<entry namest="c1">v3-v13</entry>
+								<entry namest="c2">volatile</entry>
+								<entry namest="c3">Used for <emphasis>parameter passing</emphasis></entry>
+							</row>
+							<row>
+								<entry namest="c1">v14-v19</entry>
+								<entry namest="c2">volatile</entry>
+								<entry namest="c3"></entry>
+							</row>
+							<row>
+								<entry namest="c1">v20-v31</entry>
+								<entry namest="c2">nonvolatile</entry>
+								<entry namest="c3"></entry>
+							</row>
+							<row>
+								<entry namest="c1" rowsep='0'>VRSAVE</entry>
+								<entry namest="c2" rowsep='0'>nonvolatile</entry>
+								<entry namest="c3" rowsep='0'>32-bit VR Save Register.</entry>
+							</row>
+							<row>
+								<entry namest="c1" rowsep='0'>VSCR</entry>
+								<entry namest="c2" rowsep='0'>limited-access</entry>
+								<entry namest="c3" rowsep='0'>32-bit vector status and control register.  Preservation rules governing the limited-access bits for the bit-field [NJ] are presented in <emphasis><xref linkend="LIMITED-ACCESS"></emphasis>.</entry>
+							</row>
+						</tbody>
+					</tgroup>
+				</table>
+
+				<para CONDITION="ATR-VRSAVE-MASK">Functions must ensure that the corresponding bits in the VRSAVE
+				register are set for any <emphasis role="bold">nonvolatile</emphasis> vector registers they
+				use.</para>
+	
+				<para CONDITION="ATR-VRSAVE-BOOL">The initial state of the VRSAVE register is that all bits are set to
+				&lsquo;0&rsquo;.  Functions must ensure that if any <emphasis role="bold">nonvolatile</emphasis> vector
+				register is used that all of the bits in the VRSAVE register be set to &lsquo;1&rsquo;.  The VRSAVE register
+				will only return to the state of all zero bits upon restore to the initial state.</para>
+
+				<para>The conditions under which the VRSAVE register is saved and restored are covered in <xref
+				linkend="SAVE-AREAS"> under the description of the <xref linkend="VR-SAVE-REGISTER-SAVE-AREA">.</para>
+
+			</sect3>
+	
+			<sect3 id="VSX-REGISTER-ROLES" CONDITION="ATR-VECTOR-SCALAR"><title>Vector-Scalar Register Roles</title>
+
+			<para>The Power ISA <emphasis>Vector-Scalar Extension</emphasis> (VSX) category extends the Power ISA
+			<emphasis>Vector</emphasis> category with an additional 32 vector registers.  This is achieved by providing
+			companion doublewords for the 32 floating-point registers, thus allowing them to be used as vector registers.  These
+			additional vector registers are mapped to registers 0 to 31 in the VSX registers file.  Doubleword 0 of these vector
+			registers correspond to floating-point registers 0 to 31 as shown in <emphasis><xref
 			linkend="VSX-REGISTER-OVERLAY"></emphasis>.  The 32 registers from the <emphasis>Vector</emphasis> category are
-			mapped to registers 32 to 63 in the VSX registers file. Throughout this document the symbol vs<emphasis>N</emphasis>
-			is used, where <emphasis>N</emphasis> is a register number, to refer to vector-scalar register
-			<emphasis>N</emphasis>.  Registers vs0 to vs31 are volatile, but before using registers from the vs14-vs31 interval
-			the underlying floating-point registers need to be saved to the <xref linkend="FPR-SAVE-AREA"> of the stack.
-			Registers vs32 to vs63 retain the volatility and purpose of the underlying vector registers they overlap as
-			described in <emphasis><xref linkend="VR-REGISTER-ROLES-TABLE"></emphasis>.
-
-
-
-
-
+			mapped to registers 32 to 63 in the VSX registers file.</para>
+			
+			<para>Throughout this document the symbol vs<emphasis>N</emphasis> is used, where <emphasis>N</emphasis> is a
+			register number, to refer to vector-scalar register <emphasis>N</emphasis>.  Registers vs0 to vs31 are volatile, but
+			before using registers from the vs14-vs31 interval the underlying floating-point registers need to be saved to the
+			<xref linkend="FPR-SAVE-AREA"> of the stack.  Registers vs32 to vs63 retain the volatility and purpose of the
+			underlying vector registers they overlap as described in <emphasis><xref
+			linkend="VR-REGISTER-ROLES-TABLE"></emphasis>.
 
 			<table id="VSX-REGISTER-OVERLAY" frame="none"><title>Vector-Scalar Register Layout</title>
 				<tgroup cols='3' colsep='0' rowsep='0'>
@@ -2821,8 +2868,10 @@ struct
 
 </para>
 
+			</sect3>
+			<sect3 id="SPE-ROLES" CONDITION="ATR-SPE"><title>SPE Register Roles</title>
 
-			<para CONDITION="ATR-SPE">The Power ISA <emphasis>Signal Processing Engine</emphasis> (SPE) category provides upper words
+			<para>The Power ISA <emphasis>Signal Processing Engine</emphasis> (SPE) category provides upper words
 			for the 32 general-purpose registers, thus allowing them to be used in SPE APU operations to
 			hold two 32-bit words.  The <emphasis>Signal Processing Engine</emphasis> category also provides several
 			special-purpose registers. The volatility of all 64-bit registers is the same for the upper and
@@ -2855,7 +2904,7 @@ struct
 					</tbody>
 					</tgroup>
 					</table></para>
-			</sect3> <!-- /REGISTER-ROLES -->
+			</sect3>
 			<sect3 id="LIMITED-ACCESS"><title>Limited-Access Bits</title>
 
 			<para>The Power ISA identifies a number of registers which have mutability limited to the specific bit-fields indicated in the following list:</para>
@@ -3228,7 +3277,7 @@ stw  0,36(1)       - Store LR in previous LR save area</screen>
 				</variablelist>
 		
 				<variablelist id="CATEGORY-SPECIFIC-SAVE-REGISTER-SAVE-AREA">
-					<title>Category Specific Save-Register Save Area</title>
+					<title>Category-Specific Save-Register Save Area</title>
 					<varlistentry id="NOT-VR-SAVE-REGISTER-SAVE-AREA" CONDITION="!ATR-VECTOR">
 						<term>The category-specific save-register save area is unnecessary.</term>
 						<listitem><para></para></listitem>
@@ -3236,31 +3285,21 @@ stw  0,36(1)       - Store LR in previous LR save area</screen>
 					<varlistentry id="VR-SAVE-REGISTER-SAVE-AREA" CONDITION="ATR-VECTOR">
 						<term><emphasis role="bold">VRSAVE Register Save Area</emphasis></term>
 						<listitem>
-							<para></para>
 
-							<para CONDITION="ATR-VRSAVE-MASK">Functions must ensure that the corresponding bits
-							in the VRSAVE register are set for any <emphasis role="bold">nonvolatile</emphasis>
-							vector registers they use.</para>
-							
-							<para CONDITION="ATR-VRSAVE-BOOL">Functions must ensure that if any <emphasis
-							role="bold">nonvolatile</emphasis> vector register is used that all of the bits in
-							the VRSAVE register be set to &lsquo;1&rsquo;.  If no <emphasis
-							role="bold">nonvolatile</emphasis> vector registers are used, all of the bits in the
-							VRSAVE register shall be set to &lsquo;0&rsquo;.</para>
-
+							<para>Routines that utilize only volatile vector <phrase
+							CONDITION="ATR-VECTOR-SCALAR">or vector-scalar </phrase>registers do not need to
+							update or save the VRSAVE register.</para>
 
 							<para>A function that changes the value of the VRSAVE register shall save the
 							original value of VRSAVE into the <emphasis><xref
 							linkend="VR-SAVE-REGISTER-SAVE-AREA"> </emphasis>.  If the <emphasis><xref
 							linkend="CR-SAVE-REGISTER-SAVE-AREA"></emphasis> is present, the <emphasis><xref
-							linkend="VR-SAVE-REGISTER-SAVE-AREA"> </emphasis> is located in the word below
-							the <emphasis><xref linkend="CR-SAVE-REGISTER-SAVE-AREA"></emphasis>.  Otherwise,
-							the <emphasis><xref linkend="VR-SAVE-REGISTER-SAVE-AREA"> </emphasis> is
-							located in the word below the low address end of the <emphasis><xref
+							linkend="VR-SAVE-REGISTER-SAVE-AREA"> </emphasis> is located in the word below the
+							<emphasis><xref linkend="CR-SAVE-REGISTER-SAVE-AREA"></emphasis>.  Otherwise, the
+							<emphasis><xref linkend="VR-SAVE-REGISTER-SAVE-AREA"> </emphasis> is located in the
+							word below the low address end of the <emphasis><xref
 							linkend="GPR-SAVE-AREA"></emphasis>.  Both options are shown in <xref
 							linkend="FIG-VR-SAVE-AREAS">.</para>
-
-
 
 						</listitem>
 
@@ -3315,7 +3354,7 @@ stw  0,36(1)       - Store LR in previous LR save area</screen>
 		
 		
 				<variablelist id="ADDITIONAL-CATEGORY-SPECIFIC-REGISTER-SAVE-AREA">
-					<title>Additional Category Specific Register Save Areas</title>
+					<title>Additional Category-Specific Register Save Areas</title>
 					<varlistentry id="SPE-REGISTER-SAVE-AREA" CONDITION="ATR-SPE">
 						<term><emphasis role="bold">SPE 64-bit General-Purpose Register Save Area</emphasis></term>
 						<listitem>

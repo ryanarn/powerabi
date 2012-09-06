@@ -195,7 +195,7 @@
 
 
 		<simplesect><title>Summary of Changes</title>
-		<para>This version of the <emphasis><phrase>&archtitle &abititle</phrase></emphasis> was created by applying the following changes to <emphasis><phrase>&archtitle &abititle &prevspecversion</phrase></emphasis>.</para>
+		<para>This version of the <emphasis><phrase>&archtitle &abititle</phrase></emphasis> was created by applying the following changes to the <emphasis><phrase>&archtitle &abititle &prevspecversion</phrase></emphasis>.</para>
 		<variablelist>
 			<varlistentry CONDITION="ATR-VECTOR-SCALAR">
 				<term><emphasis role="bold">Vector-Scalar Extension:</emphasis></term>
@@ -205,19 +205,18 @@
 			</varlistentry>
 
 			<varlistentry CONDITION="ATR-VECTOR">
-				<term><emphasis role="bold">VRSAVE Update Rules:</emphasis></term>
+				<term><emphasis role="bold">VRSAVE Register Update Rules:</emphasis></term>
 				<listitem>
 					<para>The Power ISA leaves the definition of the rules regarding the update of the VRSAVE register to the ABI.  The <emphasis>&archtitle &abititle &prevspecversion</emphasis> required that <emphasis role="bold">any</emphasis> vector register used have its corresponding bit in the VRSAVE register recorded, whereas this ABI revision narrows the scope of the VRSAVE register update rules to only record the set of used <emphasis role="bold">nonvolatile</emphasis> vector registers under the following two options:</para>
-					<note><title>Note</title><para><emphasis role="bold">Rationale:</emphasis> Saving and restoring the VRSAVE register is expensive.  Limiting the scenarios under which the save and restore is necessary improves performance.</para></note>
 					<variablelist>
 						<varlistentry CONDITION="ATR-VRSAVE-MASK">
 							<term><emphasis role="bold">VRSAVE as a Nonvolatile Mask:</emphasis></term>
-							<listitem><para>Any <emphasis role="bold">nonvolatile</emphasis> vector register that is used has its corresponding bit saved in the VRSAVE register as described in <xref linkend="VR-SAVE-REGISTER-SAVE-AREA">. </para></listitem>
+							<listitem><para>Any <emphasis role="bold">nonvolatile</emphasis> vector register that is used has its corresponding bit saved in the VRSAVE register as described in <xref linkend="SAVE-AREAS"> under the description of the <xref linkend="VR-SAVE-REGISTER-SAVE-AREA">.</para></listitem>
 						</varlistentry>
 
 						<varlistentry CONDITION="ATR-VRSAVE-BOOL">
 							<term><emphasis role="bold">VRSAVE as a Boolean:</emphasis></term>
-							<listitem><para>If any <emphasis role="bold">nonvolatile</emphasis> vector register is used, all of the bits in the VRSAVE register are set to &lsquo;1&rsquo;.  Otherwise, if no <emphasis role="bold">nonvolatile</emphasis> vector registers are used, then all of the bits in the VRSAVE register are unset to &lsquo;0&rsquo; as described in <xref linkend="VR-SAVE-REGISTER-SAVE-AREA">.</para></listitem>
+							<listitem><para>If any <emphasis role="bold">nonvolatile</emphasis> vector register is used, all of the bits in the VRSAVE register are set to &lsquo;1&rsquo; as described in <xref linkend="SAVE-AREAS"> under the description of the <xref linkend="VR-SAVE-REGISTER-SAVE-AREA">.</para></listitem>
 						</varlistentry>
 
 					</variablelist>
